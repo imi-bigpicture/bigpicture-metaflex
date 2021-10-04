@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright 2018 EMBL - European Bioinformatics Institute
+  ~ Licensed under the Apache License, Version 2.0 (the "License"); you may not use this
+  ~ file except in compliance with the License. You may obtain a copy of the License at
+  ~ http://www.apache.org/licenses/LICENSE-2.0
+  ~ Unless required by applicable law or agreed to in writing, software distributed under the
+  ~ License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+  ~ CONDITIONS OF ANY KIND, either express or implied. See the License for the
+  ~ specific language governing permissions and limitations under the License.
+  -->
+
+<!-- version:1.11.0 -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:com="SRA.common">
+	<xs:import schemaLocation="SRA.common.xsd" namespace="SRA.common"/>
+
+	<xs:complexType name="DataUseType">
+		<xs:sequence>
+			<xs:element name="MODIFIER" type="com:XRefType" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Describes modifiers to the Data Use Restriction
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="URL" type="xs:anyURI" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Link to URL describing the Data Use
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="ontology" type="xs:string" use="required">
+			<xs:annotation>
+				<xs:documentation>
+					Ontology abbreviation, e.g. DUO for Data Use Ontology
+				</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="code" type="xs:string" use="required">
+			<xs:annotation>
+				<xs:documentation>
+					Code for the ontology
+				</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="version" type="xs:string" use="required">
+			<xs:annotation>
+				<xs:documentation>
+					Data Use Ontology code version
+				</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+
+	<xs:complexType name="PolicyType">
+		<xs:annotation>
+			<xs:documentation>Describes an object that contains data access policy information.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="com:ObjectType">
+				<xs:sequence>
+					<xs:element name="TITLE" type="xs:string">
+						<xs:annotation>
+							<xs:documentation>Short text that can be used to call out data access policies in searches or in displays.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element maxOccurs="1" minOccurs="1" name="DAC_REF" nillable="false">
+						<xs:annotation>
+							<xs:documentation>Identifies the data access committee to which this policy pertains.
+                        </xs:documentation>
+						</xs:annotation>
+						<xs:complexType>
+							<xs:complexContent>
+								<xs:extension base="com:RefObjectType">
+								</xs:extension>
+							</xs:complexContent>
+						</xs:complexType>
+					</xs:element>
+					<xs:choice minOccurs="1" maxOccurs="1">
+						<xs:element name="POLICY_TEXT" type="xs:string">
+							<xs:annotation>
+								<xs:documentation>Text containing the policy.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="POLICY_FILE" type="xs:string">
+							<xs:annotation>
+								<xs:documentation>File containing the policy text.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:choice>
+					<xs:element name="DATA_USES" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>Data use ontologies (DUO) related to the policy</xs:documentation>
+						</xs:annotation>
+						<xs:complexType>
+							<xs:sequence minOccurs="1" maxOccurs="unbounded">
+								<xs:element name="DATA_USE" type="DataUseType"/>
+							</xs:sequence>
+						</xs:complexType>
+					</xs:element>
+					<xs:element name="POLICY_LINKS" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Links to related resources.</xs:documentation>
+						</xs:annotation>
+						<xs:complexType>
+							<xs:sequence minOccurs="1" maxOccurs="unbounded">
+								<xs:element name="POLICY_LINK" type="com:LinkType"/>
+							</xs:sequence>
+						</xs:complexType>
+					</xs:element>
+					<xs:element maxOccurs="1" minOccurs="0" name="POLICY_ATTRIBUTES">
+						<xs:annotation>
+							<xs:documentation>Properties and attributes of the policy. These can be entered as free-form tag-value pairs. Submitters may be asked to follow a community established ontology when describing the work.          </xs:documentation>
+						</xs:annotation>
+						<xs:complexType>
+							<xs:sequence maxOccurs="unbounded" minOccurs="1">
+								<xs:element name="POLICY_ATTRIBUTE" type="com:AttributeType"/>
+							</xs:sequence>
+						</xs:complexType>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+
+	<xs:complexType name="PolicySetType">
+		<xs:sequence maxOccurs="unbounded" minOccurs="1">
+			<xs:element ref="POLICY"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="POLICY_SET" type="PolicySetType">
+		<xs:annotation>
+			<xs:documentation>Container for a set of data access policies.
+    </xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="POLICY" type="PolicyType">
+		<xs:annotation>
+			<xs:documentation>Data access policy.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+</xs:schema>
