@@ -1,7 +1,9 @@
 # metadata-schema
 
-Metadata schemas for Big Picture. We start with the ENA metadata schemas.
+Metadata schemas for BIGPICTURE data submission. We start with the ENA metadata schemas with tailoring.
 
+- Analysis will capture Image, Observation and Diagnosis
+- Sample will contain Slide, Sample, Specimen and Biological Being
 
 ## License
 
