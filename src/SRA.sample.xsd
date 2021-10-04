@@ -17,10 +17,7 @@
   <xs:complexType name="SampleType">
     <xs:annotation>
       <xs:documentation>
-        A Sample defines an isolate of sequenceable material upon which
-        sequencing experiments can be based.  The Sample object may be a surrogate for taxonomy
-        accession or an anonymized individual identifier.  Or, it may fully specify
-        provenance and isolation method of the starting material.
+        A Sample defines ...
       </xs:documentation>
     </xs:annotation>
     <xs:complexContent>
