@@ -47,8 +47,8 @@
                 <xs:element name="SCIENTIFIC_NAME" minOccurs="0" maxOccurs="1" type="xs:string">
                   <xs:annotation>
                     <xs:documentation>
-                  Scientific name of sample that distinguishes its taxonomy.  Please use a 
-                  name or synonym that is tracked in the INSDC Taxonomy database. 
+                  Scientific name of sample that distinguishes its taxonomy.  Please use a
+                  name or synonym that is tracked in the INSDC Taxonomy database.
                   Also, this field can be used to confirm the TAXON_ID setting.
                 </xs:documentation>
                   </xs:annotation>
@@ -72,6 +72,18 @@
             </xs:annotation>
           </xs:element>
 
+          <xs:element name="SAMPLE_REF" maxOccurs="unbounded" minOccurs="0">
+            <xs:annotation>
+                <xs:documentation>One of more samples associated with the
+            sample.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+                <xs:complexContent>
+                    <xs:extension base="com:RefObjectType">
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+        </xs:element>
 
           <xs:element name="SAMPLE_LINKS" minOccurs="0" maxOccurs="1">
             <xs:annotation>
@@ -89,7 +101,7 @@
           <xs:element name="SAMPLE_ATTRIBUTES" minOccurs="0" maxOccurs="1">
             <xs:annotation>
               <xs:documentation>
-            Properties and attributes of a sample.  These can be entered as free-form 
+            Properties and attributes of a sample.  These can be entered as free-form
             tag-value pairs. For certain studies, submitters may be asked to follow a
             community established ontology when describing the work.
           </xs:documentation>
@@ -116,7 +128,7 @@
     <xs:annotation>
       <xs:documentation>
         SAMPLE_SET serves as a container for a set of samples and a name space
-        for establishing referential integrity between them. 
+        for establishing referential integrity between them.
       </xs:documentation>
     </xs:annotation>
 

@@ -55,6 +55,7 @@
 								<xs:enumeration
 									value="Histone modification profiling by high-throughput sequencing"/>
 								<xs:enumeration value="Chip-Seq"/>
+							<xs:enumeration value="Whole slide imaging"/>
 							</xs:restriction>
 						</xs:simpleType>
 					</xs:element>
@@ -76,6 +77,34 @@
 						<xs:annotation>
 							<xs:documentation>
 						Identifies the analyses which are part of this dataset.
+					</xs:documentation>
+						</xs:annotation>
+						<xs:complexType>
+							<xs:complexContent>
+								<xs:extension base="com:RefObjectType">
+								</xs:extension>
+							</xs:complexContent>
+						</xs:complexType>
+					</xs:element>
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="IMAGE_REF"
+						nillable="false">
+						<xs:annotation>
+							<xs:documentation>
+						Identifies the images which are part of this dataset.
+					</xs:documentation>
+						</xs:annotation>
+						<xs:complexType>
+							<xs:complexContent>
+								<xs:extension base="com:RefObjectType">
+								</xs:extension>
+							</xs:complexContent>
+						</xs:complexType>
+					</xs:element>
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="ANNOTATION_REF"
+						nillable="false">
+						<xs:annotation>
+							<xs:documentation>
+						Identifies the annotations which are part of this dataset.
 					</xs:documentation>
 						</xs:annotation>
 						<xs:complexType>
