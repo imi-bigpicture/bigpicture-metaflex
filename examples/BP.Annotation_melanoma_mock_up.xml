@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ANNOTATION_SET>
+  <ANNOTATION alias="ANNOTATION0001" center_name="" broker_name="">
+    <TITLE>Annotation</TITLE>
+    <STUDY_REF refname="STUDY0001"/>
+    <IMAGE_REF refname="IMAGE0001"/>
+
+    <ANNOTATION_TYPE><GRAPHICAL_ANNOTATION/></ANNOTATION_TYPE>
+    <FILES>
+      <FILE checksum="f85dfd72e7bf6e061e213a046fbd0b41" checksum_method="MD5" filename="ANNOTATION0001/0.dcm" filetype="dcm" unencrypted_checksum="ceb93a557c48e8c897383296acafc509"/>
+    </FILES>
+  </ANNOTATION>
+</ANNOTATION_SET>

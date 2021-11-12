@@ -1,18 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-  ~ Copyright 2018 EMBL - European Bioinformatics Institute
-  ~ Licensed under the Apache License, Version 2.0 (the "License"); you may not use this
-  ~ file except in compliance with the License. You may obtain a copy of the License at
-  ~ http://www.apache.org/licenses/LICENSE-2.0
-  ~ Unless required by applicable law or agreed to in writing, software distributed under the
-  ~ License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
-  ~ CONDITIONS OF ANY KIND, either express or implied. See the License for the
-  ~ specific language governing permissions and limitations under the License.
-  -->
-
-<!-- version:1.11.0 -->
-<xs:schema xmlns:com="SRA.common" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xs:schema xmlns:com="SRA.common" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:bp="BP.common">
     <xs:import namespace="SRA.common" schemaLocation="SRA.common.xsd"/>
+    <xs:import namespace="BP.common" schemaLocation="BP.common.xsd"/>
 
     <xs:complexType name="ImageFileType">
         <xs:attribute name="filename" type="xs:string" use="required">
@@ -183,6 +172,18 @@
                         <xs:complexType>
                             <xs:sequence minOccurs="1">
                                 <xs:element name="IMAGE_ATTRIBUTE" type="com:AttributeType"
+                                    maxOccurs="unbounded"/>
+                            </xs:sequence>
+                        </xs:complexType>
+                    </xs:element>
+                    <xs:element maxOccurs="1" minOccurs="0" name="IMAGE_CODED_ATTRIBUTES">
+                        <xs:annotation>
+                            <xs:documentation>Coded properties and attributes of an image. These can be
+                        entered as tag-coded value pairs.</xs:documentation>
+                        </xs:annotation>
+                        <xs:complexType>
+                            <xs:sequence minOccurs="1">
+                                <xs:element name="IMAGE_CODED_ATTRIBUTE" type="bp:CodedAttributeType"
                                     maxOccurs="unbounded"/>
                             </xs:sequence>
                         </xs:complexType>

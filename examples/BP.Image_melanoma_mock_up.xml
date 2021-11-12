@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<IMAGE_SET>
+  <IMAGE alias="IMAGE0001" center_name="" broker_name="">
+    <TITLE>Image</TITLE>
+    <STUDY_REF refname="IMAGE0001"/>
+    <SAMPLE_REF refname="SAMPLE0001"/>
+
+    <IMAGE_TYPE><WSI_IMAGE/></IMAGE_TYPE>
+    <FILES>
+      <FILE checksum="f85dfd72e7bf6e061e213a046fbd0b41" checksum_method="MD5" filename="IMAGE0001/0.dcm" filetype="dcm" unencrypted_checksum="ceb93a557c48e8c897383296acafc509"/>
+      <FILE checksum="f85dfd72e7bf6e061e213a046fbd0b41" checksum_method="MD5" filename="IMAGE0001/1.dcm" filetype="dcm" unencrypted_checksum="ceb93a557c48e8c897383296acafc509"/>
+      <FILE checksum="f85dfd72e7bf6e061e213a046fbd0b41" checksum_method="MD5" filename="IMAGE0001/2.dcm" filetype="dcm" unencrypted_checksum="ceb93a557c48e8c897383296acafc509"/>
+      <FILE checksum="f85dfd72e7bf6e061e213a046fbd0b41" checksum_method="MD5" filename="IMAGE0001/3.dcm" filetype="dcm" unencrypted_checksum="ceb93a557c48e8c897383296acafc509"/>
+      <FILE checksum="f85dfd72e7bf6e061e213a046fbd0b41" checksum_method="MD5" filename="IMAGE0001/4.dcm" filetype="dcm" unencrypted_checksum="ceb93a557c48e8c897383296acafc509"/>
+    </FILES>
+  </IMAGE>
+</IMAGE_SET>

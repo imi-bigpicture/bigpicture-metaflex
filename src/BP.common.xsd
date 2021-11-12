@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright 2018 EMBL - European Bioinformatics Institute
+  ~ Licensed under the Apache License, Version 2.0 (the "License"); you may not use this
+  ~ file except in compliance with the License. You may obtain a copy of the License at
+  ~ http://www.apache.org/licenses/LICENSE-2.0
+  ~ Unless required by applicable law or agreed to in writing, software distributed under the
+  ~ License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+  ~ CONDITIONS OF ANY KIND, either express or implied. See the License for the
+  ~ specific language governing permissions and limitations under the License.
+  -->
+
+<!-- version:1.11.0 -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:com="BP.common"
+    targetNamespace="BP.common">
+    <xs:complexType name="CodedAttributeType">
+        <xs:annotation>
+            <xs:documentation>
+                Reusable attributes to encode tag-code value pairs with optional units.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:all>
+            <xs:element name="TAG" type="xs:string" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>
+                        Name of the attribute.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="VALUE" type="xs:string" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>
+                        Code value of the attribute.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="UNITS" type="xs:string" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>
+                        Optional scientific units.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="SCHEME" type="xs:string" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>
+                        Scheme designator of the attribute.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="MEANING" type="xs:string" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>
+                        Cleartext meaning of the attribute.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="SCHEME_VERSION" type="xs:string" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>
+                        Optional scheme version of the attribute.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:all>
+    </xs:complexType>
+
+</xs:schema>

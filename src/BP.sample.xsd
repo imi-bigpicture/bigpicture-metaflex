@@ -1,77 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-  ~ Copyright 2018 EMBL - European Bioinformatics Institute
-  ~ Licensed under the Apache License, Version 2.0 (the "License"); you may not use this
-  ~ file except in compliance with the License. You may obtain a copy of the License at
-  ~ http://www.apache.org/licenses/LICENSE-2.0
-  ~ Unless required by applicable law or agreed to in writing, software distributed under the
-  ~ License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
-  ~ CONDITIONS OF ANY KIND, either express or implied. See the License for the
-  ~ specific language governing permissions and limitations under the License.
-  -->
-
-<!-- version:1.11.0 -->
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:com="SRA.common">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:com="SRA.common" xmlns:bp="BP.common">
   <xs:import schemaLocation="SRA.common.xsd" namespace="SRA.common"/>
-
-  <xs:complexType name="SampleType">
+  <xs:import namespace="BP.common" schemaLocation="BP.common.xsd"/>
+  <xs:include schemaLocation="SRA.sample.xsd"/>
+  <xs:complexType name="BPSampleType">
     <xs:annotation>
       <xs:documentation>
-        A Sample defines an isolate of sequenceable material upon which
-        sequencing experiments can be based.  The Sample object may be a surrogate for taxonomy
-        accession or an anonymized individual identifier.  Or, it may fully specify
-        provenance and isolation method of the starting material.
+        A Sample defines an biological item.
       </xs:documentation>
     </xs:annotation>
     <xs:complexContent>
-      <xs:extension base="com:ObjectType">
+      <xs:extension base="SampleType">
         <xs:sequence>
-          <xs:element name="TITLE" type="xs:string" minOccurs="0" maxOccurs="1">
+          <xs:element maxOccurs="1" minOccurs="1" name="SAMPLE_TYPE">
             <xs:annotation>
-              <xs:documentation>
-           Short text that can be used to call out sample records in search results or in displays.
-         </xs:documentation>
+                <xs:documentation>The type of the sample. </xs:documentation>
             </xs:annotation>
-          </xs:element>
-          <xs:element name="SAMPLE_NAME">
             <xs:complexType>
-              <xs:all minOccurs="1">
-                <xs:element name="TAXON_ID" minOccurs="1" maxOccurs="1" type="xs:int">
-                  <xs:annotation>
-                    <xs:documentation>
-                  NCBI Taxonomy Identifier.  This is appropriate for individual organisms and
-                  some environmental samples.
-                </xs:documentation>
-                  </xs:annotation>
-                </xs:element>
-                <xs:element name="SCIENTIFIC_NAME" minOccurs="0" maxOccurs="1" type="xs:string">
-                  <xs:annotation>
-                    <xs:documentation>
-                  Scientific name of sample that distinguishes its taxonomy.  Please use a
-                  name or synonym that is tracked in the INSDC Taxonomy database.
-                  Also, this field can be used to confirm the TAXON_ID setting.
-                </xs:documentation>
-                  </xs:annotation>
-                </xs:element>
-                <xs:element name="COMMON_NAME" minOccurs="0" maxOccurs="1" type="xs:string">
-                  <xs:annotation>
-                    <xs:documentation>
-                  GenBank common name of the organism.  Examples: human, mouse.
-                </xs:documentation>
-                  </xs:annotation>
-                </xs:element>
-              </xs:all>
-              <xs:attribute name="display_name" type="xs:string"/>
+                <xs:choice>
+                    <xs:element name="BIOLOGICAL_BEING"></xs:element>
+                    <xs:element name="SPECIMEN"></xs:element>
+                    <xs:element name="SAMPLE"></xs:element>
+                    <xs:element name="BLOCK"></xs:element>
+                    <xs:element name="SLIDE"></xs:element>
+                </xs:choice>
             </xs:complexType>
           </xs:element>
-          <xs:element name="DESCRIPTION" type="xs:string" minOccurs="0" maxOccurs="1">
-            <xs:annotation>
-              <xs:documentation>
-            Free-form text describing the sample, its origin, and its method of isolation.
-          </xs:documentation>
-            </xs:annotation>
-          </xs:element>
-
           <xs:element name="SAMPLE_REF" maxOccurs="unbounded" minOccurs="0">
             <xs:annotation>
                 <xs:documentation>One of more samples associated with the
@@ -83,33 +37,18 @@
                     </xs:extension>
                 </xs:complexContent>
             </xs:complexType>
-        </xs:element>
-
-          <xs:element name="SAMPLE_LINKS" minOccurs="0" maxOccurs="1">
-            <xs:annotation>
-              <xs:documentation>
-            Links to resources related to this sample or sample set (publication, datasets, online databases).
-          </xs:documentation>
-            </xs:annotation>
-            <xs:complexType>
-              <xs:sequence minOccurs="1" maxOccurs="unbounded">
-                <xs:element name="SAMPLE_LINK" type="com:LinkType"/>
-              </xs:sequence>
-            </xs:complexType>
           </xs:element>
-
-          <xs:element name="SAMPLE_ATTRIBUTES" minOccurs="0" maxOccurs="1">
+          <xs:element name="SAMPLE_CODED_ATTRIBUTES" minOccurs="0" maxOccurs="1">
             <xs:annotation>
               <xs:documentation>
-            Properties and attributes of a sample.  These can be entered as free-form
-            tag-value pairs. For certain studies, submitters may be asked to follow a
+            Properties and attributes of a sample.  These can be entered as
+            tag-coded value pairs. For certain studies, submitters may be asked to follow a
             community established ontology when describing the work.
           </xs:documentation>
             </xs:annotation>
             <xs:complexType>
               <xs:sequence maxOccurs="unbounded" minOccurs="1">
-                <xs:element name="SAMPLE_ATTRIBUTE" type="com:AttributeType"/>
-
+                <xs:element name="SAMPLE_CODED_ATTRIBUTE" type="bp:CodedAttributeType"/>
               </xs:sequence>
             </xs:complexType>
           </xs:element>
@@ -118,22 +57,22 @@
     </xs:complexContent>
   </xs:complexType>
 
-  <xs:complexType name="SampleSetType">
+  <xs:complexType name="BPSampleSetType">
     <xs:sequence minOccurs="1" maxOccurs="unbounded">
-      <xs:element name="SAMPLE" type="SampleType"/>
+      <xs:element name="BP_SAMPLE" type="BPSampleType"/>
     </xs:sequence>
   </xs:complexType>
 
-  <xs:element name="SAMPLE_SET" type="SampleSetType">
+  <xs:element name="BP_SAMPLE_SET" type="BPSampleSetType">
     <xs:annotation>
       <xs:documentation>
-        SAMPLE_SET serves as a container for a set of samples and a name space
+        BP_SAMPLE_SET serves as a container for a set of samples and a name space
         for establishing referential integrity between them.
       </xs:documentation>
     </xs:annotation>
 
   </xs:element>
 
-  <xs:element name="SAMPLE" type="SampleType"/>
+  <xs:element name="BP_SAMPLE" type="BPSampleType"/>
 
 </xs:schema>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<BPDatasetType alias="DATASET1" broker_name="" center_name="">>
+  <IDENTIFIERS>
+    <PRIMARY_ID>DATASET1</PRIMARY_ID>
+  </IDENTIFIERS>
+  <TITLE>DATASET1</TITLE>
+  <DATASET_TYPE>Whole slide imaging</DATASET_TYPE>
+  <IMAGE_REF refname="IMAGE0001"/>
+  <ANNOTATION_REF refname="ANNOTATION0001"/>
+  <POLICY_REF refname="POLYCY0001"/>
+</BPDatasetType>

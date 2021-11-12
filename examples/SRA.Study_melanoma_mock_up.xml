@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<STUDY_SET>
+  <STUDY accession="STUDY1" alias="STUDY1" broker_name="" center_name="">
+    <IDENTIFIERS>
+      <PRIMARY_ID>STUDY1</PRIMARY_ID>
+      <SUBMITTER_ID namespace="TEST">submitter</SUBMITTER_ID>
+    </IDENTIFIERS>
+    <DESCRIPTOR>
+      <STUDY_TITLE>Melanoma mock up data.</STUDY_TITLE>
+      <STUDY_ABSTRACT></STUDY_ABSTRACT>
+      <STUDY_DESCRIPTION></STUDY_DESCRIPTION>
+      <CENTER_PROJECT_NAME></CENTER_PROJECT_NAME>
+    </DESCRIPTOR>
+  </STUDY>
+</STUDY_SET>
