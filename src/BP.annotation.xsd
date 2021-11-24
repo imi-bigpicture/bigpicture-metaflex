@@ -104,22 +104,6 @@
                             </xs:complexContent>
                         </xs:complexType>
                     </xs:element>
-                    <xs:element name="ANNOTATION_REF" maxOccurs="unbounded" minOccurs="0">
-                        <xs:annotation>
-                            <xs:documentation>One or more annotations associated with the annotation.</xs:documentation>
-                        </xs:annotation>
-                        <xs:complexType>
-                            <xs:complexContent>
-                                <xs:extension base="com:RefObjectType">
-                                    <xs:attribute name="label" type="xs:string">
-                                        <xs:annotation>
-                                            <xs:documentation>A label associating the analysis with analysis references in data files.</xs:documentation>
-                                        </xs:annotation>
-                                    </xs:attribute>
-                                </xs:extension>
-                            </xs:complexContent>
-                        </xs:complexType>
-                    </xs:element>
                     <xs:element maxOccurs="1" minOccurs="1" name="ANNOTATION_TYPE">
                         <xs:annotation>
                             <xs:documentation>The type of the annotation.</xs:documentation>
