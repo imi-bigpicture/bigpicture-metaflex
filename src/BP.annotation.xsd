@@ -17,6 +17,7 @@
             <xs:simpleType>
                 <xs:restriction base="xs:string">
                     <xs:enumeration value="dcm"/>
+                    <xs:enumeration value="json"/>
                 </xs:restriction>
             </xs:simpleType>
         </xs:attribute>
