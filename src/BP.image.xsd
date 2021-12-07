@@ -170,6 +170,16 @@
                             </xs:sequence>
                         </xs:complexType>
                     </xs:element>
+                    <xs:element maxOccurs="1" minOccurs="0" name="IMAGE_ATTRIBUTE_SETS">
+                        <xs:annotation>
+                            <xs:documentation>Sets of properties and attributes of an image.</xs:documentation>
+                        </xs:annotation>
+                        <xs:complexType>
+                            <xs:sequence minOccurs="1">
+                                <xs:element name="IMAGE_ATTRIBUTE_SET" type="bp:AttributeSetType" maxOccurs="unbounded"/>
+                            </xs:sequence>
+                        </xs:complexType>
+                    </xs:element>
                 </xs:sequence>
                 <xs:attribute name="image_center" type="xs:string" use="optional">
                     <xs:annotation>

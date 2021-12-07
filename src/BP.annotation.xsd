@@ -158,6 +158,16 @@
                             </xs:sequence>
                         </xs:complexType>
                     </xs:element>
+                    <xs:element maxOccurs="1" minOccurs="0" name="ANNOTATION_ATTRIBUTE_SETS">
+                        <xs:annotation>
+                            <xs:documentation>Sets of properties and attributes of an analysis.</xs:documentation>
+                        </xs:annotation>
+                        <xs:complexType>
+                            <xs:sequence minOccurs="1">
+                                <xs:element name="ANNOTATION_ATTRIBUTE_SET" type="bp:AttributeSetType" maxOccurs="unbounded"/>
+                            </xs:sequence>
+                        </xs:complexType>
+                    </xs:element>
                 </xs:sequence>
                 <xs:attribute name="annotation_center" type="xs:string" use="optional">
                     <xs:annotation>
