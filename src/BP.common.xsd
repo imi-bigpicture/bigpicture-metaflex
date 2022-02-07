@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:bp="BP.common" targetNamespace="BP.common">
+
+    <xs:complexType name="AttributeType">
+        <xs:annotation>
+            <xs:documentation>
+                Reusable attributes to encode tag-value pairs with optional units.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="TAG" type="xs:string" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>
+                        Name of the attribute.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="VALUE" type="xs:string" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>
+                        Value of the attribute.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="UNITS" type="xs:string" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>
+                        Optional scientific units.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="CodedAttributeType">
+        <xs:annotation>
+            <xs:documentation>
+                Reusable attributes to encode tag-code value pairs with optional units.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:complexContent>
+            <xs:extension base="bp:AttributeType">
+                <xs:sequence>
+                    <xs:element name="SCHEME" type="xs:string" minOccurs="1" maxOccurs="1">
+                        <xs:annotation>
+                            <xs:documentation>
+                                Scheme designator of the attribute.
+                            </xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="MEANING" type="xs:string" minOccurs="1" maxOccurs="1">
+                        <xs:annotation>
+                            <xs:documentation>
+                                Cleartext meaning of the attribute.
+                            </xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="SCHEME_VERSION" type="xs:string" minOccurs="0" maxOccurs="1">
+                        <xs:annotation>
+                            <xs:documentation>
+                                Optional scheme version of the attribute.
+                            </xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="AttributeSetType">
+        <xs:annotation>
+            <xs:documentation>
+                Reusable set of attributes to encode multiple tag-value or tag-code value pairs.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:choice>
+            <xs:element name="TAG" type="xs:string" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>
+                        Name of the attribute set.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="CODEDATTRIBUTE" type="bp:CodedAttributeType" minOccurs="0" maxOccurs="unbounded">
+                <xs:annotation>
+                    <xs:documentation>
+                        Coded attribute in the set.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="ATTRIBUTE" type="bp:AttributeType" minOccurs="0" maxOccurs="unbounded">
+                <xs:annotation>
+                    <xs:documentation>
+                        Attribute in the set.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="ATTRIBUTESET" type="bp:AttributeSetType" minOccurs="0" maxOccurs="unbounded">
+                <xs:annotation>
+                    <xs:documentation>
+                        Attribute set in the set.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:choice>
+    </xs:complexType>
+</xs:schema>
