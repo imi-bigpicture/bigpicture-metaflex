@@ -24,8 +24,8 @@
 						nillable="false">
 						<xs:annotation>
 							<xs:documentation>
-						Identifies the images which are part of this dataset.
-					</xs:documentation>
+								Identifies the images which are part of this dataset.
+							</xs:documentation>
 						</xs:annotation>
 						<xs:complexType>
 							<xs:complexContent>
@@ -38,8 +38,22 @@
 						nillable="false">
 						<xs:annotation>
 							<xs:documentation>
-						Identifies the annotations which are part of this dataset.
-					</xs:documentation>
+								Identifies the annotations which are part of this dataset.
+							</xs:documentation>
+						</xs:annotation>
+						<xs:complexType>
+							<xs:complexContent>
+								<xs:extension base="com:RefObjectType">
+								</xs:extension>
+							</xs:complexContent>
+						</xs:complexType>
+					</xs:element>
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="OBSERVATION_REF"
+						nillable="false">
+						<xs:annotation>
+							<xs:documentation>
+								Identifies the observations which are part of this dataset.
+							</xs:documentation>
 						</xs:annotation>
 						<xs:complexType>
 							<xs:complexContent>
