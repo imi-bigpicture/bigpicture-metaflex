@@ -62,6 +62,20 @@
 							</xs:complexContent>
 						</xs:complexType>
 					</xs:element>
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="COMPLEMENTS_DATASET_REF"
+					nillable="false">
+					<xs:annotation>
+						<xs:documentation>
+							Identifies the datasets which this dataset complements.
+						</xs:documentation>
+					</xs:annotation>
+					<xs:complexType>
+						<xs:complexContent>
+							<xs:extension base="com:RefObjectType">
+							</xs:extension>
+						</xs:complexContent>
+					</xs:complexType>
+				</xs:element>
 					<xs:element name="DATASET_CODED_ATTRIBUTES" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>Coded properties and attributes of the data set. These can be entered as tag-code value pairs. Submitters may be asked to follow a community established ontology when describing the work.          </xs:documentation>
