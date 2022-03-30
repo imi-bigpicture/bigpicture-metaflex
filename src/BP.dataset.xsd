@@ -8,7 +8,7 @@
 	<xs:complexType name="BPDatasetType">
 		<xs:annotation>
 			<xs:documentation>Describes an object that contains the samples in the data set.
-    </xs:documentation>
+    		</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
 			<xs:extension base="DatasetType">
@@ -85,7 +85,17 @@
 							<xs:element name="DATASET_CODED_ATTRIBUTE" type="bp:CodedAttributeType"/>
 						  </xs:sequence>
 						</xs:complexType>
-					  </xs:element>
+					</xs:element>
+					<xs:element maxOccurs="1" minOccurs="0" name="DATASET_ATTRIBUTE_SETS">
+						<xs:annotation>
+							<xs:documentation>Sets of properties and attributes of a dataset.</xs:documentation>
+						</xs:annotation>
+						<xs:complexType>
+							<xs:sequence minOccurs="1">
+								<xs:element name="DATASET_ATTRIBUTE_SET" type="bp:AttributeSetType" maxOccurs="unbounded"/>
+							</xs:sequence>
+						</xs:complexType>
+					</xs:element>
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
