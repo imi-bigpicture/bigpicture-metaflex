@@ -104,4 +104,16 @@
             </xs:element>
         </xs:choice>
     </xs:complexType>
+    <xs:complexType name="SampleType">
+        <xs:annotation>
+            <xs:documentation>The type of the sample. </xs:documentation>
+        </xs:annotation>
+        <xs:choice>
+            <xs:element name="BIOLOGICAL_BEING"></xs:element>
+            <xs:element name="SPECIMEN"></xs:element>
+            <xs:element name="SAMPLE"></xs:element>
+            <xs:element name="BLOCK"></xs:element>
+            <xs:element name="SLIDE"></xs:element>
+        </xs:choice>
+    </xs:complexType>
 </xs:schema>

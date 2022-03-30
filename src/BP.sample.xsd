@@ -12,20 +12,8 @@
     <xs:complexContent>
       <xs:extension base="SampleType">
         <xs:sequence>
-          <xs:element maxOccurs="1" minOccurs="1" name="SAMPLE_TYPE">
-            <xs:annotation>
-                <xs:documentation>The type of the sample. </xs:documentation>
-            </xs:annotation>
-            <xs:complexType>
-                <xs:choice>
-                    <xs:element name="BIOLOGICAL_BEING"></xs:element>
-                    <xs:element name="SPECIMEN"></xs:element>
-                    <xs:element name="SAMPLE"></xs:element>
-                    <xs:element name="BLOCK"></xs:element>
-                    <xs:element name="SLIDE"></xs:element>
-                </xs:choice>
-            </xs:complexType>
-          </xs:element>
+          <xs:element maxOccurs="1" minOccurs="1" name="SAMPLE_TYPE" type="bp:SampleType"/>
+
           <xs:element name="SAMPLE_REF" maxOccurs="unbounded" minOccurs="0">
             <xs:annotation>
                 <xs:documentation>One of more samples associated with the
