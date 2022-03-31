@@ -56,7 +56,7 @@
     </xs:complexType>
     <xs:complexType name="DomainType">
         <xs:complexContent>
-            <xs:extension base="bp:SampleType">
+            <xs:extension base="bp:SampleCategory">
             <xs:choice>
                 <xs:element name="IMAGE"></xs:element>
             </xs:choice>

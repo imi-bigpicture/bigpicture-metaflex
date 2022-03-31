@@ -104,7 +104,7 @@
             </xs:element>
         </xs:choice>
     </xs:complexType>
-    <xs:complexType name="SampleType">
+    <xs:complexType name="SampleCategory">
         <xs:annotation>
             <xs:documentation>The type of the sample. </xs:documentation>
         </xs:annotation>

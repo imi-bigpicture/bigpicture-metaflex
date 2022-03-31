@@ -12,7 +12,7 @@
     <xs:complexContent>
       <xs:extension base="SampleType">
         <xs:sequence>
-          <xs:element maxOccurs="1" minOccurs="1" name="SAMPLE_TYPE" type="bp:SampleType"/>
+          <xs:element maxOccurs="1" minOccurs="1" name="SAMPLE_TYPE" type="bp:SampleCategory"/>
 
           <xs:element name="SAMPLE_REF" maxOccurs="unbounded" minOccurs="0">
             <xs:annotation>
