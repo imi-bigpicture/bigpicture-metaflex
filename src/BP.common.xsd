@@ -32,6 +32,37 @@
         </xs:sequence>
     </xs:complexType>
 
+    <xs:complexType name="NumericAttributeType">
+        <xs:annotation>
+            <xs:documentation>
+                Reusable attributes to encode tag-numeric value pairs with optional units.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="TAG" type="xs:string" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>
+                        Name of the attribute.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="VALUE" type="xs:decimal" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>
+                        Value of the attribute.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="UNITS" type="xs:string" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>
+                        Optional scientific units.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
     <xs:complexType name="CodedAttributeType">
         <xs:annotation>
             <xs:documentation>
@@ -92,6 +123,13 @@
                 <xs:annotation>
                     <xs:documentation>
                         Attribute in the set.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="NUMERICATTRIBUTE" type="bp:NumericAttributeType" minOccurs="0" maxOccurs="unbounded">
+                <xs:annotation>
+                    <xs:documentation>
+                        Numberic attribute in the set.
                     </xs:documentation>
                 </xs:annotation>
             </xs:element>
