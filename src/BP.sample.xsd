@@ -1,32 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:com="SRA.common" xmlns:bp="BP.common">
-  <xs:import schemaLocation="SRA.common.xsd" namespace="SRA.common"/>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:sra="SRA.common" xmlns:bp="BP.common">
   <xs:import namespace="BP.common" schemaLocation="BP.common.xsd"/>
-  <xs:include schemaLocation="SRA.sample.xsd"/>
-  <xs:complexType name="BPSampleType">
+  <xs:import namespace="SRA.common" schemaLocation="SRA.common.xsd"/>
+
+  <xs:complexType name="BPMetaSampleType">
     <xs:annotation>
       <xs:documentation>
         A Sample defines an biological item.
       </xs:documentation>
     </xs:annotation>
     <xs:complexContent>
-      <xs:extension base="SampleType">
+      <xs:extension base="sra:ObjectType">
         <xs:sequence>
-          <xs:element maxOccurs="1" minOccurs="1" name="SAMPLE_TYPE" type="bp:SampleCategory"/>
-
-          <xs:element name="SAMPLE_REF" maxOccurs="unbounded" minOccurs="0">
-            <xs:annotation>
-                <xs:documentation>One of more samples associated with the
-            sample.</xs:documentation>
-            </xs:annotation>
-            <xs:complexType>
-                <xs:complexContent>
-                    <xs:extension base="com:RefObjectType">
-                    </xs:extension>
-                </xs:complexContent>
-            </xs:complexType>
-          </xs:element>
-          <xs:element name="SAMPLE_CODED_ATTRIBUTES" minOccurs="0" maxOccurs="1">
+          <xs:element name="BP_SAMPLE_ATTRIBUTES" minOccurs="0" maxOccurs="1">
             <xs:annotation>
               <xs:documentation>
             Properties and attributes of a sample.  These can be entered as
@@ -36,18 +22,14 @@
             </xs:annotation>
             <xs:complexType>
               <xs:sequence maxOccurs="unbounded" minOccurs="1">
-                <xs:element name="SAMPLE_CODED_ATTRIBUTE" type="bp:CodedAttributeType"/>
+                <xs:choice>
+                  <xs:element name="SAMPLE_ATTRIBUTE" type="sra:AttributeType"/>
+                  <xs:element name="SAMPLE_CODED_ATTRIBUTE" type="bp:CodedAttributeType"/>
+                  <xs:element name="SAMPLE_NUMERIC_ATTRIBUTE" type="bp:NumericAttributeType"/>
+                  <xs:element name="SAMPLE_REFERENCE_ATTRIBUTE" type="bp:ReferenceAttributeType"/>
+                  <xs:element name="SAMPLE_SET_ATTRIBUTE" type="bp:AttributeSetType"/>
+                </xs:choice>
               </xs:sequence>
-            </xs:complexType>
-          </xs:element>
-          <xs:element maxOccurs="1" minOccurs="0" name="SAMPLE_ATTRIBUTE_SETS">
-            <xs:annotation>
-                <xs:documentation>Sets of properties and attributes of a sample.</xs:documentation>
-            </xs:annotation>
-            <xs:complexType>
-                <xs:sequence minOccurs="1">
-                    <xs:element name="SAMPLE_ATTRIBUTE_SET" type="bp:AttributeSetType" maxOccurs="unbounded"/>
-                </xs:sequence>
             </xs:complexType>
           </xs:element>
         </xs:sequence>
@@ -55,9 +37,64 @@
     </xs:complexContent>
   </xs:complexType>
 
+
+  <xs:complexType name="BPBiologicalBeingType">
+    <xs:annotation>
+      <xs:documentation>
+        A human being or animal.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="BPMetaSampleType">
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="BPSpecimenType">
+    <xs:annotation>
+      <xs:documentation>
+        A removed part of a human/animal being.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="BPMetaSampleType">
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="BPSampleType">
+    <xs:annotation>
+      <xs:documentation>
+        A part of a Specimen that has been sampled and processed for further
+    investigation.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="BPMetaSampleType">
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="BPSlideType">
+    <xs:annotation>
+      <xs:documentation>
+        A physical slide that has been created out of one or more Samples.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="BPMetaSampleType">
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
   <xs:complexType name="BPSampleSetType">
     <xs:sequence minOccurs="1" maxOccurs="unbounded">
+    <xs:choice>
+      <xs:element name="BP_BIOLOGICAL_BEING" type="BPBiologicalBeingType"/>
+      <xs:element name="BP_SPECIMEN" type="BPSpecimenType"/>
       <xs:element name="BP_SAMPLE" type="BPSampleType"/>
+      <xs:element name="BP_SLIDE" type="BPSlideType"/>
+    </xs:choice>
     </xs:sequence>
   </xs:complexType>
 
