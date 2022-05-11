@@ -168,6 +168,41 @@
         </xs:complexContent>
     </xs:complexType>
 
+    <xs:complexType name="BPAttributesType">
+        <xs:annotation>
+            <xs:documentation>
+                Properties and attributes of a object.  These can be entered as
+                tag-coded value pairs. For certain studies, submitters may be asked to follow a
+                community established ontology when describing the work.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:sequence maxOccurs="unbounded" minOccurs="1">
+            <xs:choice>
+                <xs:element name="ATTRIBUTE" type="sra:AttributeType"/>
+                <xs:element name="CODED_ATTRIBUTE" type="bp:CodedAttributeType"/>
+                <xs:element name="NUMERIC_ATTRIBUTE" type="bp:NumericAttributeType"/>
+                <xs:element name="REFERENCE_ATTRIBUTE" type="bp:ReferenceAttributeType"/>
+                <xs:element name="SET_ATTRIBUTE" type="bp:AttributeSetType"/>
+            </xs:choice>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="BPObjectType">
+        <xs:annotation>
+          <xs:documentation>
+            Extends sra ObjectType with BP attributes.
+          </xs:documentation>
+        </xs:annotation>
+        <xs:complexContent>
+          <xs:extension base="sra:ObjectType">
+            <xs:sequence>
+              <xs:element name="BP_ATTRIBUTES" minOccurs="0" maxOccurs="1" type="bp:BPAttributesType">
+              </xs:element>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+
     <xs:complexType name="SampleCategory">
         <xs:annotation>
             <xs:documentation>The type of the sample. </xs:documentation>

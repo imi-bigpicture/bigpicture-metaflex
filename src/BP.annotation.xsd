@@ -67,7 +67,7 @@
             <xs:documentation>A BP annotation object captures annotation objects.</xs:documentation>
         </xs:annotation>
         <xs:complexContent>
-            <xs:extension base="com:ObjectType">
+            <xs:extension base="bp:BPObjectType">
                 <xs:sequence>
                     <xs:element maxOccurs="1" minOccurs="0" name="TITLE" type="xs:string">
                         <xs:annotation>
@@ -135,36 +135,6 @@
                             <xs:sequence minOccurs="1">
                                 <xs:element name="ANNOTATION_LINK" type="com:LinkType"
                                     maxOccurs="unbounded"/>
-                            </xs:sequence>
-                        </xs:complexType>
-                    </xs:element>
-                    <xs:element maxOccurs="1" minOccurs="0" name="ANNOTATION_ATTRIBUTES">
-                        <xs:annotation>
-                            <xs:documentation>Properties and attributes of an annotation. These can be entered as free-form tag-value pairs.</xs:documentation>
-                        </xs:annotation>
-                        <xs:complexType>
-                            <xs:sequence minOccurs="1">
-                                <xs:element name="ANNOTATION_ATTRIBUTE" type="com:AttributeType" maxOccurs="unbounded"/>
-                            </xs:sequence>
-                        </xs:complexType>
-                    </xs:element>
-                    <xs:element maxOccurs="1" minOccurs="0" name="ANNOTATION_CODED_ATTRIBUTES">
-                        <xs:annotation>
-                            <xs:documentation>Coded properties and attributes of an analysis. These can be entered as tag-coded value pairs.</xs:documentation>
-                        </xs:annotation>
-                        <xs:complexType>
-                            <xs:sequence minOccurs="1">
-                                <xs:element name="ANNOTATION_CODED_ATTRIBUTE" type="bp:CodedAttributeType" maxOccurs="unbounded"/>
-                            </xs:sequence>
-                        </xs:complexType>
-                    </xs:element>
-                    <xs:element maxOccurs="1" minOccurs="0" name="ANNOTATION_ATTRIBUTE_SETS">
-                        <xs:annotation>
-                            <xs:documentation>Sets of properties and attributes of an analysis.</xs:documentation>
-                        </xs:annotation>
-                        <xs:complexType>
-                            <xs:sequence minOccurs="1">
-                                <xs:element name="ANNOTATION_ATTRIBUTE_SET" type="bp:AttributeSetType" maxOccurs="unbounded"/>
                             </xs:sequence>
                         </xs:complexType>
                     </xs:element>

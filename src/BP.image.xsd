@@ -1,7 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns:com="SRA.common" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:bp="BP.common">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"  xmlns:sra="SRA.common" xmlns:bp="BP.common">
     <xs:import namespace="SRA.common" schemaLocation="SRA.common.xsd"/>
     <xs:import namespace="BP.common" schemaLocation="BP.common.xsd"/>
+
+    <xs:complexType name="ScanType">
+        <xs:annotation>
+            <xs:documentation>A Scan object captures scan settings for a Image object.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:complexContent>
+            <xs:extension base="bp:BPObjectType">
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
 
     <xs:complexType name="ImageFileType">
         <xs:attribute name="filename" type="xs:string" use="required">
@@ -51,16 +62,19 @@
             </xs:annotation>
         </xs:attribute>
     </xs:complexType>
+
     <xs:complexType name="ImageSetType">
         <xs:sequence maxOccurs="unbounded" minOccurs="1">
             <xs:element name="IMAGE" type="ImageType"/>
         </xs:sequence>
     </xs:complexType>
+
     <xs:element name="IMAGE_SET" type="ImageSetType">
         <xs:annotation>
             <xs:documentation>A container of image objects. </xs:documentation>
         </xs:annotation>
     </xs:element>
+
     <xs:element name="IMAGE" type="ImageType"/>
     <xs:complexType name="ImageType">
         <xs:annotation>
@@ -68,7 +82,7 @@
             </xs:documentation>
         </xs:annotation>
         <xs:complexContent>
-            <xs:extension base="com:ObjectType">
+            <xs:extension base="bp:BPObjectType">
                 <xs:sequence>
                     <xs:element maxOccurs="1" minOccurs="0" name="TITLE" type="xs:string">
                         <xs:annotation>
@@ -87,22 +101,28 @@
                         </xs:annotation>
                         <xs:complexType>
                             <xs:complexContent>
-                                <xs:extension base="com:RefObjectType"> </xs:extension>
+                                <xs:extension base="sra:RefObjectType"> </xs:extension>
                             </xs:complexContent>
                         </xs:complexType>
                     </xs:element>
-                    <xs:element name="SAMPLE_REF" maxOccurs="unbounded" minOccurs="0">
+                    <xs:element name="sample" maxOccurs="unbounded" minOccurs="1">
                         <xs:annotation>
                             <xs:documentation>One of more samples associated with the image.</xs:documentation>
                         </xs:annotation>
                         <xs:complexType>
                             <xs:complexContent>
-                                <xs:extension base="com:RefObjectType">
-                                    <xs:attribute name="label" type="xs:string">
-                                        <xs:annotation>
-                                            <xs:documentation>A label associating the sample with sample references in data files.</xs:documentation>
-                                        </xs:annotation>
-                                    </xs:attribute>
+                                <xs:extension base="sra:RefObjectType">
+                                </xs:extension>
+                            </xs:complexContent>
+                        </xs:complexType>
+                    </xs:element>
+                    <xs:element name="scan" maxOccurs="1" minOccurs="1">
+                        <xs:annotation>
+                            <xs:documentation>A scan setting associated with the image.</xs:documentation>
+                        </xs:annotation>
+                        <xs:complexType>
+                            <xs:complexContent>
+                                <xs:extension base="sra:RefObjectType">
                                 </xs:extension>
                             </xs:complexContent>
                         </xs:complexType>
@@ -121,16 +141,13 @@
                     <xs:sequence>
                         <xs:element name="FILES">
                             <xs:annotation>
-                                <xs:documentation>Files associated with the
-                                        image.</xs:documentation>
+                                <xs:documentation>Files associated with the image.</xs:documentation>
                             </xs:annotation>
                             <xs:complexType>
-
                                 <xs:sequence>
                                     <xs:element maxOccurs="unbounded" minOccurs="1" name="FILE"
                                         type="ImageFileType"/>
                                 </xs:sequence>
-
                             </xs:complexType>
                         </xs:element>
                     </xs:sequence>
@@ -141,42 +158,8 @@
                         </xs:annotation>
                         <xs:complexType>
                             <xs:sequence minOccurs="1">
-                                <xs:element name="IMAGE_LINK" type="com:LinkType"
+                                <xs:element name="IMAGE_LINK" type="sra:LinkType"
                                     maxOccurs="unbounded"/>
-                            </xs:sequence>
-                        </xs:complexType>
-                    </xs:element>
-                    <xs:element maxOccurs="1" minOccurs="0" name="IMAGE_ATTRIBUTES">
-                        <xs:annotation>
-                            <xs:documentation>Properties and attributes of an image. These can be
-                        entered as free-form tag-value pairs.</xs:documentation>
-                        </xs:annotation>
-                        <xs:complexType>
-                            <xs:sequence minOccurs="1">
-                                <xs:element name="IMAGE_ATTRIBUTE" type="com:AttributeType"
-                                    maxOccurs="unbounded"/>
-                            </xs:sequence>
-                        </xs:complexType>
-                    </xs:element>
-                    <xs:element maxOccurs="1" minOccurs="0" name="IMAGE_CODED_ATTRIBUTES">
-                        <xs:annotation>
-                            <xs:documentation>Coded properties and attributes of an image. These can be
-                        entered as tag-coded value pairs.</xs:documentation>
-                        </xs:annotation>
-                        <xs:complexType>
-                            <xs:sequence minOccurs="1">
-                                <xs:element name="IMAGE_CODED_ATTRIBUTE" type="bp:CodedAttributeType"
-                                    maxOccurs="unbounded"/>
-                            </xs:sequence>
-                        </xs:complexType>
-                    </xs:element>
-                    <xs:element maxOccurs="1" minOccurs="0" name="IMAGE_ATTRIBUTE_SETS">
-                        <xs:annotation>
-                            <xs:documentation>Sets of properties and attributes of an image.</xs:documentation>
-                        </xs:annotation>
-                        <xs:complexType>
-                            <xs:sequence minOccurs="1">
-                                <xs:element name="IMAGE_ATTRIBUTE_SET" type="bp:AttributeSetType" maxOccurs="unbounded"/>
                             </xs:sequence>
                         </xs:complexType>
                     </xs:element>

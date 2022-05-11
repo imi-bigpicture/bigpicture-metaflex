@@ -214,7 +214,7 @@
             <xs:documentation>A BP observation object captures observation objects.</xs:documentation>
         </xs:annotation>
         <xs:complexContent>
-            <xs:extension base="com:ObjectType">
+            <xs:extension base="bp:BPObjectType">
                 <xs:sequence>
                     <xs:element maxOccurs="1" minOccurs="0" name="TITLE" type="xs:string">
                         <xs:annotation>
@@ -319,36 +319,6 @@
                             <xs:sequence minOccurs="1">
                                 <xs:element name="OBSERVATION_LINK" type="com:LinkType"
                                     maxOccurs="unbounded"/>
-                            </xs:sequence>
-                        </xs:complexType>
-                    </xs:element>
-                    <xs:element maxOccurs="1" minOccurs="0" name="OBSERVATION_ATTRIBUTES">
-                        <xs:annotation>
-                            <xs:documentation>Properties and attributes of an observation. These can be entered as free-form tag-value pairs.</xs:documentation>
-                        </xs:annotation>
-                        <xs:complexType>
-                            <xs:sequence minOccurs="1">
-                                <xs:element name="OBSERVATION_ATTRIBUTE" type="com:AttributeType" maxOccurs="unbounded"/>
-                            </xs:sequence>
-                        </xs:complexType>
-                    </xs:element>
-                    <xs:element maxOccurs="1" minOccurs="0" name="OBSERVATION_CODED_ATTRIBUTES">
-                        <xs:annotation>
-                            <xs:documentation>Coded properties and attributes of an observation. These can be entered as tag-coded value pairs.</xs:documentation>
-                        </xs:annotation>
-                        <xs:complexType>
-                            <xs:sequence minOccurs="1">
-                                <xs:element name="OBSERVATION_CODED_ATTRIBUTE" type="bp:CodedAttributeType" maxOccurs="unbounded"/>
-                            </xs:sequence>
-                        </xs:complexType>
-                    </xs:element>
-                    <xs:element maxOccurs="1" minOccurs="0" name="OBSERVATION_ATTRIBUTE_SETS">
-                        <xs:annotation>
-                            <xs:documentation>Sets of properties and attributes of an observation.</xs:documentation>
-                        </xs:annotation>
-                        <xs:complexType>
-                            <xs:sequence minOccurs="1">
-                                <xs:element name="OBSERVATION_ATTRIBUTE_SET" type="bp:AttributeSetType" maxOccurs="unbounded"/>
                             </xs:sequence>
                         </xs:complexType>
                     </xs:element>
