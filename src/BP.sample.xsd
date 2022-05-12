@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:sra="SRA.common" xmlns:bp="BP.common">
+  <xs:import namespace="BP.common" schemaLocation="BP.common.xsd"/>
+  <xs:import namespace="SRA.common" schemaLocation="SRA.common.xsd"/>
+
+  <xs:complexType name="StainType">
+    <xs:annotation>
+        <xs:documentation>A Stain object captures stain information for a slide object.
+        </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="bp:BPObjectType">
+        </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="WorkupType">
+    <xs:annotation>
+        <xs:documentation>A Workup object captures workup information for a specimen or sample object.
+        </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="bp:BPObjectType">
+        </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="BPBiologicalBeingType">
+    <xs:annotation>
+      <xs:documentation>
+        A human being or animal.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="bp:BPObjectType">
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="BPSpecimenType">
+    <xs:annotation>
+      <xs:documentation>
+        A removed part of a human/animal being.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="bp:BPObjectType">
+        <xs:sequence>
+          <xs:element name="workup" maxOccurs="1" minOccurs="0">
+            <xs:annotation>
+                <xs:documentation>A workup associated with the specumen.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+                <xs:complexContent>
+                    <xs:extension base="sra:RefObjectType">
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="taken_from" maxOccurs="1" minOccurs="1">
+            <xs:annotation>
+              <xs:documentation>Identifies the biological being the specimen is taken from.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+                <xs:complexContent>
+                    <xs:extension base="sra:RefObjectType"> </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="part_of" maxOccurs="1" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Identifies the case the specimen is part of.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+                <xs:complexContent>
+                    <xs:extension base="sra:RefObjectType"> </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="BPSampleType">
+    <xs:annotation>
+      <xs:documentation>
+        A part of a Specimen that has been sampled and processed for further
+    investigation.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="bp:BPObjectType">
+        <xs:sequence>
+          <xs:element name="workup" maxOccurs="1" minOccurs="0">
+            <xs:annotation>
+                <xs:documentation>A workup associated with the sample.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+                <xs:complexContent>
+                    <xs:extension base="sra:RefObjectType">
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="sampled_from" maxOccurs="unbounded" minOccurs="1">
+            <xs:annotation>
+              <xs:documentation>Identifies the specimen(s) or biological being the sample is created from.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+                <xs:complexContent>
+                    <xs:extension base="sra:RefObjectType"> </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="part_of" maxOccurs="1" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Identifies the case the sample is part of.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+                <xs:complexContent>
+                    <xs:extension base="sra:RefObjectType"> </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="BPSlideType">
+    <xs:annotation>
+      <xs:documentation>
+        A physical slide that has been created out of one or more Samples.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="bp:BPObjectType">
+        <xs:sequence>
+          <xs:element name="stain" maxOccurs="unbounded" minOccurs="1">
+            <xs:annotation>
+                <xs:documentation>A stain associated with the image.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+                <xs:complexContent>
+                    <xs:extension base="sra:RefObjectType">
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+          </xs:element>
+          <xs:sequence>
+            <xs:element name="created_from" maxOccurs="unbounded" minOccurs="1">
+              <xs:annotation>
+                <xs:documentation>Identifies the sample(s) the slide is created from.</xs:documentation>
+              </xs:annotation>
+              <xs:complexType>
+                  <xs:complexContent>
+                      <xs:extension base="sra:RefObjectType"> </xs:extension>
+                  </xs:complexContent>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="BPSampleSetType">
+    <xs:sequence minOccurs="1" maxOccurs="unbounded">
+    <xs:choice>
+      <xs:element name="BP_BIOLOGICAL_BEING" type="BPBiologicalBeingType"/>
+      <xs:element name="BP_SPECIMEN" type="BPSpecimenType"/>
+      <xs:element name="BP_SAMPLE" type="BPSampleType"/>
+      <xs:element name="BP_SLIDE" type="BPSlideType"/>
+    </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:element name="BP_SAMPLE_SET" type="BPSampleSetType">
+    <xs:annotation>
+      <xs:documentation>
+        BP_SAMPLE_SET serves as a container for a set of samples and a name space
+        for establishing referential integrity between them.
+      </xs:documentation>
+    </xs:annotation>
+
+  </xs:element>
+
+  <xs:element name="BP_SAMPLE" type="BPSampleType"/>
+
+</xs:schema>
