@@ -6,7 +6,7 @@
     <xs:complexType name="AttributeBaseType">
         <xs:annotation>
             <xs:documentation>
-                Reusable attributes to encode tag-value pairs with optional units.
+                Reusable attribute type with a tag.
             </xs:documentation>
         </xs:annotation>
         <xs:sequence>
@@ -42,33 +42,6 @@
                                 Optional scientific units.
                             </xs:documentation>
                         </xs:annotation>
-                    </xs:element>
-                </xs:sequence>
-            </xs:extension>
-        </xs:complexContent>
-    </xs:complexType>
-
-    <xs:complexType name="ReferenceAttributeType">
-        <xs:annotation>
-            <xs:documentation>
-                Reusable attributes to encode a reference.
-            </xs:documentation>
-        </xs:annotation>
-        <xs:complexContent>
-            <xs:extension base="bp:AttributeBaseType">
-                <xs:sequence>
-                    <xs:element name="REFERENCE" minOccurs="1" maxOccurs="1">
-                        <xs:annotation>
-                            <xs:documentation>
-                                Reference of the attribute.
-                            </xs:documentation>
-                        </xs:annotation>
-                        <xs:complexType>
-                            <xs:complexContent>
-                                <xs:extension base="sra:RefObjectType">
-                                </xs:extension>
-                            </xs:complexContent>
-                        </xs:complexType>
                     </xs:element>
                 </xs:sequence>
             </xs:extension>
@@ -134,28 +107,21 @@
                                 </xs:documentation>
                             </xs:annotation>
                         </xs:element>
-                        <xs:element name="NUMERICATTRIBUTE" type="bp:NumericAttributeType" minOccurs="0" maxOccurs="unbounded">
+                        <xs:element name="NUMERIC_ATTRIBUTE" type="bp:NumericAttributeType" minOccurs="0" maxOccurs="unbounded">
                             <xs:annotation>
                                 <xs:documentation>
                                     Numberic attribute in the set.
                                 </xs:documentation>
                             </xs:annotation>
                         </xs:element>
-                        <xs:element name="CODEDATTRIBUTE" type="bp:CodedAttributeType" minOccurs="0" maxOccurs="unbounded">
+                        <xs:element name="CODED_ATTRIBUTE" type="bp:CodedAttributeType" minOccurs="0" maxOccurs="unbounded">
                             <xs:annotation>
                                 <xs:documentation>
                                     Coded attribute in the set.
                                 </xs:documentation>
                             </xs:annotation>
                         </xs:element>
-                        <xs:element name="REFERENCEATTRIBUTE" type="bp:ReferenceAttributeType" minOccurs="0" maxOccurs="unbounded">
-                            <xs:annotation>
-                                <xs:documentation>
-                                    Reference attribute in the set.
-                                </xs:documentation>
-                            </xs:annotation>
-                        </xs:element>
-                        <xs:element name="ATTRIBUTESET" type="bp:AttributeSetType" minOccurs="0" maxOccurs="unbounded">
+                        <xs:element name="ATTRIBUTE_SET" type="bp:AttributeSetType" minOccurs="0" maxOccurs="unbounded">
                             <xs:annotation>
                                 <xs:documentation>
                                     Attribute set in the set.
@@ -181,8 +147,7 @@
                 <xs:element name="ATTRIBUTE" type="sra:AttributeType"/>
                 <xs:element name="CODED_ATTRIBUTE" type="bp:CodedAttributeType"/>
                 <xs:element name="NUMERIC_ATTRIBUTE" type="bp:NumericAttributeType"/>
-                <xs:element name="REFERENCE_ATTRIBUTE" type="bp:ReferenceAttributeType"/>
-                <xs:element name="SET_ATTRIBUTE" type="bp:AttributeSetType"/>
+                <xs:element name="ATTRIBUTE_SET" type="bp:AttributeSetType"/>
             </xs:choice>
         </xs:sequence>
     </xs:complexType>
