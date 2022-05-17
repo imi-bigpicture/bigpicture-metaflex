@@ -52,7 +52,7 @@
                             </xs:complexContent>
                         </xs:complexType>
                     </xs:element>
-                    <xs:element name="image_of" maxOccurs="unbounded" minOccurs="1">
+                    <xs:element name="IMAGE_OF" maxOccurs="unbounded" minOccurs="1">
                         <xs:annotation>
                             <xs:documentation>One of more samples associated with the image.</xs:documentation>
                         </xs:annotation>
