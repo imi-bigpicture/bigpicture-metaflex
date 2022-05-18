@@ -69,7 +69,7 @@
                     <xs:sequence>
                         <xs:element name="FILES">
                             <xs:annotation>
-                                <xs:documentation>Files associated with the image.</xs:documentation>
+                                <xs:documentation>Data files associated with the annotation.</xs:documentation>
                             </xs:annotation>
                             <xs:complexType>
                                 <xs:sequence>

@@ -32,11 +32,6 @@
                 <xs:documentation>The checksum of the unencrypted file (used in conjunction with the checksum of an encrypted file).</xs:documentation>
             </xs:annotation>
         </xs:attribute>
-        <xs:attribute name="checklist" type="xs:string">
-            <xs:annotation>
-                <xs:documentation>The name of the checklist.</xs:documentation>
-            </xs:annotation>
-        </xs:attribute>
     </xs:complexType>
 
     <xs:complexType name="AttributeBaseType">
@@ -191,7 +186,7 @@
     <xs:complexType name="BPObjectType">
         <xs:annotation>
           <xs:documentation>
-            Extends sra ObjectType with BP attributes.
+            Extends SRA ObjectType with BP attributes.
           </xs:documentation>
         </xs:annotation>
         <xs:complexContent>
