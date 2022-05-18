@@ -102,7 +102,7 @@
   <xs:element name="SAMPLE_SET" type="BPSampleSetType">
     <xs:annotation>
       <xs:documentation>
-        BP_SAMPLE_SET serves as a container for a set of samples and a name space
+        SAMPLE_SET serves as a container for a set of samples and a name space
         for establishing referential integrity between them.
       </xs:documentation>
     </xs:annotation>
