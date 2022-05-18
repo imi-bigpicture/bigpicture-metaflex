@@ -3,7 +3,7 @@
   <xs:import namespace="BP.common" schemaLocation="BP.common.xsd"/>
   <xs:import namespace="SRA.common" schemaLocation="SRA.common.xsd"/>
 
-  <xs:complexType name="BPBiologicalBeingType">
+  <xs:complexType name="BiologicalBeingType">
     <xs:annotation>
       <xs:documentation>
         A human being or animal.
@@ -15,7 +15,7 @@
     </xs:complexContent>
   </xs:complexType>
 
-  <xs:complexType name="BPSpecimenType">
+  <xs:complexType name="SpecimenType">
     <xs:annotation>
       <xs:documentation>
         A removed part of a human/animal being.
@@ -39,7 +39,7 @@
     </xs:complexContent>
   </xs:complexType>
 
-  <xs:complexType name="BPSampleType">
+  <xs:complexType name="BlockType">
     <xs:annotation>
       <xs:documentation>
         A part of a Specimen that has been sampled and processed for further
@@ -51,7 +51,7 @@
         <xs:sequence>
           <xs:element name="SAMPLED_FROM" maxOccurs="unbounded" minOccurs="1">
             <xs:annotation>
-              <xs:documentation>Identifies the specimen(s) the sample is created from.</xs:documentation>
+              <xs:documentation>Identifies the specimen(s) the block is created from.</xs:documentation>
             </xs:annotation>
             <xs:complexType>
                 <xs:complexContent>
@@ -64,10 +64,10 @@
     </xs:complexContent>
   </xs:complexType>
 
-  <xs:complexType name="BPSlideType">
+  <xs:complexType name="SlideType">
     <xs:annotation>
       <xs:documentation>
-        A physical slide that has been created out of one or more Samples.
+        A physical slide that has been created out of one or more Blocks.
       </xs:documentation>
     </xs:annotation>
     <xs:complexContent>
@@ -91,15 +91,15 @@
   <xs:complexType name="BPSampleSetType">
     <xs:sequence minOccurs="1" maxOccurs="unbounded">
     <xs:choice>
-      <xs:element name="BP_BIOLOGICAL_BEING" type="BPBiologicalBeingType"/>
-      <xs:element name="BP_SPECIMEN" type="BPSpecimenType"/>
-      <xs:element name="BP_SAMPLE" type="BPSampleType"/>
-      <xs:element name="BP_SLIDE" type="BPSlideType"/>
+      <xs:element name="BIOLOGICAL_BEING" type="BiologicalBeingType"/>
+      <xs:element name="SPECIMEN" type="SpecimenType"/>
+      <xs:element name="BLOCK" type="BlockType"/>
+      <xs:element name="SLIDE" type="SlideType"/>
     </xs:choice>
     </xs:sequence>
   </xs:complexType>
 
-  <xs:element name="BP_SAMPLE_SET" type="BPSampleSetType">
+  <xs:element name="SAMPLE_SET" type="BPSampleSetType">
     <xs:annotation>
       <xs:documentation>
         BP_SAMPLE_SET serves as a container for a set of samples and a name space
@@ -109,6 +109,9 @@
 
   </xs:element>
 
-  <xs:element name="BP_SAMPLE" type="BPSampleType"/>
+  <xs:element name="BIOLOGICAL_BEING" type="BiologicalBeingType"/>
+  <xs:element name="SPECIMEN" type="SpecimenType"/>
+  <xs:element name="BLOCK" type="BlockType"/>
+  <xs:element name="SLIDE" type="SlideType"/>
 
 </xs:schema>
