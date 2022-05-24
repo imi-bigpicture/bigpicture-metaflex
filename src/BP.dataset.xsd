@@ -76,7 +76,7 @@
 						</xs:complexContent>
 					</xs:complexType>
 				</xs:element>
-				<xs:element name="BP_ATTRIBUTES" minOccurs="0" maxOccurs="1" type="bp:BPAttributesType">
+				<xs:element name="ATTRIBUTES" minOccurs="0" maxOccurs="1" type="bp:BPAttributesType">
 				</xs:element>
 				</xs:sequence>
 			</xs:extension>
