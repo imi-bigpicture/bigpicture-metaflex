@@ -25,7 +25,7 @@ Implements several types that are used FileBaseType which is in other BigPicture
     - `alias`: Submitter designated name for the object. The name must be unique within the submission account.
 
 
-### BP.samle.xsd
+### BP.sample.xsd
 Implements the following types:
 
 - BiologicalBeingType: A human being or animal.
@@ -49,7 +49,7 @@ Implements the AnnotationType that captures annotation objects. The AnnotationTy
 - `IMAGE_REFERENCE`: One or more images associated with the annotation.
 - `FILES`: Data files associated with the annotation.
 
-### BP.dataset.xse
+### BP.dataset.xsd
 Implements the BPDatasetType which is an extension of the EGA DatasetType with the additions of:
 - `IMAGE_REF`: Identifies the images which are part of this dataset.
 - `ANNOTATION_REF`: Identifies the annotations which are part of this dataset.
