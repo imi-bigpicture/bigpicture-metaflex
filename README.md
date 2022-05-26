@@ -1,18 +1,18 @@
 # metadata-schema
 
-Metadata schemas for BigPicture data submission. Based on ENA metadata schemas.
+Metadata schemas for BIGPICTURE data submission. Based on ENA metadata schemas.
 
 ## Implemented MSMdad version
 
-This version of the BigPicture metadata schema implements MSMdad version 0.1.0.
+This version of the BIGPICTURE metadata schema implements MSMdad version 0.1.0.
 
 ## Structure
 
-The BigPicture-extension from the ENA metadata schema are located in files prefixed with BP.
+The BIGPICTURE-extension from the ENA metadata schema are located in files prefixed with BP.
 
 
 ### BP.common.xsd
-Implements several types that are used FileBaseType which is in other BigPicture types:
+Implements several types that are used FileBaseType which is in other BIGPICTURE types:
 
 - FileBaseType: Type for representing a submitted data file with filename and checksum.
 - AttributeBaseType: A base attribute type that is identified by a `TAG`. NumericAttributeType, CodedAttributeType, and AttributeSetType extends from this type.
@@ -25,7 +25,7 @@ Implements several types that are used FileBaseType which is in other BigPicture
     - `alias`: Submitter designated name for the object. The name must be unique within the submission account.
 
 
-### BP.samle.xsd
+### BP.sample.xsd
 Implements the following types:
 
 - BiologicalBeingType: A human being or animal.
