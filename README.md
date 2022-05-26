@@ -46,7 +46,7 @@ Implements the ImageType that captures image objects. The ImageType extends the 
 Implements the AnnotationType that captures annotation objects. The AnnotationType extends the `BPObjectType` and has the following elements:
 
 - `STUDY_REF`: Identifies the parent study.
-- `IMAGE_REFERENCE`: One or more images associated with the annotation.
+- `IMAGE_REF`: One or more images associated with the annotation.
 - `FILES`: Data files associated with the annotation.
 
 ### BP.dataset.xse
