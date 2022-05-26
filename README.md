@@ -49,7 +49,7 @@ Implements the AnnotationType that captures annotation objects. The AnnotationTy
 - `IMAGE_REF`: One or more images associated with the annotation.
 - `FILES`: Data files associated with the annotation.
 
-### BP.dataset.xse
+### BP.dataset.xsd
 Implements the BPDatasetType which is an extension of the EGA DatasetType with the additions of:
 - `IMAGE_REF`: Identifies the images which are part of this dataset.
 - `ANNOTATION_REF`: Identifies the annotations which are part of this dataset.
