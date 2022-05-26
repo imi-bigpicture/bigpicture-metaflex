@@ -54,7 +54,6 @@
                     <xs:enumeration value="csi"/>
                     <xs:enumeration value="bcf_aggregate"/>
                     <xs:enumeration value="other"/>
-                  <xs:enumeration value="jpg"/>
                 </xs:restriction>
             </xs:simpleType>
         </xs:attribute>
@@ -170,27 +169,6 @@
                                 </xs:extension>
                             </xs:complexContent>
                         </xs:complexType>
-                    </xs:element>
-                    <xs:element maxOccurs="1" minOccurs="1" name="ANALYSIS_TYPE">
-                      <xs:annotation>
-                        <xs:documentation>The type of the analysis. </xs:documentation>
-                      </xs:annotation>
-                      <xs:complexType>
-                        <xs:choice>
-                               <xs:element name="IMAGE">
-                                    <xs:annotation>
-                                        <xs:documentation/>
-                                    </xs:annotation>
-                                    <xs:complexType> </xs:complexType>
-                                </xs:element>
-                                <xs:element name="SLIDE">
-                                    <xs:annotation>
-                                        <xs:documentation/>
-                                    </xs:annotation>
-                                    <xs:complexType> </xs:complexType>
-                                </xs:element>
-                        </xs:choice>
-                      </xs:complexType>
                     </xs:element>
                     <xs:element name="ANALYSIS_REF" maxOccurs="unbounded" minOccurs="0">
                         <xs:annotation>
