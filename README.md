@@ -1,14 +1,16 @@
 # metadata-schema
 
-Metadata schemas for BIGPICTURE data submission. Based on ENA metadata schemas.
+Metadata schemas for BIGPICTURE data submission. Based on SRA/EGA/ENA metadata schemas.
 
-## Implemented MSMdad version
+## BIGPICTURE Metadata Specification Dependencies
 
-This version of the BIGPICTURE metadata schema implements MSMdad version 0.1.0.
+This version of the BIGPICTURE Metadata Storage File Fromat Specification (v.0.1.0) complies to and depends on:
+- The Common Mandatroy Metadarta Structure (CMMS) version 0.1.0
+- The Mandatory Submission Metadata for Directly Accessible Datasets (MSMdad) version 0.1.0
 
 ## Structure
 
-The BIGPICTURE-extension from the ENA metadata schema are located in files prefixed with BP.
+The schema developed explicitly for BIGPICTURE, extending the SRA/EGA/ENA metadata schema, are located in files prefixed with BP. The following paragraphs discuss each of the newly created files in more depth.
 
 
 ### BP.common.xsd
@@ -39,7 +41,7 @@ All types extends the `BPObjectType`, and different types of attributes can thus
 Implements the ImageType that captures image objects. The ImageType extends the `BPObjectType` and has the following elements:
 
 - `STUDY_REF`: Identifies the parent study.
-- `IMAGE_OF`: One of more samples imaged by the image.
+- `IMAGE_OF`: Identifies the slide the image was imaged from.
 - `FILES`: Data files associated with the image.
 
 ### BP.annotation.xsd
@@ -63,4 +65,4 @@ The Study, Policy, DAC, and sumbission types are used as in EGA.
 
 ## License
 
-Since the ENA metadata schemas are distributed under the Apache 2.0 license that's what we start with.
+Since the SRA/EGA/ENA metadata schemas are distributed under the Apache 2.0 license that's what we start with.
