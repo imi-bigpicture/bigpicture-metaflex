@@ -32,7 +32,7 @@ Implements the following types:
 
 - BiologicalBeingType: A human being or animal.
 - SpecimenType:A removed part of a human/animal being. The `EXTRACTED_FROM` element references the biological being the specimen was extracted from.
-- BlockType: A part of a Specimen that has been sampled and processed for further investigation. This can for example be a block. The `SAMPLED_FROM` element references the specimen the block was sampled from.
+- BlockType: A part or a collection of parts of one or many Specimens that has/have been sampled and processed for further investigation. This can for example be a block. The `SAMPLED_FROM` element references the specimen(s) the block was sampled from.
 - SlideType: A physical slide that has been created out of one or more Blocks. The `CREATED_FROM` element references the block the slide was created from.
 
 All types extends the `BPObjectType`, and different types of attributes can thus be assigned to the `ATTRIBUTES` element.
