@@ -76,26 +76,8 @@
 						</xs:complexContent>
 					</xs:complexType>
 				</xs:element>
-					<xs:element name="DATASET_CODED_ATTRIBUTES" minOccurs="0" maxOccurs="1">
-						<xs:annotation>
-							<xs:documentation>Coded properties and attributes of the data set. These can be entered as tag-code value pairs. Submitters may be asked to follow a community established ontology when describing the work.          </xs:documentation>
-						</xs:annotation>
-						<xs:complexType>
-						  <xs:sequence maxOccurs="unbounded" minOccurs="1">
-							<xs:element name="DATASET_CODED_ATTRIBUTE" type="bp:CodedAttributeType"/>
-						  </xs:sequence>
-						</xs:complexType>
-					</xs:element>
-					<xs:element maxOccurs="1" minOccurs="0" name="DATASET_ATTRIBUTE_SETS">
-						<xs:annotation>
-							<xs:documentation>Sets of properties and attributes of a dataset.</xs:documentation>
-						</xs:annotation>
-						<xs:complexType>
-							<xs:sequence minOccurs="1">
-								<xs:element name="DATASET_ATTRIBUTE_SET" type="bp:AttributeSetType" maxOccurs="unbounded"/>
-							</xs:sequence>
-						</xs:complexType>
-					</xs:element>
+				<xs:element name="ATTRIBUTES" minOccurs="0" maxOccurs="1" type="bp:BPAttributesType">
+				</xs:element>
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>

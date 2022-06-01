@@ -1,65 +1,85 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:com="SRA.common" xmlns:bp="BP.common">
-  <xs:import schemaLocation="SRA.common.xsd" namespace="SRA.common"/>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:sra="SRA.common" xmlns:bp="BP.common">
   <xs:import namespace="BP.common" schemaLocation="BP.common.xsd"/>
-  <xs:include schemaLocation="SRA.sample.xsd"/>
-  <xs:complexType name="BPSampleType">
+  <xs:import namespace="SRA.common" schemaLocation="SRA.common.xsd"/>
+
+  <xs:complexType name="BiologicalBeingType">
     <xs:annotation>
       <xs:documentation>
-        A Sample defines an biological item.
+        A human being or animal.
       </xs:documentation>
     </xs:annotation>
     <xs:complexContent>
-      <xs:extension base="SampleType">
+      <xs:extension base="bp:BPObjectType">
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="SpecimenType">
+    <xs:annotation>
+      <xs:documentation>
+        A removed part of a human/animal being.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="bp:BPObjectType">
         <xs:sequence>
-          <xs:element maxOccurs="1" minOccurs="1" name="SAMPLE_TYPE">
+          <xs:element name="EXTRACTED_FROM" maxOccurs="1" minOccurs="1">
             <xs:annotation>
-                <xs:documentation>The type of the sample. </xs:documentation>
-            </xs:annotation>
-            <xs:complexType>
-                <xs:choice>
-                    <xs:element name="BIOLOGICAL_BEING"></xs:element>
-                    <xs:element name="SPECIMEN"></xs:element>
-                    <xs:element name="SAMPLE"></xs:element>
-                    <xs:element name="BLOCK"></xs:element>
-                    <xs:element name="SLIDE"></xs:element>
-                </xs:choice>
-            </xs:complexType>
-          </xs:element>
-          <xs:element name="SAMPLE_REF" maxOccurs="unbounded" minOccurs="0">
-            <xs:annotation>
-                <xs:documentation>One of more samples associated with the
-            sample.</xs:documentation>
+              <xs:documentation>Identifies the biological being the specimen is taken from.</xs:documentation>
             </xs:annotation>
             <xs:complexType>
                 <xs:complexContent>
-                    <xs:extension base="com:RefObjectType">
-                    </xs:extension>
+                    <xs:extension base="sra:RefObjectType"> </xs:extension>
                 </xs:complexContent>
             </xs:complexType>
           </xs:element>
-          <xs:element name="SAMPLE_CODED_ATTRIBUTES" minOccurs="0" maxOccurs="1">
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="BlockType">
+    <xs:annotation>
+      <xs:documentation>
+        A part or a collection of parts of one or many Specimens that has/have been sampled and processed for further investigation.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="bp:BPObjectType">
+        <xs:sequence>
+          <xs:element name="SAMPLED_FROM" maxOccurs="unbounded" minOccurs="1">
             <xs:annotation>
-              <xs:documentation>
-            Properties and attributes of a sample.  These can be entered as
-            tag-coded value pairs. For certain studies, submitters may be asked to follow a
-            community established ontology when describing the work.
-          </xs:documentation>
+              <xs:documentation>Identifies the specimen(s) the block is created from.</xs:documentation>
             </xs:annotation>
             <xs:complexType>
-              <xs:sequence maxOccurs="unbounded" minOccurs="1">
-                <xs:element name="SAMPLE_CODED_ATTRIBUTE" type="bp:CodedAttributeType"/>
-              </xs:sequence>
+                <xs:complexContent>
+                    <xs:extension base="sra:RefObjectType"> </xs:extension>
+                </xs:complexContent>
             </xs:complexType>
           </xs:element>
-          <xs:element maxOccurs="1" minOccurs="0" name="SAMPLE_ATTRIBUTE_SETS">
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="SlideType">
+    <xs:annotation>
+      <xs:documentation>
+        A physical slide that has been created out of one or more Blocks.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="bp:BPObjectType">
+        <xs:sequence>
+          <xs:element name="CREATED_FROM" maxOccurs="1" minOccurs="1">
             <xs:annotation>
-                <xs:documentation>Sets of properties and attributes of a sample.</xs:documentation>
+              <xs:documentation>Identifies the block the slide is created from.</xs:documentation>
             </xs:annotation>
             <xs:complexType>
-                <xs:sequence minOccurs="1">
-                    <xs:element name="SAMPLE_ATTRIBUTE_SET" type="bp:AttributeSetType" maxOccurs="unbounded"/>
-                </xs:sequence>
+                <xs:complexContent>
+                    <xs:extension base="sra:RefObjectType"> </xs:extension>
+                </xs:complexContent>
             </xs:complexType>
           </xs:element>
         </xs:sequence>
@@ -69,20 +89,28 @@
 
   <xs:complexType name="BPSampleSetType">
     <xs:sequence minOccurs="1" maxOccurs="unbounded">
-      <xs:element name="BP_SAMPLE" type="BPSampleType"/>
+    <xs:choice>
+      <xs:element name="BIOLOGICAL_BEING" type="BiologicalBeingType"/>
+      <xs:element name="SPECIMEN" type="SpecimenType"/>
+      <xs:element name="BLOCK" type="BlockType"/>
+      <xs:element name="SLIDE" type="SlideType"/>
+    </xs:choice>
     </xs:sequence>
   </xs:complexType>
 
-  <xs:element name="BP_SAMPLE_SET" type="BPSampleSetType">
+  <xs:element name="SAMPLE_SET" type="BPSampleSetType">
     <xs:annotation>
       <xs:documentation>
-        BP_SAMPLE_SET serves as a container for a set of samples and a name space
+        SAMPLE_SET serves as a container for a set of samples and a name space
         for establishing referential integrity between them.
       </xs:documentation>
     </xs:annotation>
 
   </xs:element>
 
-  <xs:element name="BP_SAMPLE" type="BPSampleType"/>
+  <xs:element name="BIOLOGICAL_BEING" type="BiologicalBeingType"/>
+  <xs:element name="SPECIMEN" type="SpecimenType"/>
+  <xs:element name="BLOCK" type="BlockType"/>
+  <xs:element name="SLIDE" type="SlideType"/>
 
 </xs:schema>
