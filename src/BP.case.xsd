@@ -42,16 +42,6 @@
                     </xs:complexContent>
                 </xs:complexType>
             </xs:element>
-            <xs:element name="RELATED_BLOCKS" maxOccurs="unbounded" minOccurs="0">
-                <xs:annotation>
-                    <xs:documentation>Identifies blocks belonging to the case.</xs:documentation>
-                </xs:annotation>
-                <xs:complexType>
-                    <xs:complexContent>
-                        <xs:extension base="sra:RefObjectType"> </xs:extension>
-                    </xs:complexContent>
-                </xs:complexType>
-            </xs:element>
           </xs:sequence>
       </xs:extension>
     </xs:complexContent>
