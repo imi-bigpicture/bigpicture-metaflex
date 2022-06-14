@@ -3,7 +3,12 @@
     <xs:import namespace="SRA.common" schemaLocation="SRA.common.xsd"/>
     <xs:import namespace="BP.common" schemaLocation="BP.common.xsd"/>
 
-
+    <xs:complexType name="ImageFilesType">
+        <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="1" name="FILE"
+                type="ImageFileType"/>
+        </xs:sequence>
+    </xs:complexType>
     <xs:complexType name="ImageFileType">
         <xs:complexContent>
             <xs:extension base="bp:FileBaseType">
@@ -75,16 +80,10 @@
                         </xs:complexType>
                     </xs:element>
                     <xs:sequence>
-                        <xs:element name="FILES">
+                        <xs:element name="FILES" type="ImageFilesType">
                             <xs:annotation>
                                 <xs:documentation>Data files associated with the image.</xs:documentation>
                             </xs:annotation>
-                            <xs:complexType>
-                                <xs:sequence>
-                                    <xs:element maxOccurs="unbounded" minOccurs="1" name="FILE"
-                                        type="ImageFileType"/>
-                                </xs:sequence>
-                            </xs:complexType>
                         </xs:element>
                     </xs:sequence>
                 </xs:sequence>
