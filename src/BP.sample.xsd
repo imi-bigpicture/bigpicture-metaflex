@@ -39,30 +39,6 @@
     </xs:complexContent>
   </xs:complexType>
 
-  <xs:complexType name="SpecimenCollectionType">
-    <xs:annotation>
-      <xs:documentation>
-        A collection of specimens removed from a human/animal being.
-      </xs:documentation>
-    </xs:annotation>
-    <xs:complexContent>
-      <xs:extension base="bp:BPObjectType">
-        <xs:sequence>
-          <xs:element name="EXTRACTED_FROM" maxOccurs="1" minOccurs="1">
-            <xs:annotation>
-              <xs:documentation>Identifies the biological being the specimen collection is taken from.</xs:documentation>
-            </xs:annotation>
-            <xs:complexType>
-                <xs:complexContent>
-                    <xs:extension base="sra:RefObjectType"> </xs:extension>
-                </xs:complexContent>
-            </xs:complexType>
-          </xs:element>
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-
   <xs:complexType name="BlockType">
     <xs:annotation>
       <xs:documentation>
@@ -116,7 +92,6 @@
     <xs:choice>
       <xs:element name="BIOLOGICAL_BEING" type="BiologicalBeingType"/>
       <xs:element name="SPECIMEN" type="SpecimenType"/>
-      <xs:element name="SPECIMEN_COLLECTION" type="SpecimenCollectionType"/>
       <xs:element name="BLOCK" type="BlockType"/>
       <xs:element name="SLIDE" type="SlideType"/>
     </xs:choice>
@@ -135,7 +110,6 @@
 
   <xs:element name="BIOLOGICAL_BEING" type="BiologicalBeingType"/>
   <xs:element name="SPECIMEN" type="SpecimenType"/>
-  <xs:element name="SPECIMEN_COLLECTION" type="SpecimenCollectionType"/>
   <xs:element name="BLOCK" type="BlockType"/>
   <xs:element name="SLIDE" type="SlideType"/>
 
