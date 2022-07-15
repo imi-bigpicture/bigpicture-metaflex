@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"  xmlns:sra="SRA.common" xmlns:bp="BP.common">
+    <xs:import namespace="SRA.common" schemaLocation="SRA.common.xsd"/>
+    <xs:import namespace="BP.common" schemaLocation="BP.common.xsd"/>
+
+
+    <xs:complexType name="ObserverType">
+        <xs:annotation>
+            <xs:documentation>A BP observer object describes the observer that has performed an observation.</xs:documentation>
+        </xs:annotation>
+        <xs:complexContent>
+            <xs:extension base="bp:BPObjectType">
+                <!-- TBD -->
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="ObservationCodedAttributeSetType">
+        <xs:annotation>
+            <xs:documentation>
+            </xs:documentation>
+        </xs:annotation>
+        <xs:sequence maxOccurs="unbounded" minOccurs="1">
+            <xs:element name="CODED_ATTRIBUTE" type="bp:CodedAttributeType"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="ObservationCustomAttributeSetType">
+        <xs:annotation>
+            <xs:documentation>
+            </xs:documentation>
+        </xs:annotation>
+        <xs:sequence maxOccurs="unbounded" minOccurs="1">
+            <xs:choice>
+                <xs:element name="ATTRIBUTE" type="sra:AttributeType"/>
+                <xs:element name="CODED_ATTRIBUTE" type="bp:CodedAttributeType"/>
+                <xs:element name="NUMERIC_ATTRIBUTE" type="bp:NumericAttributeType"/>
+                <xs:element name="ATTRIBUTE_SET" type="bp:AttributeSetType"/>
+            </xs:choice>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="StatementType">
+        <xs:annotation>
+            <xs:documentation>A BP statement object describes the statments for an observeration.</xs:documentation>
+        </xs:annotation>
+        <xs:complexContent>
+            <xs:extension base="bp:BPObjectType">
+                <xs:sequence>
+                    <xs:element minOccurs="1" maxOccurs="1" name="STATEMENT_TYPE" >
+                        <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                            <xs:enumeration value="Diagnosis"/>
+                            <xs:enumeration value="Macroscopic Description"/>
+                            <xs:enumeration value="Microscopic Description"/>
+                            <xs:enumeration value="Finding"/>
+                            </xs:restriction>
+                        </xs:simpleType>
+                    </xs:element>
+                    <xs:element minOccurs="1" maxOccurs="1" name="STATEMENT_STATUS" >
+                        <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                            <xs:enumeration value="Summary"/>
+                            <xs:enumeration value="Distinct"/>
+                            </xs:restriction>
+                        </xs:simpleType>
+                    </xs:element>
+                    <xs:element name="CODED_ATTRIBUTES_SET" minOccurs="0" maxOccurs="1" type="ObservationCodedAttributeSetType"/>
+                    <xs:element name="CUSTOM_ATTRIBUTES_SET" minOccurs="0" maxOccurs="1" type="ObservationCustomAttributeSetType"/>
+                    <xs:element name="FREETEXT" minOccurs="0" maxOccurs="1" type="xs:string"/>
+
+                </xs:sequence>
+
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="ObservationSetType">
+        <xs:sequence maxOccurs="unbounded" minOccurs="1">
+            <xs:element name="OBSERVATION" type="ObservationType"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:element name="OBSERVATION_SET" type="ObservationSetType">
+        <xs:annotation>
+            <xs:documentation>A container of observation objects.</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+
+    <xs:element name="OBSERVATION" type="ObservationType"/>
+
+    <xs:complexType name="ObservationType">
+        <xs:annotation>
+            <xs:documentation>A BP observation object captures observation objects.</xs:documentation>
+        </xs:annotation>
+        <xs:complexContent>
+            <xs:extension base="bp:BPObjectType">
+                <xs:sequence>
+                    <xs:element name="STUDY_REF" minOccurs="1">
+                        <xs:annotation>
+                            <xs:documentation>Identifies the parent study.</xs:documentation>
+                        </xs:annotation>
+                        <xs:complexType>
+                            <xs:complexContent>
+                                <xs:extension base="sra:RefObjectType"> </xs:extension>
+                            </xs:complexContent>
+                        </xs:complexType>
+                    </xs:element>
+                    <xs:sequence maxOccurs="1" minOccurs="1">
+                        <xs:choice >
+                            <xs:element name="ANNOTATION_REF" minOccurs="0" maxOccurs="1">
+                                <xs:annotation>
+                                    <xs:documentation>Identifies the referenced annotation.</xs:documentation>
+                                </xs:annotation>
+                                <xs:complexType>
+                                    <xs:complexContent>
+                                        <xs:extension base="sra:RefObjectType"> </xs:extension>
+                                    </xs:complexContent>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="CASE_REF" minOccurs="0" maxOccurs="1">
+                                <xs:annotation>
+                                    <xs:documentation>Identifies the referenced case.</xs:documentation>
+                                </xs:annotation>
+                                <xs:complexType>
+                                    <xs:complexContent>
+                                        <xs:extension base="sra:RefObjectType"> </xs:extension>
+                                    </xs:complexContent>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="BIOLOGICALBEING_REF" minOccurs="0" maxOccurs="1">
+                                <xs:annotation>
+                                    <xs:documentation>Identifies the referenced biological being.</xs:documentation>
+                                </xs:annotation>
+                                <xs:complexType>
+                                    <xs:complexContent>
+                                        <xs:extension base="sra:RefObjectType"> </xs:extension>
+                                    </xs:complexContent>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="SPECIMEN_REF" minOccurs="0" maxOccurs="1">
+                                <xs:annotation>
+                                    <xs:documentation>Identifies the referenced specimen.</xs:documentation>
+                                </xs:annotation>
+                                <xs:complexType>
+                                    <xs:complexContent>
+                                        <xs:extension base="sra:RefObjectType"> </xs:extension>
+                                    </xs:complexContent>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="BLOCK_REF" minOccurs="0" maxOccurs="1">
+                                <xs:annotation>
+                                    <xs:documentation>Identifies the referenced block.</xs:documentation>
+                                </xs:annotation>
+                                <xs:complexType>
+                                    <xs:complexContent>
+                                        <xs:extension base="sra:RefObjectType"> </xs:extension>
+                                    </xs:complexContent>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="SLIDE_REF" minOccurs="0" maxOccurs="1">
+                                <xs:annotation>
+                                    <xs:documentation>Identifies the referenced slide.</xs:documentation>
+                                </xs:annotation>
+                                <xs:complexType>
+                                    <xs:complexContent>
+                                        <xs:extension base="sra:RefObjectType"> </xs:extension>
+                                    </xs:complexContent>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="IMAGE_REF" minOccurs="0" maxOccurs="1">
+                                <xs:annotation>
+                                    <xs:documentation>Identifies the referenced image.</xs:documentation>
+                                </xs:annotation>
+                                <xs:complexType>
+                                    <xs:complexContent>
+                                        <xs:extension base="sra:RefObjectType"> </xs:extension>
+                                    </xs:complexContent>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:choice>
+                    </xs:sequence>
+                    <xs:element name="OBSERVER_REF" minOccurs="1">
+                        <xs:annotation>
+                            <xs:documentation>Identifies the observer.</xs:documentation>
+                        </xs:annotation>
+                        <xs:complexType>
+                            <xs:complexContent>
+                                <xs:extension base="sra:RefObjectType"> </xs:extension>
+                            </xs:complexContent>
+                        </xs:complexType>
+                    </xs:element>
+                    <xs:element name="STATEMENT" minOccurs="1" type="StatementType">
+                        <xs:annotation>
+                            <xs:documentation>The statements for the observation.</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+</xs:schema>
