@@ -4,6 +4,12 @@
     <xs:import namespace="BP.common" schemaLocation="BP.common.xsd"/>
 
 
+    <xs:complexType name="AnnotationFilesType">
+        <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="1" name="FILE"
+                type="AnnotationFileType"/>
+        </xs:sequence>
+    </xs:complexType>
     <xs:complexType name="AnnotationFileType">
         <xs:complexContent>
             <xs:extension base="bp:FileBaseType">
@@ -67,15 +73,10 @@
                         </xs:complexType>
                     </xs:element>
                     <xs:sequence>
-                        <xs:element name="FILES">
+                        <xs:element name="FILES" type="AnnotationFilesType">
                             <xs:annotation>
                                 <xs:documentation>Data files associated with the annotation.</xs:documentation>
                             </xs:annotation>
-                            <xs:complexType>
-                                <xs:sequence>
-                                    <xs:element maxOccurs="unbounded" minOccurs="1" name="FILE" type="AnnotationFileType"/>
-                                </xs:sequence>
-                            </xs:complexType>
                         </xs:element>
                     </xs:sequence>
                 </xs:sequence>

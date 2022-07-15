@@ -50,7 +50,7 @@
         <xs:sequence>
           <xs:element name="SAMPLED_FROM" maxOccurs="unbounded" minOccurs="1">
             <xs:annotation>
-              <xs:documentation>Identifies the specimen(s) the block is created from.</xs:documentation>
+              <xs:documentation>Identifies the specimen(s) or specimen collection(s) the block is created from.</xs:documentation>
             </xs:annotation>
             <xs:complexType>
                 <xs:complexContent>
@@ -72,7 +72,7 @@
     <xs:complexContent>
       <xs:extension base="bp:BPObjectType">
         <xs:sequence>
-          <xs:element name="CREATED_FROM" maxOccurs="1" minOccurs="1">
+          <xs:element name="CREATED_FROM" maxOccurs="unbounded" minOccurs="1">
             <xs:annotation>
               <xs:documentation>Identifies the block the slide is created from.</xs:documentation>
             </xs:annotation>
