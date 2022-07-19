@@ -6,7 +6,7 @@
   <xs:complexType name="CaseType">
     <xs:annotation>
       <xs:documentation>
-        A pathological case that references one biological being and one or more specimens and/or blocks.
+        A pathological case that references one biological being and one or more specimens.
       </xs:documentation>
     </xs:annotation>
     <xs:complexContent>
@@ -25,16 +25,6 @@
             <xs:element name="RELATED_SPECIMENS" maxOccurs="unbounded" minOccurs="0">
                 <xs:annotation>
                     <xs:documentation>Identifies specimens belonging to the case.</xs:documentation>
-                </xs:annotation>
-                <xs:complexType>
-                    <xs:complexContent>
-                        <xs:extension base="sra:RefObjectType"> </xs:extension>
-                    </xs:complexContent>
-                </xs:complexType>
-            </xs:element>
-            <xs:element name="RELATED_SPECIMEN_COLLECTIONS" maxOccurs="unbounded" minOccurs="0">
-                <xs:annotation>
-                    <xs:documentation>Identifies specimen collections belonging to the case.</xs:documentation>
                 </xs:annotation>
                 <xs:complexType>
                     <xs:complexContent>
