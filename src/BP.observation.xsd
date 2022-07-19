@@ -44,35 +44,30 @@
         <xs:annotation>
             <xs:documentation>A BP statement object describes the statments for an observeration.</xs:documentation>
         </xs:annotation>
-        <xs:complexContent>
-            <xs:extension base="bp:BPObjectType">
-                <xs:sequence>
-                    <xs:element minOccurs="1" maxOccurs="1" name="STATEMENT_TYPE" >
-                        <xs:simpleType>
-                            <xs:restriction base="xs:string">
-                            <xs:enumeration value="Diagnosis"/>
-                            <xs:enumeration value="Macroscopic Description"/>
-                            <xs:enumeration value="Microscopic Description"/>
-                            <xs:enumeration value="Finding"/>
-                            </xs:restriction>
-                        </xs:simpleType>
-                    </xs:element>
-                    <xs:element minOccurs="1" maxOccurs="1" name="STATEMENT_STATUS" >
-                        <xs:simpleType>
-                            <xs:restriction base="xs:string">
-                            <xs:enumeration value="Summary"/>
-                            <xs:enumeration value="Distinct"/>
-                            </xs:restriction>
-                        </xs:simpleType>
-                    </xs:element>
-                    <xs:element name="CODED_ATTRIBUTES_SET" minOccurs="0" maxOccurs="1" type="StatementCodedAttributeSetType"/>
-                    <xs:element name="CUSTOM_ATTRIBUTES_SET" minOccurs="0" maxOccurs="1" type="StatementCustomAttributeSetType"/>
-                    <xs:element name="FREETEXT" minOccurs="0" maxOccurs="1" type="xs:string"/>
-
-                </xs:sequence>
-
-            </xs:extension>
-        </xs:complexContent>
+            <xs:sequence>
+                <xs:element minOccurs="1" maxOccurs="1" name="STATEMENT_TYPE" >
+                    <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                        <xs:enumeration value="Diagnosis"/>
+                        <xs:enumeration value="Macroscopic Description"/>
+                        <xs:enumeration value="Microscopic Description"/>
+                        <xs:enumeration value="Finding"/>
+                        </xs:restriction>
+                    </xs:simpleType>
+                </xs:element>
+                <xs:element minOccurs="1" maxOccurs="1" name="STATEMENT_STATUS" >
+                    <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                        <xs:enumeration value="Summary"/>
+                        <xs:enumeration value="Distinct"/>
+                        </xs:restriction>
+                    </xs:simpleType>
+                </xs:element>
+                <xs:element name="CODED_ATTRIBUTES_SET" minOccurs="0" maxOccurs="1" type="StatementCodedAttributeSetType"/>
+                <xs:element name="CUSTOM_ATTRIBUTES_SET" minOccurs="0" maxOccurs="1" type="StatementCustomAttributeSetType"/>
+                <xs:element name="FREETEXT" minOccurs="0" maxOccurs="1" type="xs:string"/>
+                <xs:element name="ATTRIBUTES" minOccurs="0" maxOccurs="1" type="bp:BPAttributesType" />
+            </xs:sequence>
     </xs:complexType>
 
     <xs:complexType name="ObservationSetType">
