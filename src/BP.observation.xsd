@@ -15,7 +15,7 @@
         </xs:complexContent>
     </xs:complexType>
 
-    <xs:complexType name="ObservationCodedAttributeSetType">
+    <xs:complexType name="StatementCodedAttributeSetType">
         <xs:annotation>
             <xs:documentation>
             </xs:documentation>
@@ -25,7 +25,7 @@
         </xs:sequence>
     </xs:complexType>
 
-    <xs:complexType name="ObservationCustomAttributeSetType">
+    <xs:complexType name="StatementCustomAttributeSetType">
         <xs:annotation>
             <xs:documentation>
             </xs:documentation>
@@ -65,8 +65,8 @@
                             </xs:restriction>
                         </xs:simpleType>
                     </xs:element>
-                    <xs:element name="CODED_ATTRIBUTES_SET" minOccurs="0" maxOccurs="1" type="ObservationCodedAttributeSetType"/>
-                    <xs:element name="CUSTOM_ATTRIBUTES_SET" minOccurs="0" maxOccurs="1" type="ObservationCustomAttributeSetType"/>
+                    <xs:element name="CODED_ATTRIBUTES_SET" minOccurs="0" maxOccurs="1" type="StatementCodedAttributeSetType"/>
+                    <xs:element name="CUSTOM_ATTRIBUTES_SET" minOccurs="0" maxOccurs="1" type="StatementCustomAttributeSetType"/>
                     <xs:element name="FREETEXT" minOccurs="0" maxOccurs="1" type="xs:string"/>
 
                 </xs:sequence>
