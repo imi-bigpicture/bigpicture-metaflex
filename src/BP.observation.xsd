@@ -185,7 +185,7 @@
                             </xs:complexContent>
                         </xs:complexType>
                     </xs:element>
-                    <xs:element name="STATEMENT" minOccurs="1" type="StatementType">
+                    <xs:element name="STATEMENT" maxOccurs="unbounded" minOccurs="1" type="StatementType">
                         <xs:annotation>
                             <xs:documentation>The statements for the observation.</xs:documentation>
                         </xs:annotation>
