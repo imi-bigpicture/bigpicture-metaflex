@@ -17,11 +17,11 @@
 
   <xs:complexType name="StainSetType">
       <xs:sequence minOccurs="1" maxOccurs="unbounded">
-        <xs:element name="STAINS" type="StainType"/>
+        <xs:element name="STAIN" type="StainType"/>
       </xs:sequence>
   </xs:complexType>
 
-  <xs:element name="STAINS_SET" type="StainSetType">
+  <xs:element name="STAIN_SET" type="StainSetType">
     <xs:annotation>
       <xs:documentation>
       </xs:documentation>
