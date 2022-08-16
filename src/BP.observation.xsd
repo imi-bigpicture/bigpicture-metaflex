@@ -189,7 +189,7 @@
                             </xs:element>
                         </xs:choice>
                     </xs:sequence>
-                    <xs:element name="OBSERVER_REF" minOccurs="1">
+                    <xs:element name="OBSERVER_REF" maxOccurs="unbounded" minOccurs="0">
                         <xs:annotation>
                             <xs:documentation>Identifies the observer.</xs:documentation>
                         </xs:annotation>
