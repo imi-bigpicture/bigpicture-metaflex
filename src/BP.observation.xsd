@@ -58,30 +58,76 @@
         <xs:annotation>
             <xs:documentation>A BP statement object describes the statments for an observeration.</xs:documentation>
         </xs:annotation>
-            <xs:sequence>
-                <xs:element minOccurs="1" maxOccurs="1" name="STATEMENT_TYPE" >
-                    <xs:simpleType>
-                        <xs:restriction base="xs:string">
-                        <xs:enumeration value="Diagnosis"/>
-                        <xs:enumeration value="Macroscopic Description"/>
-                        <xs:enumeration value="Microscopic Description"/>
-                        <xs:enumeration value="Finding"/>
-                        </xs:restriction>
-                    </xs:simpleType>
-                </xs:element>
-                <xs:element minOccurs="1" maxOccurs="1" name="STATEMENT_STATUS" >
-                    <xs:simpleType>
-                        <xs:restriction base="xs:string">
-                        <xs:enumeration value="Summary"/>
-                        <xs:enumeration value="Distinct"/>
-                        </xs:restriction>
-                    </xs:simpleType>
-                </xs:element>
-                <xs:element name="CODED_ATTRIBUTES_SET" minOccurs="0" maxOccurs="1" type="StatementCodedAttributeSetType"/>
-                <xs:element name="CUSTOM_ATTRIBUTES_SET" minOccurs="0" maxOccurs="1" type="StatementCustomAttributeSetType"/>
-                <xs:element name="FREETEXT" minOccurs="0" maxOccurs="1" type="xs:string"/>
-                <xs:element name="ATTRIBUTES" minOccurs="0" maxOccurs="1" type="bp:BPAttributesType" />
-            </xs:sequence>
+        <xs:sequence>
+            <xs:element minOccurs="1" maxOccurs="1" name="STATEMENT_TYPE" >
+                <xs:annotation>
+                    <xs:documentation>The type of the statement.</xs:documentation>
+                </xs:annotation>
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="Diagnosis">
+                            <xs:annotation>
+                                <xs:documentation></xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="Macroscopic Description">
+                            <xs:annotation>
+                                <xs:documentation></xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="Microscopic Description">
+                            <xs:annotation>
+                                <xs:documentation></xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="Finding">
+                            <xs:annotation>
+                                <xs:documentation></xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element minOccurs="1" maxOccurs="1" name="STATEMENT_STATUS" >
+                <xs:annotation>
+                    <xs:documentation>The status of the statement.</xs:documentation>
+                </xs:annotation>
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="Summary">
+                            <xs:annotation>
+                                <xs:documentation>Integrating downstream information into the statement about the given entity, thereby the statement is not necessarily true for all downstream entities (e.g. BP Images) but only true for the entire collection/set of downstream or related entities.</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="Distinct">
+                            <xs:annotation>
+                                <xs:documentation>The statement is true for the entity it is related to and all downstream entities.</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="CODED_ATTRIBUTES_SET" minOccurs="0" maxOccurs="1" type="StatementCodedAttributeSetType">
+                <xs:annotation>
+                    <xs:documentation>These types of attributes refer to attributes that can be coded by the means of some internationally or at least published schema, classification, nomenclature or ontology. They comprise the same functionality as all `CodedAttributeTypes` in the BP XSD Schema. As the complexity of a pathological statement can be in many instances not be coded using only one Ontology/Classifiation/Nomenclature (I.e. ICDO + TNM or multiple SEND/CDISC Variables) it was decided that one can add multiple coded Attributes to a given statement.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="CUSTOM_ATTRIBUTES_SET" minOccurs="0" maxOccurs="1" type="StatementCustomAttributeSetType">
+                <xs:annotation>
+                    <xs:documentation>These types of attributes refer to information which can be stored by the means of a 'TAG' > 'VALUE' concept. All different types of BP XSD Schema Attributes can be used here.  As the complexity of a pathological statement can require a set of Custom Attributes (I.e. set of customly defined morphological descriptors) it was decided that multiple Custom Attributes can be assigend to a given statement.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="FREETEXT" minOccurs="0" maxOccurs="1" type="xs:string">
+                <xs:annotation>
+                    <xs:documentation>This section of a statement comprises information that is only available as free text. It should be used to store original unparsed data, extracted from some source. </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="ATTRIBUTES" minOccurs="0" maxOccurs="1" type="bp:BPAttributesType">
+                <xs:annotation>
+                    <xs:documentation></xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
     </xs:complexType>
 
     <xs:complexType name="ObservationSetType">
@@ -199,9 +245,9 @@
                             </xs:complexContent>
                         </xs:complexType>
                     </xs:element>
-                    <xs:element name="STATEMENT" maxOccurs="unbounded" minOccurs="1" type="StatementType">
+                    <xs:element name="STATEMENT" maxOccurs="1" minOccurs="1" type="StatementType">
                         <xs:annotation>
-                            <xs:documentation>The statements for the observation.</xs:documentation>
+                            <xs:documentation>The statement for the observation.</xs:documentation>
                         </xs:annotation>
                     </xs:element>
                 </xs:sequence>
