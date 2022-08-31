@@ -22,7 +22,7 @@
                     </xs:complexContent>
                 </xs:complexType>
             </xs:element>
-            <xs:element name="RELATED_SPECIMENS" maxOccurs="unbounded" minOccurs="0">
+            <xs:element name="RELATED_SPECIMENS" maxOccurs="unbounded" minOccurs="1">
                 <xs:annotation>
                     <xs:documentation>Identifies specimens belonging to the case.</xs:documentation>
                 </xs:annotation>
@@ -47,8 +47,7 @@
 
   <xs:element name="CASE_SET" type="CaseSetType">
     <xs:annotation>
-      <xs:documentation>
-      </xs:documentation>
+      <xs:documentation>A container of case objects. </xs:documentation>
     </xs:annotation>
   </xs:element>
 

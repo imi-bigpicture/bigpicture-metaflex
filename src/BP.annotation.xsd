@@ -56,19 +56,13 @@
                             </xs:complexContent>
                         </xs:complexType>
                     </xs:element>
-                    <xs:element name="IMAGE_REF" maxOccurs="unbounded" minOccurs="1">
+                    <xs:element name="IMAGE_REF" minOccurs="1">
                         <xs:annotation>
-                            <xs:documentation>One or more images associated with the annotation.</xs:documentation>
+                            <xs:documentation>Image associated with the annotation.</xs:documentation>
                         </xs:annotation>
                         <xs:complexType>
                             <xs:complexContent>
-                                <xs:extension base="com:RefObjectType">
-                                    <xs:attribute name="label" type="xs:string">
-                                        <xs:annotation>
-                                            <xs:documentation>A label associating the image with image references in data files.</xs:documentation>
-                                        </xs:annotation>
-                                    </xs:attribute>
-                                </xs:extension>
+                                <xs:extension base="com:RefObjectType"></xs:extension>
                             </xs:complexContent>
                         </xs:complexType>
                     </xs:element>
