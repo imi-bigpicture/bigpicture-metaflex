@@ -39,6 +39,7 @@
     </xs:element>
 
     <xs:element name="IMAGE" type="ImageType"/>
+
     <xs:complexType name="ImageType">
         <xs:annotation>
             <xs:documentation>A BP image object captures image objects.
