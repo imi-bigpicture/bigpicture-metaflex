@@ -2,10 +2,24 @@
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:bp="BP.common">
   <xs:import namespace="BP.common" schemaLocation="BP.common.xsd"/>
 
+  <xs:complexType name="StainSetType">
+    <xs:sequence minOccurs="1" maxOccurs="unbounded">
+      <xs:element name="STAIN" type="StainType"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:element name="STAIN_SET" type="StainSetType">
+    <xs:annotation>
+      <xs:documentation>A container of staining information objects. </xs:documentation>
+    </xs:annotation>
+  </xs:element>
+
+  <xs:element name="STAIN" type="StainType"/>
+
   <xs:complexType name="StainType">
     <xs:annotation>
       <xs:documentation>
-        Describes a stain for a slide. Cant be referenced.
+        Describes a stain for a slide. Can be referenced. The stain is defined by Attributes (string, coded, numeric or set) using  tags 'staining_compound', 'staining_target', 'staining_method', 'staining_reporter_type', and/or 'staining_reporter'.
       </xs:documentation>
     </xs:annotation>
     <xs:complexContent>
@@ -13,22 +27,4 @@
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-
-
-  <xs:complexType name="StainSetType">
-      <xs:sequence minOccurs="1" maxOccurs="unbounded">
-        <xs:element name="STAIN" type="StainType"/>
-      </xs:sequence>
-  </xs:complexType>
-
-  <xs:element name="STAIN_SET" type="StainSetType">
-    <xs:annotation>
-      <xs:documentation>
-      </xs:documentation>
-    </xs:annotation>
-
-  </xs:element>
-
-  <xs:element name="STAIN" type="StainType"/>
-
 </xs:schema>

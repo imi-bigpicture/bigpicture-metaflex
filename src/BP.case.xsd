@@ -47,8 +47,7 @@
 
   <xs:element name="CASE_SET" type="CaseSetType">
     <xs:annotation>
-      <xs:documentation>
-      </xs:documentation>
+      <xs:documentation>A container of case objects. </xs:documentation>
     </xs:annotation>
   </xs:element>
 
