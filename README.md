@@ -85,7 +85,7 @@ The `STATEMENT` is of StatementType, which has the following elements:
 - `FREETEXT`: This section of a statement comprises information that is only available as free text. It should be used to store original unparsed data, extracted from some source.
 
 ### BP.staining.xsd
-Implements the StainType that captures stain objects. The StainType extends `BPObjectType`. A stain is defined by Attributes (string, coded, numeric or set) using tags 'staining_compound', 'staining_target', 'staining_method', 'staining_reporter_type', and/or 'staining_reporter'.
+Implements the StainType that captures stain objects. The StainType extends `BPObjectType`. A stain is defined by Attributes (string, coded, numeric or set) using tags `staining_compound`, `taining_target`, `staining_method`, `staining_reporter_type`, and/or `staining_reporter`.
 
 ### BP.case.xsd
 Implements the CaseType that represents a pathological case that references one biological being and one or more specimens. The CaseType extends `BPObjectType` and has the following elements:
