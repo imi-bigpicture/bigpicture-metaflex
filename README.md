@@ -56,8 +56,38 @@ Implements the BPDatasetType which is an extension of the EGA DatasetType with t
 - `IMAGE_REF`: Identifies the images which are part of this dataset.
 - `ANNOTATION_REF`: Identifies the annotations which are part of this dataset.
 
+### BP.observation.xsd
+Implements the ObservationType that captures observation objects. The ObservationType extends the `BPObjectType` and has the following elements:
+- `STUDY_REF`: Identifies the parent study.
+- `OBSERVER_REF`: Identifies the observer (optional).
+- `STATEMENT`: The statement for the observation.
 
-### BPschema.xsd
+The object that the observation references is defined by using one (and only one) of the following elements:
+- `ANNOTATION_REF`: Identifies the referenced annotation.
+- `CASE_REF`: Identifies the referenced case.
+- `BIOLOGICALBEING_REF`: Identifies the referenced biological being.
+- `SPECIMEN_REF`: Identifies the referenced specimen.
+- `BLOCK_REF`: Identifies the referenced block.
+- `SLIDE_REF`: Identifies the referenced slide.
+- `IMAGE_REF`: Identifies the referenced image.
+
+The `STATEMENT` is of StatementType, which has the following elements:
+- `STATEMENT_TYPE`: The type of the statement. Either:
+    - `Diagnosis`
+    - `Macroscopic Description`
+    - `Microscopic Description`
+    - `Finding`
+- `STATEMENT_STATUS`: The status of the statement. Either:
+     - `Summary`: Integrating downstream information into the statement about the given entity, thereby the statement is not necessarily true for all downstream entities (e.g. BP Images) but only true for the entire collection/set of downstream or related entities.
+    - `Distinct`: The statement is true for the entity it is related to and all downstream entities.
+- `CODED_ATTRIBUTES_SET`: These types of attributes refer to attributes that can be coded by the means of some internationally or at least published schema, classification, nomenclature or ontology. They comprise the same functionality as all `CodedAttributeTypes` in the BP XSD Schema. As the complexity of a pathological statement can be in many instances not be coded using only one Ontology/Classifiation/Nomenclature (I.e. ICDO + TNM or multiple SEND/CDISC Variables) it was decided that one can add multiple coded Attributes to a given statement.
+- `CUSTOM_ATTRIBUTES_SET`: These types of attributes refer to information which can be stored by the means of a 'TAG' > 'VALUE' concept. All different types of BP XSD Schema Attributes can be used here.  As the complexity of a pathological statement can require a set of Custom Attributes (I.e. set of customly defined morphological descriptors) it was decided that multiple Custom Attributes can be assigend to a given statement.
+- `FREETEXT`: This section of a statement comprises information that is only available as free text. It should be used to store original unparsed data, extracted from some source.
+
+### BP.staining.xsd
+Implements the StainType that captures stain objects. The StainType extends the `BPObjectType`. A stain is defined by Attributes (string, coded, numeric or set) using tags 'staining_compound', 'staining_target', 'staining_method', 'staining_reporter_type', and/or 'staining_reporter'.
+
+### BP.schema.xsd
 Collects the required schema files into one file through imports.
 
 ## Study, Policy, DAC, and Submission

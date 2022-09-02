@@ -19,7 +19,7 @@
   <xs:complexType name="StainType">
     <xs:annotation>
       <xs:documentation>
-        Describes a stain for a slide. Can be referenced. The stain is defined by Attributes (string, coded, numeric or set) using  tags 'staining_compound', 'staining_target', 'staining_method', 'staining_reporter_type', and/or 'staining_reporter'.
+        Describes a stain for a slide. Can be referenced. The stain is defined by Attributes (string, coded, numeric or set) using tags 'staining_compound', 'staining_target', 'staining_method', 'staining_reporter_type', and/or 'staining_reporter'.
       </xs:documentation>
     </xs:annotation>
     <xs:complexContent>
