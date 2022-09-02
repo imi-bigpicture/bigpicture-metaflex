@@ -35,17 +35,17 @@ Implements the following types:
 - BlockType: A part or a collection of parts of one or many Specimens that has/have been sampled and processed for further investigation. This can for example be a block. The `SAMPLED_FROM` element references the specimen(s) the block was sampled from.
 - SlideType: A physical slide that has been created out of one or more Blocks. The `CREATED_FROM` element references the block the slide was created from.
 
-All types extends the `BPObjectType`, and different types of attributes can thus be assigned to the `ATTRIBUTES` element.
+All types extends `BPObjectType`, and different types of attributes can thus be assigned to the `ATTRIBUTES` element.
 
 ### BP.image.xsd
-Implements the ImageType that captures image objects. The ImageType extends the `BPObjectType` and has the following elements:
+Implements the ImageType that captures image objects. The ImageType extends `BPObjectType` and has the following elements:
 
 - `STUDY_REF`: Identifies the parent study.
 - `IMAGE_OF`: Identifies the slide the image was imaged from.
 - `FILES`: Data files associated with the image.
 
 ### BP.annotation.xsd
-Implements the AnnotationType that captures annotation objects. The AnnotationType extends the `BPObjectType` and has the following elements:
+Implements the AnnotationType that captures annotation objects. The AnnotationType extends `BPObjectType` and has the following elements:
 
 - `STUDY_REF`: Identifies the parent study.
 - `IMAGE_REF`: One or more images associated with the annotation.
@@ -57,19 +57,19 @@ Implements the BPDatasetType which is an extension of the EGA DatasetType with t
 - `ANNOTATION_REF`: Identifies the annotations which are part of this dataset.
 
 ### BP.observation.xsd
-Implements the ObservationType that captures observation objects. The ObservationType extends the `BPObjectType` and has the following elements:
+Implements the ObservationType that captures observation objects. The ObservationType extends `BPObjectType` and has the following elements:
 - `STUDY_REF`: Identifies the parent study.
-- `OBSERVER_REF`: Identifies the observer (optional).
+- `OBSERVER`: Identifies the observer (optional).
 - `STATEMENT`: The statement for the observation.
 
 The object that the observation references is defined by using one (and only one) of the following elements:
-- `ANNOTATION_REF`: Identifies the referenced annotation.
-- `CASE_REF`: Identifies the referenced case.
-- `BIOLOGICALBEING_REF`: Identifies the referenced biological being.
-- `SPECIMEN_REF`: Identifies the referenced specimen.
-- `BLOCK_REF`: Identifies the referenced block.
-- `SLIDE_REF`: Identifies the referenced slide.
-- `IMAGE_REF`: Identifies the referenced image.
+- `ANNOTATION`: Identifies the referenced annotation.
+- `CASE`: Identifies the referenced case.
+- `BIOLOGICALBEING`: Identifies the referenced biological being.
+- `SPECIMEN`: Identifies the referenced specimen.
+- `BLOCK`: Identifies the referenced block.
+- `SLIDE`: Identifies the referenced slide.
+- `IMAGE`: Identifies the referenced image.
 
 The `STATEMENT` is of StatementType, which has the following elements:
 - `STATEMENT_TYPE`: The type of the statement. Either:
@@ -85,7 +85,12 @@ The `STATEMENT` is of StatementType, which has the following elements:
 - `FREETEXT`: This section of a statement comprises information that is only available as free text. It should be used to store original unparsed data, extracted from some source.
 
 ### BP.staining.xsd
-Implements the StainType that captures stain objects. The StainType extends the `BPObjectType`. A stain is defined by Attributes (string, coded, numeric or set) using tags 'staining_compound', 'staining_target', 'staining_method', 'staining_reporter_type', and/or 'staining_reporter'.
+Implements the StainType that captures stain objects. The StainType extends `BPObjectType`. A stain is defined by Attributes (string, coded, numeric or set) using tags 'staining_compound', 'staining_target', 'staining_method', 'staining_reporter_type', and/or 'staining_reporter'.
+
+### BP.case.xsd
+Implements the CaseType that represents a pathological case that references one biological being and one or more specimens. The CaseType extends `BPObjectType` and has the following elements:
+- `BIOLOGICAL_BEING`: Reference to the biological being the case belongs to.
+- `RELATED_SPECIMEN`: References to specimens belonging to the case.
 
 ### BP.schema.xsd
 Collects the required schema files into one file through imports.
