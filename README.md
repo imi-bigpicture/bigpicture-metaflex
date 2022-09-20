@@ -99,5 +99,7 @@ Collects the required schema files into one file through imports.
 The Study, Policy, DAC, and sumbission types are used as in EGA.
 
 ## License
-
 Since the SRA/EGA/ENA metadata schemas are distributed under the Apache 2.0 license that's what we start with.
+
+## Acknowledgement
+This project is part of a project that has received funding from the Innovative Medicines Initiative 2 Joint Undertaking under grant agreement No 945358. This Joint Undertaking receives support from the European Union’s Horizon 2020 research and innovation programme and EFPIA. IMI website: www.imi.europa.eu
