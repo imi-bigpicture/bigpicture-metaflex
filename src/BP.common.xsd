@@ -87,7 +87,7 @@
     <xs:complexType name="CodedAttributeType">
         <xs:annotation>
             <xs:documentation>
-                Reusable attributes to encode tag-code value pairs with optional units.
+                Reusable attributes to encode tag-code value pairs.
             </xs:documentation>
         </xs:annotation>
         <xs:complexContent>
