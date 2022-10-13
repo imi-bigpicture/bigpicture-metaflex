@@ -9,5 +9,5 @@
     <xs:import schemaLocation="EGA.dac.xsd" namespace="SRA"/>
     <xs:import schemaLocation="EGA.policy.xsd" namespace="SRA"/>
     <xs:import schemaLocation="SRA.study.xsd" namespace="SRA"/>
-    <xs:import schemaLocation="SRA.submission.xsd" namespace="SRA"/>
+    <xs:import schemaLocation="BP.submission.xsd" namespace="SRA"/>
 </xs:schema>

@@ -6,6 +6,14 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased] - ...
+### Added
+- BP.submission.xsd derived from SRA.submision.xsd with added BP types.
+
+### Changed
+- CaseType is now included in SAMPLE_SET
+- SpecimenType can optionally reference a case with the PART_OF_CASE-element, replacing the RELATED_SPECIMENS-element on CaseType.
+- For ObservationType the item an observation is made on is moved to the OBSERVED_ON-element.
+
 
 ## [0.2.0] - 2022-09-02
 ### Added
