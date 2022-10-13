@@ -29,31 +29,6 @@
 
     <xs:element name="OBSERVER" type="ObserverType"/>
 
-    <!-- <xs:complexType name="StatementCodedAttributeSetType">
-        <xs:annotation>
-            <xs:documentation>
-            </xs:documentation>
-        </xs:annotation>
-        <xs:sequence maxOccurs="unbounded" minOccurs="1">
-            <xs:element name="CODED_ATTRIBUTE" type="bp:CodedAttributeType"/>
-        </xs:sequence>
-    </xs:complexType>
-
-    <xs:complexType name="StatementCustomAttributeSetType">
-        <xs:annotation>
-            <xs:documentation>
-            </xs:documentation>
-        </xs:annotation>
-        <xs:sequence maxOccurs="unbounded" minOccurs="1">
-            <xs:choice>
-                <xs:element name="ATTRIBUTE" type="sra:AttributeType"/>
-                <xs:element name="CODED_ATTRIBUTE" type="bp:CodedAttributeType"/>
-                <xs:element name="NUMERIC_ATTRIBUTE" type="bp:NumericAttributeType"/>
-                <xs:element name="ATTRIBUTE_SET" type="bp:AttributeSetType"/>
-            </xs:choice>
-        </xs:sequence>
-    </xs:complexType> -->
-
     <xs:complexType name="StatementType">
         <xs:annotation>
             <xs:documentation>A BP statement object describes the statments for an observeration.</xs:documentation>
