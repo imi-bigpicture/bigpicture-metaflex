@@ -170,12 +170,23 @@
         </xs:complexContent>
     </xs:complexType>
 
+    <xs:complexType name="BPCodedAttributesType">
+        <xs:annotation>
+            <xs:documentation>
+                Coded attributes of an object.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:sequence maxOccurs="unbounded" minOccurs="1">
+            <xs:choice>
+                <xs:element name="CODED_ATTRIBUTE" type="bp:CodedAttributeType"/>
+            </xs:choice>
+        </xs:sequence>
+    </xs:complexType>
+
     <xs:complexType name="BPAttributesType">
         <xs:annotation>
             <xs:documentation>
-                Properties and attributes of a object.  These can be entered as
-                tag-coded value pairs. For certain studies, submitters may be asked to follow a
-                community established ontology when describing the work.
+                Attributes of an object. These can be string, code, numeric, or set.
             </xs:documentation>
         </xs:annotation>
         <xs:sequence maxOccurs="unbounded" minOccurs="1">
