@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"  targetNamespace="BP">
     <xs:import schemaLocation="BP.annotation.xsd"/>
-    <xs:import schemaLocation="BP.case.xsd"/>
     <xs:import schemaLocation="BP.dataset.xsd"/>
     <xs:import schemaLocation="BP.image.xsd"/>
     <xs:import schemaLocation="BP.observation.xsd"/>
@@ -10,5 +9,5 @@
     <xs:import schemaLocation="EGA.dac.xsd" namespace="SRA"/>
     <xs:import schemaLocation="EGA.policy.xsd" namespace="SRA"/>
     <xs:import schemaLocation="SRA.study.xsd" namespace="SRA"/>
-    <xs:import schemaLocation="SRA.submission.xsd" namespace="SRA"/>
+    <xs:import schemaLocation="BP.submission.xsd" namespace="SRA"/>
 </xs:schema>
