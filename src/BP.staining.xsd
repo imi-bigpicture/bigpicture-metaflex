@@ -29,13 +29,13 @@
     </xs:complexContent>
   </xs:complexType>
 
-  <xs:complexType name="StainingTypeSetType">
+  <xs:complexType name="StainingSetType">
     <xs:sequence minOccurs="1" maxOccurs="unbounded">
       <xs:element name="STAINING" type="StainingType"/>
     </xs:sequence>
   </xs:complexType>
 
-  <xs:element name="STAINING_SET" type="StainingTypeSetType">
+  <xs:element name="STAINING_SET" type="StainingSetType">
     <xs:annotation>
       <xs:documentation>A container of staining (StainingType) objects. </xs:documentation>
     </xs:annotation>
