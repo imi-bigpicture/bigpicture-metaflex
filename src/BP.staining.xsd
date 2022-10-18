@@ -3,32 +3,6 @@
 <xs:import namespace="SRA.common" schemaLocation="SRA.common.xsd"/>
   <xs:import namespace="BP.common" schemaLocation="BP.common.xsd"/>
 
-  <xs:complexType name="StainSetType">
-    <xs:sequence minOccurs="1" maxOccurs="unbounded">
-      <xs:element name="STAIN" type="StainType"/>
-    </xs:sequence>
-  </xs:complexType>
-
-  <xs:element name="STAIN_SET" type="StainSetType">
-    <xs:annotation>
-      <xs:documentation>A container of stain (StainType) objects. </xs:documentation>
-    </xs:annotation>
-  </xs:element>
-
-  <xs:element name="STAIN" type="StainType"/>
-
-  <xs:complexType name="StainType">
-    <xs:annotation>
-      <xs:documentation>
-        Describes a stain for a slide. Can be referenced. The stain is defined by Attributes (string, coded, numeric or set) using tags 'staining_compound', 'staining_target', 'staining_method', 'staining_reporter_type', and/or 'staining_reporter'.
-      </xs:documentation>
-    </xs:annotation>
-    <xs:complexContent>
-      <xs:extension base="bp:BPObjectType">
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-
   <xs:complexType name="StainingSetType">
     <xs:sequence minOccurs="1" maxOccurs="unbounded">
       <xs:element name="STAINING" type="StainingType"/>
@@ -47,7 +21,7 @@
 <xs:complexType name="StainingType">
   <xs:annotation>
     <xs:documentation>
-      Describes stains used for a slide. Can be referencesd. The stains are defined by referencing to StainType-objects.
+      Describes stains used for a slide. Can be referencesd. Stains are either defined by procedure information or a list of stains.
     </xs:documentation>
   </xs:annotation>
   <xs:complexContent>
@@ -56,19 +30,17 @@
         <xs:choice>
           <xs:element name="PROCEDURE_INFORMATION" minOccurs="1" maxOccurs="1" type="bp:BPAttributesType">
             <xs:annotation>
-                <xs:documentation>Should have tags 'staining_procedure_name' and 'staining_method'</xs:documentation>
-            </xs:annotation>
-          </xs:element>
-          <xs:element name="STAIN" minOccurs="1" maxOccurs="unbounded">
-            <xs:annotation>
                 <xs:documentation>
+                  Describes used procedure for stain of a slide. Should have tags 'staining_procedure_name' and 'staining_method'
                 </xs:documentation>
             </xs:annotation>
-            <xs:complexType>
-                <xs:complexContent>
-                    <xs:extension base="sra:RefObjectType"> </xs:extension>
-                </xs:complexContent>
-            </xs:complexType>
+          </xs:element>
+          <xs:element name="STAIN" minOccurs="1" maxOccurs="unbounded" type="bp:BPAttributesType">
+            <xs:annotation>
+                <xs:documentation>
+                    Describes used stain for a slide. The stain is defined by Attributes (string, coded, numeric or set) using tags 'staining_compound', 'staining_target', 'staining_method', 'staining_reporter_type', and/or 'staining_reporter'.
+                </xs:documentation>
+            </xs:annotation>
           </xs:element>
         </xs:choice>
       </xs:sequence>
