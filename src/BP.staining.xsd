@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:bp="BP.common">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:sra="SRA.common" xmlns:bp="BP.common">
+<xs:import namespace="SRA.common" schemaLocation="SRA.common.xsd"/>
   <xs:import namespace="BP.common" schemaLocation="BP.common.xsd"/>
 
   <xs:complexType name="StainSetType">
@@ -10,7 +11,7 @@
 
   <xs:element name="STAIN_SET" type="StainSetType">
     <xs:annotation>
-      <xs:documentation>A container of staining information objects. </xs:documentation>
+      <xs:documentation>A container of stain (StainType) objects. </xs:documentation>
     </xs:annotation>
   </xs:element>
 
@@ -27,4 +28,51 @@
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
+
+  <xs:complexType name="StainingTypeSetType">
+    <xs:sequence minOccurs="1" maxOccurs="unbounded">
+      <xs:element name="STAINING" type="StainingType"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:element name="STAINING_SET" type="StainingTypeSetType">
+    <xs:annotation>
+      <xs:documentation>A container of staining (StainingType) objects. </xs:documentation>
+    </xs:annotation>
+  </xs:element>
+
+  <xs:element name="STAINING" type="StainingType"/>
+
+
+<xs:complexType name="StainingType">
+  <xs:annotation>
+    <xs:documentation>
+      Describes stains used for a slide. Can be referencesd. The stains are defined by referencing to StainType-objects.
+    </xs:documentation>
+  </xs:annotation>
+  <xs:complexContent>
+    <xs:extension base="bp:BPObjectType">
+      <xs:sequence>
+        <xs:choice>
+          <xs:element name="PROCEDURE_INFORMATION" minOccurs="1" maxOccurs="1" type="bp:BPAttributesType">
+            <xs:annotation>
+                <xs:documentation>Should have tags 'staining_procedure_name' and 'staining_method'</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="STAIN" minOccurs="1" maxOccurs="unbounded">
+            <xs:annotation>
+                <xs:documentation>
+                </xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+                <xs:complexContent>
+                    <xs:extension base="sra:RefObjectType"> </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+          </xs:element>
+        </xs:choice>
+      </xs:sequence>
+    </xs:extension>
+  </xs:complexContent>
+</xs:complexType>
 </xs:schema>

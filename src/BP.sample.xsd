@@ -116,9 +116,9 @@
                 </xs:complexContent>
             </xs:complexType>
           </xs:element>
-          <xs:element name="STAINING_INFORMATION" maxOccurs="unbounded" minOccurs="1">
+          <xs:element name="STAINING_INFORMATION" maxOccurs="1" minOccurs="1">
             <xs:annotation>
-              <xs:documentation>Identifies the stainings (StainType) for the slide.</xs:documentation>
+              <xs:documentation>Identifies the stainings (StainingType) for the slide.</xs:documentation>
             </xs:annotation>
             <xs:complexType>
                 <xs:complexContent>
