@@ -29,14 +29,14 @@
             <xs:element name="PROCEDURE_INFORMATION" minOccurs="1" maxOccurs="1" type="bp:BPAttributesType">
               <xs:annotation>
                   <xs:documentation>
-                    Describes used procedure for stain of a slide. Should have tags 'staining_procedure' and 'staining_method'
+                    Describes used procedure for stain of a slide. Should have tags 'staining_procedure' and 'staining_method'. Only one procedure information can be specified.
                   </xs:documentation>
               </xs:annotation>
             </xs:element>
             <xs:element name="STAIN" minOccurs="1" maxOccurs="unbounded" type="bp:BPAttributesType">
               <xs:annotation>
                   <xs:documentation>
-                      Describes used stain for a slide. The stain is defined by Attributes (string, coded, numeric or set) using tags 'staining_compound', 'staining_target', 'staining_method', 'staining_reporter_type', and/or 'staining_reporter'.
+                      Describes used stain for a slide. The stain is defined by Attributes (string, coded, numeric or set) using tags 'staining_compound', 'staining_target', 'staining_method', 'staining_reporter_type', and/or 'staining_reporter'. Multiple stains can be specified.
                   </xs:documentation>
               </xs:annotation>
             </xs:element>
