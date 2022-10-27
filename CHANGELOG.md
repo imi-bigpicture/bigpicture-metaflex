@@ -14,6 +14,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - SpecimenType can optionally reference a case with the PART_OF_CASE-element, replacing the RELATED_SPECIMENS-element on CaseType.
 - For ObservationType the item an observation is made on is moved to the OBSERVED_ON-element.
 - Replaced StatementCodedAttributeSetType and StatementCustomAttributeSetType with common types BPCodedAttributesType and BPAttributesType.
+- Replaced Stain with Staining that can contain staining procedure information or stains
 
 
 ## [0.2.0] - 2022-09-02
