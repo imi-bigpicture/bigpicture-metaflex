@@ -81,7 +81,7 @@
                         </xs:complexType>
                     </xs:element>
                     <xs:sequence>
-                        <xs:element name="FILES" type="ImageFilesType">
+                        <xs:element name="FILES" minOccurs="1" maxOccurs="unbounded" type="ImageFilesType">
                             <xs:annotation>
                                 <xs:documentation>Data files associated with the image.</xs:documentation>
                             </xs:annotation>
