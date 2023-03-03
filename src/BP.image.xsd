@@ -71,7 +71,7 @@
                     </xs:element>
                     <xs:element maxOccurs="1" minOccurs="1" name="IMAGE_TYPE">
                         <xs:annotation>
-                            <xs:documentation>The type of the image. </xs:documentation>
+                            <xs:documentation>The type of the image.</xs:documentation>
                         </xs:annotation>
                         <xs:complexType>
                             <xs:choice>
