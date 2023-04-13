@@ -2,6 +2,13 @@
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:sra="SRA.common" xmlns:bp="BP.common" targetNamespace="BP.common">
 <xs:import schemaLocation="SRA.common.xsd" namespace="SRA.common"/>
 
+    
+    <xs:simpleType name="ChecksumString">
+      <xs:restriction base="xs:string">
+        <xs:pattern value='[0-9a-f]{64}|[0-9a-f]{32}'/>
+      </xs:restriction>
+    </xs:simpleType>
+    
     <xs:complexType name="FileBaseType">
         <xs:attribute name="filename" type="xs:string" use="required">
             <xs:annotation>
@@ -27,12 +34,12 @@
                 </xs:restriction>
             </xs:simpleType>
         </xs:attribute>
-        <xs:attribute name="checksum" type="xs:string" use="required">
+        <xs:attribute name="checksum" type="ChecksumString" use="required">
             <xs:annotation>
                 <xs:documentation>The file checksum.</xs:documentation>
             </xs:annotation>
         </xs:attribute>
-        <xs:attribute name="unencrypted_checksum" type="xs:string" use="optional">
+        <xs:attribute name="unencrypted_checksum" type="ChecksumString" use="optional">
             <xs:annotation>
                 <xs:documentation>The checksum of the unencrypted file (used in conjunction with the checksum of an encrypted file).</xs:documentation>
             </xs:annotation>
