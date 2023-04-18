@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased] -
 
+### Changed
+
+- ImageType now must contain at least one FILES-element.
+
 ## [0.3.0] - 2023-01-16
 
 ### Added
