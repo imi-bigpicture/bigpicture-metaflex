@@ -9,7 +9,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- Checksum required for FileBaseType.
 - ImageType now must contain at least one FILES-element.
+
+### Removed
+
+- Support for MD5 checksums.
 
 ## [0.3.0] - 2023-01-16
 
