@@ -148,7 +148,7 @@
                         <xs:element name="NUMERIC_ATTRIBUTE" type="bp:NumericAttributeType" minOccurs="0" maxOccurs="unbounded">
                             <xs:annotation>
                                 <xs:documentation>
-                                    Numberic attribute in the set.
+                                    Numeric attribute in the set.
                                 </xs:documentation>
                             </xs:annotation>
                         </xs:element>
