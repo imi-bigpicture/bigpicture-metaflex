@@ -30,7 +30,7 @@
 							</xs:restriction>
 						</xs:simpleType>
 					</xs:element>
-					<xs:element maxOccurs="1" minOccurs="1" name="POLICY_REF" nillable="false">
+					<xs:element maxOccurs="1" minOccurs="1" name="POLICY_REF">
 						<xs:annotation>
 							<xs:documentation>Identifies the data access policy controlling this data set.
 					</xs:documentation>

@@ -11,6 +11,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Checksum required for FileBaseType.
 - ImageType now must contain at least one FILES-element.
+- String, Numeric, and Coded AttributeType are now nillable. This is likely a breaking change, especially the changes to CodedAttributeType.
+- The ATTRIBUTES-element for BPObjectType and CODED_ATTRIBUTES_SET, CUSTOM_ATTRIBUTES_SET, FREETEXT, and ATTRIBUTES elements for StatementType and OBSERVER-element on ObservationType now haw a minOccours of 1 and are nillable.
 
 ### Removed
 
