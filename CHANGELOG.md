@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased] -
 
+## [0.4.0] - 2023-06-30
+
 ### Changed
 
 - Checksum required for FileBaseType.
@@ -52,7 +54,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Implementation of MSMdad 0.1.0.
 
-[Unreleased]: https://github.com/imi-bigpicture/metadata-schema/compare/0.3.0..HEAD
+[Unreleased]: https://github.com/imi-bigpicture/metadata-schema/compare/0.4.0..HEAD
+[0.4.0]: https://github.com/imi-bigpicture/metadata-schema/compare/v0.3.0..v0.4.0
 [0.3.0]: https://github.com/imi-bigpicture/metadata-schema/compare/v0.2.0..v0.3.0
 [0.2.0]: https://github.com/imi-bigpicture/metadata-schema/compare/v0.1.1..v0.2.0
 [0.1.1]: https://github.com/imi-bigpicture/metadata-schema/compare/v0.1.0..v0.1.1
