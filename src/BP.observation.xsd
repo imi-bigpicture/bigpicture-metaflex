@@ -10,7 +10,27 @@
         </xs:annotation>
         <xs:complexContent>
             <xs:extension base="bp:BPObjectType">
-                <!-- TBD -->
+                <xs:sequence>
+                    <xs:element minOccurs="1" maxOccurs="1" name="OBSERVER_TYPE" >
+                        <xs:annotation>
+                            <xs:documentation>The type of observer.</xs:documentation>
+                        </xs:annotation>
+                        <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                                <xs:enumeration value="Human">
+                                    <xs:annotation>
+                                        <xs:documentation></xs:documentation>
+                                    </xs:annotation>
+                                </xs:enumeration>
+                                <xs:enumeration value="Machine">
+                                    <xs:annotation>
+                                        <xs:documentation></xs:documentation>
+                                    </xs:annotation>
+                                </xs:enumeration>
+                            </xs:restriction>
+                        </xs:simpleType>
+                    </xs:element>
+                </xs:sequence>
             </xs:extension>
         </xs:complexContent>
     </xs:complexType>
@@ -212,7 +232,7 @@
                             </xs:choice>
                         </xs:complexType>
                     </xs:element>
-                    <xs:element name="OBSERVER" maxOccurs="unbounded" minOccurs="1" nillable="true">
+                    <xs:element name="OBSERVER" maxOccurs="unbounded" minOccurs="0">
                         <xs:annotation>
                             <xs:documentation>Identifies the observer.</xs:documentation>
                         </xs:annotation>
