@@ -119,7 +119,7 @@
     <xs:complexType name="NumericAttributeType">
         <xs:annotation>
             <xs:documentation>
-                Attribute for tag-numeric value with optional units.
+                Attribute for tag-numeric value.
             </xs:documentation>
         </xs:annotation>
         <xs:complexContent>
@@ -132,10 +132,31 @@
                             </xs:documentation>
                         </xs:annotation>
                     </xs:element>
-                    <xs:element name="UNITS" type="xs:string" minOccurs="0" maxOccurs="1">
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="MeasurementAttributeType">
+        <xs:annotation>
+            <xs:documentation>
+                Attribute for tag-numeric value with units.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:complexContent>
+            <xs:extension base="bp:AttributeBaseType">
+                <xs:sequence>
+                    <xs:element name="VALUE" type="xs:decimal" minOccurs="1" maxOccurs="1" nillable="true">
                         <xs:annotation>
                             <xs:documentation>
-                                Optional scientific units.
+                                Value of the attribute.
+                            </xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="UNITS" type="xs:string" minOccurs="1" maxOccurs="1">
+                        <xs:annotation>
+                            <xs:documentation>
+                                Scientific units of the value.
                             </xs:documentation>
                         </xs:annotation>
                     </xs:element>
@@ -189,6 +210,13 @@
                                 </xs:documentation>
                             </xs:annotation>
                         </xs:element>
+                         <xs:element name="MEASUREMENT_ATTRIBUTE" type="bp:MeasurementAttributeType" minOccurs="0" maxOccurs="unbounded">
+                            <xs:annotation>
+                                <xs:documentation>
+                                    Measurement attribute in the set.
+                                </xs:documentation>
+                            </xs:annotation>
+                        </xs:element>
                         <xs:element name="CODED_ATTRIBUTE" type="bp:CodedAttributeType" minOccurs="0" maxOccurs="unbounded">
                             <xs:annotation>
                                 <xs:documentation>
@@ -233,6 +261,7 @@
                 <xs:element name="ATTRIBUTE" type="bp:StringAttributeType"/>
                 <xs:element name="CODED_ATTRIBUTE" type="bp:CodedAttributeType"/>
                 <xs:element name="NUMERIC_ATTRIBUTE" type="bp:NumericAttributeType"/>
+                <xs:element name="MEASUREMENT_ATTRIBUTE" type="bp:MeasurementAttributeType"/>
                 <xs:element name="ATTRIBUTE_SET" type="bp:AttributeSetType"/>
             </xs:choice>
         </xs:sequence>

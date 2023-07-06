@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased] -
 
+### Added
+
+- MeasurementAttributeType for measurements with numeric value and a unit.
+
+### Changed
+
+- NumericAttributeType can no longer have a unit.
+
 ## [0.4.0] - 2023-06-30
 
 ### Changed
