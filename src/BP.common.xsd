@@ -174,7 +174,7 @@
         <xs:complexContent>
             <xs:extension base="bp:AttributeBaseType">
                 <xs:sequence>
-                    <xs:element name="CODE" type="bp:CodeType" minOccurs="1" maxOccurs="1" nillable="true">
+                    <xs:element name="VALUE" type="bp:CodeType" minOccurs="1" maxOccurs="1" nillable="true">
                         <xs:annotation>
                             <xs:documentation>
                                 Value of the attribute.
