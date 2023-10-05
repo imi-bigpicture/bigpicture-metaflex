@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased] -
 
+### Changed
+
+- Changed max occurs of "CREATED_FROM" in SlideType to 1.
+- Split observer definition from observation file to BP.observer.xsd.
+
 ## [0.6.0] - 2023-07-07
 
 ### Added
