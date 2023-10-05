@@ -106,7 +106,7 @@
     <xs:complexContent>
       <xs:extension base="bp:BPObjectType">
         <xs:sequence>
-          <xs:element name="CREATED_FROM" maxOccurs="unbounded" minOccurs="1">
+          <xs:element name="CREATED_FROM" maxOccurs="1" minOccurs="1">
             <xs:annotation>
               <xs:documentation>Identifies the block the slide is created from.</xs:documentation>
             </xs:annotation>
