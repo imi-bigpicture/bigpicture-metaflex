@@ -18,8 +18,10 @@ The schema developed explicitly for BIGPICTURE, extending the SRA/EGA/ENA metada
 Implements several types that are used FileBaseType which is in other BIGPICTURE types:
 
 - FileBaseType: Type for representing a submitted data file with filename and checksum.
-- AttributeBaseType: A base attribute type that is identified by a `TAG`. NumericAttributeType, CodedAttributeType, and AttributeSetType extends from this type.
-- NumericAttributeType: Version of the SRA AttributeType but for numeric values.
+- AttributeBaseType: A base attribute type that is identified by a `TAG`. StringAttributeType, NumericAttributeType, MeasurementAttributeType, CodedAttributeType, and AttributeSetType extends from this type.
+- StringAttributeType: An attribute for a string value.
+- NumericAttributeType: An attribute for a numeric value.
+- MeasurementAttributeType: An attribute for a numeric value and a string unit.
 - CodedAttributeType: An attribute defined by code, schema, code meaning, and optional schema version.
 - AttributeSetType: A complex attribute that can hold one or several AttributeType, NumericAttributeType, CodedAttributeType, and/or AttributeSetType.
 - BPAttributesType: A collection of attributes of different types.
