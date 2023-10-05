@@ -3,52 +3,6 @@
     <xs:import namespace="SRA.common" schemaLocation="SRA.common.xsd"/>
     <xs:import namespace="BP.common" schemaLocation="BP.common.xsd"/>
 
-
-    <xs:complexType name="ObserverType">
-        <xs:annotation>
-            <xs:documentation>A BP observer object describes the observer that has performed an observation.</xs:documentation>
-        </xs:annotation>
-        <xs:complexContent>
-            <xs:extension base="bp:BPObjectType">
-                <xs:sequence>
-                    <xs:element minOccurs="1" maxOccurs="1" name="OBSERVER_TYPE" >
-                        <xs:annotation>
-                            <xs:documentation>The type of observer.</xs:documentation>
-                        </xs:annotation>
-                        <xs:simpleType>
-                            <xs:restriction base="xs:string">
-                                <xs:enumeration value="Human">
-                                    <xs:annotation>
-                                        <xs:documentation></xs:documentation>
-                                    </xs:annotation>
-                                </xs:enumeration>
-                                <xs:enumeration value="Machine">
-                                    <xs:annotation>
-                                        <xs:documentation></xs:documentation>
-                                    </xs:annotation>
-                                </xs:enumeration>
-                            </xs:restriction>
-                        </xs:simpleType>
-                    </xs:element>
-                </xs:sequence>
-            </xs:extension>
-        </xs:complexContent>
-    </xs:complexType>
-
-    <xs:complexType name="ObserverSetType">
-        <xs:sequence maxOccurs="unbounded" minOccurs="1">
-            <xs:element name="OBSERVER" type="ObserverType"/>
-        </xs:sequence>
-    </xs:complexType>
-
-    <xs:element name="OBSERVER_SET" type="ObserverSetType">
-        <xs:annotation>
-            <xs:documentation>A container of observer objects.</xs:documentation>
-        </xs:annotation>
-    </xs:element>
-
-    <xs:element name="OBSERVER" type="ObserverType"/>
-
     <xs:complexType name="StatementType">
         <xs:annotation>
             <xs:documentation>A BP statement object describes the statments for an observeration.</xs:documentation>
