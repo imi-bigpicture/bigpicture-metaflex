@@ -51,7 +51,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- BP.submission.xsd derived from SRA.submision.xsd with added BP types.
+- BP.submission.xsd derived from SRA.submission.xsd with added BP types.
 
 ### Changed
 

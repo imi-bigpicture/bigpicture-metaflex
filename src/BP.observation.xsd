@@ -5,7 +5,7 @@
 
     <xs:complexType name="StatementType">
         <xs:annotation>
-            <xs:documentation>A BP statement object describes the statments for an observeration.</xs:documentation>
+            <xs:documentation>A BP statement object describes the statements for an observeration.</xs:documentation>
         </xs:annotation>
         <xs:sequence>
             <xs:element minOccurs="1" maxOccurs="1" name="STATEMENT_TYPE" >
@@ -63,7 +63,7 @@
             </xs:element>
             <xs:element name="CUSTOM_ATTRIBUTES_SET" minOccurs="1" maxOccurs="1" type="bp:BPAttributesType" nillable="true">
                 <xs:annotation>
-                    <xs:documentation>These types of attributes refer to information which can be stored by the means of a 'TAG' > 'VALUE' concept. All different types of BP XSD Schema Attributes can be used here.  As the complexity of a pathological statement can require a set of Custom Attributes (I.e. set of customly defined morphological descriptors) it was decided that multiple Custom Attributes can be assigend to a given statement.</xs:documentation>
+                    <xs:documentation>These types of attributes refer to information which can be stored by the means of a 'TAG' > 'VALUE' concept. All different types of BP XSD Schema Attributes can be used here.  As the complexity of a pathological statement can require a set of Custom Attributes (I.e. set of customly defined morphological descriptors) it was decided that multiple Custom Attributes can be assigned to a given statement.</xs:documentation>
                 </xs:annotation>
             </xs:element>
             <xs:element name="FREETEXT" minOccurs="1" maxOccurs="1" type="xs:string" nillable="true">

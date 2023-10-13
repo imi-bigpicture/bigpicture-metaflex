@@ -4,7 +4,7 @@ Metadata schemas for BIGPICTURE data submission. Based on SRA/EGA/ENA metadata s
 
 ## BIGPICTURE Metadata Specification Dependencies
 
-This version of the BIGPICTURE Metadata Storage File Fromat Specification (v.0.1.0) complies to and depends on:
+This version of the BIGPICTURE Metadata Storage File Format Specification (v.0.1.0) complies to and depends on:
 
 - The Common Mandatory Metadata Structure (CMMS) version 0.1.0
 - The Mandatory Submission Metadata for Directly Accessible Datasets (MSMdad) version 0.1.0
@@ -92,7 +92,7 @@ The `STATEMENT` is of StatementType, which has the following elements:
   - `Summary`: Integrating downstream information into the statement about the given entity, thereby the statement is not necessarily true for all downstream entities (e.g. BP Images) but only true for the entire collection/set of downstream or related entities.
   - `Distinct`: The statement is true for the entity it is related to and all downstream entities.
 - `CODED_ATTRIBUTES_SET`: These types of attributes refer to attributes that can be coded by the means of some internationally or at least published schema, classification, nomenclature or ontology. They comprise the same functionality as all `CodedAttributeTypes` in the BP XSD Schema. As the complexity of a pathological statement can be in many instances not be coded using only one Ontology/Classifiation/Nomenclature (I.e. ICDO + TNM or multiple SEND/CDISC Variables) it was decided that one can add multiple coded Attributes to a given statement.
-- `CUSTOM_ATTRIBUTES_SET`: These types of attributes refer to information which can be stored by the means of a 'TAG' > 'VALUE' concept. All different types of BP XSD Schema Attributes can be used here.  As the complexity of a pathological statement can require a set of Custom Attributes (I.e. set of customly defined morphological descriptors) it was decided that multiple Custom Attributes can be assigend to a given statement.
+- `CUSTOM_ATTRIBUTES_SET`: These types of attributes refer to information which can be stored by the means of a 'TAG' > 'VALUE' concept. All different types of BP XSD Schema Attributes can be used here.  As the complexity of a pathological statement can require a set of Custom Attributes (I.e. set of customly defined morphological descriptors) it was decided that multiple Custom Attributes can be assigned to a given statement.
 - `FREETEXT`: This section of a statement comprises information that is only available as free text. It should be used to store original unparsed data, extracted from some source.
 
 ### BP.staining.xsd
