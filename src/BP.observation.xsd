@@ -56,12 +56,12 @@
                     </xs:restriction>
                 </xs:simpleType>
             </xs:element>
-            <xs:element name="CODED_ATTRIBUTES_SET" minOccurs="1" maxOccurs="1" type="bp:BPCodedAttributesType" nillable="true">
+            <xs:element name="CODED_ATTRIBUTES_SET" minOccurs="1" maxOccurs="1" type="bp:CodedAttributesType" nillable="true">
                 <xs:annotation>
                     <xs:documentation>These types of attributes refer to attributes that can be coded by the means of some internationally or at least published schema, classification, nomenclature or ontology. They comprise the same functionality as all `CodedAttributeTypes` in the BP XSD Schema. As the complexity of a pathological statement can be in many instances not be coded using only one Ontology/Classifiation/Nomenclature (I.e. ICDO + TNM or multiple SEND/CDISC Variables) it was decided that one can add multiple coded Attributes to a given statement.</xs:documentation>
                 </xs:annotation>
             </xs:element>
-            <xs:element name="CUSTOM_ATTRIBUTES_SET" minOccurs="1" maxOccurs="1" type="bp:BPAttributesType" nillable="true">
+            <xs:element name="CUSTOM_ATTRIBUTES_SET" minOccurs="1" maxOccurs="1" type="bp:AttributesType" nillable="true">
                 <xs:annotation>
                     <xs:documentation>These types of attributes refer to information which can be stored by the means of a 'TAG' > 'VALUE' concept. All different types of BP XSD Schema Attributes can be used here.  As the complexity of a pathological statement can require a set of Custom Attributes (I.e. set of customly defined morphological descriptors) it was decided that multiple Custom Attributes can be assigned to a given statement.</xs:documentation>
                 </xs:annotation>
@@ -71,7 +71,7 @@
                     <xs:documentation>This section of a statement comprises information that is only available as free text. It should be used to store original unparsed data, extracted from some source.</xs:documentation>
                 </xs:annotation>
             </xs:element>
-            <xs:element name="ATTRIBUTES" minOccurs="1" maxOccurs="1" type="bp:BPAttributesType" nillable="true">
+            <xs:element name="ATTRIBUTES" minOccurs="1" maxOccurs="1" type="bp:AttributesType" nillable="true">
                 <xs:annotation>
                     <xs:documentation></xs:documentation>
                 </xs:annotation>

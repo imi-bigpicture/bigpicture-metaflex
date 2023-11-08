@@ -40,6 +40,66 @@
         </xs:sequence>
     </xs:complexType>
 
+    <xs:complexType name="AttributesType">
+        <xs:annotation>
+            <xs:documentation>
+                Set of tag-value attribute under a common tag.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:sequence minOccurs="1" maxOccurs="unbounded">
+            <xs:choice>
+                <xs:element name="ATTRIBUTE" type="bp:StringAttributeType" minOccurs="0" maxOccurs="unbounded">
+                    <xs:annotation>
+                        <xs:documentation>
+                            Attribute in the set.
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element name="NUMERIC_ATTRIBUTE" type="bp:NumericAttributeType" minOccurs="0" maxOccurs="unbounded">
+                    <xs:annotation>
+                        <xs:documentation>
+                            Numeric attribute in the set.
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element name="MEASUREMENT_ATTRIBUTE" type="bp:MeasurementAttributeType" minOccurs="0" maxOccurs="unbounded">
+                    <xs:annotation>
+                        <xs:documentation>
+                            Measurement attribute in the set.
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element name="CODED_ATTRIBUTE" type="bp:CodedAttributeType" minOccurs="0" maxOccurs="unbounded">
+                    <xs:annotation>
+                        <xs:documentation>
+                            Coded attribute in the set.
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element name="SET_ATTRIBUTE" type="bp:SetAttributeType" minOccurs="0" maxOccurs="unbounded">
+                    <xs:annotation>
+                        <xs:documentation>
+                            Set Attribute in the set.
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+            </xs:choice>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="CodedAttributesType">
+        <xs:annotation>
+            <xs:documentation>
+                Coded attributes of an object.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:sequence maxOccurs="unbounded" minOccurs="1">
+            <xs:choice>
+                <xs:element name="CODED_ATTRIBUTE" type="bp:CodedAttributeType"/>
+            </xs:choice>
+        </xs:sequence>
+    </xs:complexType>
+
     <xs:simpleType name="ChecksumString">
       <xs:restriction base="xs:string">
         <xs:pattern value='[0-9a-f]{64}'/>
@@ -78,7 +138,7 @@
         </xs:attribute>
     </xs:complexType>
 
-    <xs:complexType name="AttributeBaseType">
+    <xs:complexType name="AttributeBaseType" abstract="true">
         <xs:annotation>
             <xs:documentation>
                 Base attribute type with a tag.
@@ -186,85 +246,25 @@
         </xs:complexContent>
     </xs:complexType>
 
-    <xs:complexType name="AttributeSetType">
+    <xs:complexType name="SetAttributeType">
         <xs:annotation>
             <xs:documentation>
-                Set of tag-value attribute under a common tag.
+                Set of tag-value attributes under a common tag.
             </xs:documentation>
         </xs:annotation>
         <xs:complexContent>
             <xs:extension base="bp:AttributeBaseType">
-                <xs:sequence minOccurs="1" maxOccurs="unbounded">
-                    <xs:choice>
-                        <xs:element name="ATTRIBUTE" type="bp:StringAttributeType" minOccurs="0" maxOccurs="unbounded">
-                            <xs:annotation>
-                                <xs:documentation>
-                                    Attribute in the set.
-                                </xs:documentation>
-                            </xs:annotation>
-                        </xs:element>
-                        <xs:element name="NUMERIC_ATTRIBUTE" type="bp:NumericAttributeType" minOccurs="0" maxOccurs="unbounded">
-                            <xs:annotation>
-                                <xs:documentation>
-                                    Numeric attribute in the set.
-                                </xs:documentation>
-                            </xs:annotation>
-                        </xs:element>
-                         <xs:element name="MEASUREMENT_ATTRIBUTE" type="bp:MeasurementAttributeType" minOccurs="0" maxOccurs="unbounded">
-                            <xs:annotation>
-                                <xs:documentation>
-                                    Measurement attribute in the set.
-                                </xs:documentation>
-                            </xs:annotation>
-                        </xs:element>
-                        <xs:element name="CODED_ATTRIBUTE" type="bp:CodedAttributeType" minOccurs="0" maxOccurs="unbounded">
-                            <xs:annotation>
-                                <xs:documentation>
-                                    Coded attribute in the set.
-                                </xs:documentation>
-                            </xs:annotation>
-                        </xs:element>
-                        <xs:element name="ATTRIBUTE_SET" type="bp:AttributeSetType" minOccurs="0" maxOccurs="unbounded">
-                            <xs:annotation>
-                                <xs:documentation>
-                                    Attribute set in the set.
-                                </xs:documentation>
-                            </xs:annotation>
-                        </xs:element>
-                    </xs:choice>
+                <xs:sequence>
+                    <xs:element name="VALUE" type="bp:AttributesType" minOccurs="1" maxOccurs="1" nillable="true">
+                        <xs:annotation>
+                            <xs:documentation>
+                                Value of the attribute.
+                            </xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
                 </xs:sequence>
             </xs:extension>
         </xs:complexContent>
-    </xs:complexType>
-
-    <xs:complexType name="BPCodedAttributesType">
-        <xs:annotation>
-            <xs:documentation>
-                Coded attributes of an object.
-            </xs:documentation>
-        </xs:annotation>
-        <xs:sequence maxOccurs="unbounded" minOccurs="1">
-            <xs:choice>
-                <xs:element name="CODED_ATTRIBUTE" type="bp:CodedAttributeType"/>
-            </xs:choice>
-        </xs:sequence>
-    </xs:complexType>
-
-    <xs:complexType name="BPAttributesType">
-        <xs:annotation>
-            <xs:documentation>
-                Attributes of an object. These can be string, code, numeric, or set.
-            </xs:documentation>
-        </xs:annotation>
-        <xs:sequence maxOccurs="unbounded" minOccurs="1">
-            <xs:choice>
-                <xs:element name="ATTRIBUTE" type="bp:StringAttributeType"/>
-                <xs:element name="CODED_ATTRIBUTE" type="bp:CodedAttributeType"/>
-                <xs:element name="NUMERIC_ATTRIBUTE" type="bp:NumericAttributeType"/>
-                <xs:element name="MEASUREMENT_ATTRIBUTE" type="bp:MeasurementAttributeType"/>
-                <xs:element name="ATTRIBUTE_SET" type="bp:AttributeSetType"/>
-            </xs:choice>
-        </xs:sequence>
     </xs:complexType>
 
     <xs:complexType name="BPObjectType">
@@ -276,7 +276,7 @@
         <xs:complexContent>
           <xs:extension base="sra:ObjectType">
             <xs:sequence>
-              <xs:element name="ATTRIBUTES" minOccurs="1" maxOccurs="1" type="bp:BPAttributesType" nillable="true">
+              <xs:element name="ATTRIBUTES" minOccurs="1" maxOccurs="1" type="bp:AttributesType" nillable="true">
               </xs:element>
             </xs:sequence>
           </xs:extension>
