@@ -15,7 +15,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Renamed `BPCodedAttributesType` to `CodedAttributesType`.
 - Renamed `AttributeSetType` to `SetAttributeType` and moved the contained attribute sequence to a `VALUE`-element of `AttributesType` that is nillable.
 
-
 ## [0.6.0] - 2023-07-07
 
 ### Added
