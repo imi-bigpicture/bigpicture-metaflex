@@ -7,10 +7,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased] -
 
+## [0.7.0] - 2023-11-09
+
 ### Changed
 
 - Changed max occurs of "CREATED_FROM" in SlideType to 1.
 - Split observer definition from observation file to BP.observer.xsd.
+- Renamed `BPAttributesType` to `AttributesType` and the contained `ATTRIBUTE` element to `STRING_ATTRIBUTE`, the `CODED_ATTRIBUTE` to `CODE_ATTRIBUTE`, and the `ATTRIBUTE_SET` element to `SET_ATTRIBUTE`.
+- Renamed `CodedAttributeType` to `CodeAttributeType` and `BPCodedAttributesType` to `CodeAttributesType`.
+- Renamed `AttributeSetType` to `SetAttributeType` and moved the contained attribute sequence to a `VALUE`-element of `AttributesType` that is nillable.
 
 ## [0.6.0] - 2023-07-07
 
