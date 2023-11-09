@@ -103,13 +103,13 @@
 		</xs:complexContent>
 	</xs:complexType>
 
-	<xs:element name="DATASET_SET" type="DatasetsSetType">
+	<xs:element name="DATASET_SET" type="DatasetSetType">
 		<xs:annotation>
 			<xs:documentation>Container for a set of data sets.
 			</xs:documentation>
 		</xs:annotation>
 	</xs:element>
-	<xs:complexType name="DatasetsSetType">
+	<xs:complexType name="DatasetSetType">
 		<xs:sequence maxOccurs="unbounded" minOccurs="1">
             <xs:element name="DATASET" type="BPDatasetType"/>
 		</xs:sequence>
