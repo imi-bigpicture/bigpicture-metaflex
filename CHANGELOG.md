@@ -7,12 +7,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased] -
 
-## [0.8.0] - 2023-11-09
-
-### Changed
-
-- Normalized names for attributes in `StatementType`.
-
 ## [0.7.0] - 2023-11-09
 
 ### Changed
@@ -22,6 +16,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Renamed `BPAttributesType` to `AttributesType` and the contained `ATTRIBUTE` element to `STRING_ATTRIBUTE`, the `CODED_ATTRIBUTE` to `CODE_ATTRIBUTE`, and the `ATTRIBUTE_SET` element to `SET_ATTRIBUTE`.
 - Renamed `CodedAttributeType` to `CodeAttributeType` and `BPCodedAttributesType` to `CodeAttributesType`.
 - Renamed `AttributeSetType` to `SetAttributeType` and moved the contained attribute sequence to a `VALUE`-element of `AttributesType` that is nillable.
+- Normalized names for attributes in `StatementType`.
+- Normalized name for set of datasets to `DATASET_SET` and element names to `DATASET`.
 
 ## [0.6.0] - 2023-07-07
 
