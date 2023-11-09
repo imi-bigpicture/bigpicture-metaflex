@@ -18,14 +18,14 @@ The schema developed explicitly for BIGPICTURE, extending the SRA/EGA/ENA metada
 Implements several types that are used FileBaseType which is in other BIGPICTURE types:
 
 - FileBaseType: Type for representing a submitted data file with filename and checksum.
-- AttributeBaseType: A base attribute type that is identified by a `TAG`. StringAttributeType, NumericAttributeType, MeasurementAttributeType, CodedAttributeType, and AttributeSetType extends from this type.
+- AttributeBaseType: A base attribute type that is identified by a `TAG`. StringAttributeType, NumericAttributeType, MeasurementAttributeType, CodeAttributeType, and SetAttributeType extends from this type.
 - StringAttributeType: An attribute for a string value.
 - NumericAttributeType: An attribute for a numeric value.
 - MeasurementAttributeType: An attribute for a numeric value and a string unit.
-- CodedAttributeType: An attribute defined by code, schema, code meaning, and optional schema version.
-- AttributeSetType: A complex attribute that can hold one or several AttributeType, NumericAttributeType, CodedAttributeType, and/or AttributeSetType.
-- BPAttributesType: A collection of attributes of different types.
-- BPObjectType: An extension of the SRA ObjectType with the addition of an a `BPAttributesType` element. The base SRA ObjectType has, among other attributes:
+- CodeAttributeType: An attribute defined by code, schema, code meaning, and optional schema version.
+- SetAttributeType: A complex attribute that can hold one or several AttributeType, NumericAttributeType, CodeAttributeType, and/or SetAttributeType.
+- AttributesType: A collection of attributes of different types.
+- BPObjectType: An extension of the SRA ObjectType with the addition of an a `AttributesType` element. The base SRA ObjectType has, among other attributes:
 
   - `alias`: Submitter designated name for the object. The name must be unique within the submission account.
 
@@ -91,7 +91,7 @@ The `STATEMENT` is of StatementType, which has the following elements:
 - `STATEMENT_STATUS`: The status of the statement. Either:
   - `Summary`: Integrating downstream information into the statement about the given entity, thereby the statement is not necessarily true for all downstream entities (e.g. BP Images) but only true for the entire collection/set of downstream or related entities.
   - `Distinct`: The statement is true for the entity it is related to and all downstream entities.
-- `CODED_ATTRIBUTES_SET`: These types of attributes refer to attributes that can be coded by the means of some internationally or at least published schema, classification, nomenclature or ontology. They comprise the same functionality as all `CodedAttributeTypes` in the BP XSD Schema. As the complexity of a pathological statement can be in many instances not be coded using only one Ontology/Classifiation/Nomenclature (I.e. ICDO + TNM or multiple SEND/CDISC Variables) it was decided that one can add multiple coded Attributes to a given statement.
+- `CODE_ATTRIBUTES_SET`: These types of attributes refer to attributes that can be coded by the means of some internationally or at least published schema, classification, nomenclature or ontology. They comprise the same functionality as all `CodeAttributeTypes` in the BP XSD Schema. As the complexity of a pathological statement can be in many instances not be coded using only one Ontology/Classifiation/Nomenclature (I.e. ICDO + TNM or multiple SEND/CDISC Variables) it was decided that one can add multiple coded Attributes to a given statement.
 - `CUSTOM_ATTRIBUTES_SET`: These types of attributes refer to information which can be stored by the means of a 'TAG' > 'VALUE' concept. All different types of BP XSD Schema Attributes can be used here.  As the complexity of a pathological statement can require a set of Custom Attributes (I.e. set of customly defined morphological descriptors) it was decided that multiple Custom Attributes can be assigned to a given statement.
 - `FREETEXT`: This section of a statement comprises information that is only available as free text. It should be used to store original unparsed data, extracted from some source.
 

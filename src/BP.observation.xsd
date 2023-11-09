@@ -56,7 +56,7 @@
                     </xs:restriction>
                 </xs:simpleType>
             </xs:element>
-            <xs:element name="CODED_ATTRIBUTES_SET" minOccurs="1" maxOccurs="1" type="bp:CodedAttributesType" nillable="true">
+            <xs:element name="CODE_ATTRIBUTES_SET" minOccurs="1" maxOccurs="1" type="bp:CodeAttributesType" nillable="true">
                 <xs:annotation>
                     <xs:documentation>These types of attributes refer to attributes that can be coded by the means of some internationally or at least published schema, classification, nomenclature or ontology. They comprise the same functionality as all `CodedAttributeTypes` in the BP XSD Schema. As the complexity of a pathological statement can be in many instances not be coded using only one Ontology/Classifiation/Nomenclature (I.e. ICDO + TNM or multiple SEND/CDISC Variables) it was decided that one can add multiple coded Attributes to a given statement.</xs:documentation>
                 </xs:annotation>

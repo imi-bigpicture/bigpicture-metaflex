@@ -48,10 +48,10 @@
         </xs:annotation>
         <xs:sequence minOccurs="1" maxOccurs="unbounded">
             <xs:choice>
-                <xs:element name="ATTRIBUTE" type="bp:StringAttributeType" minOccurs="0" maxOccurs="unbounded">
+                <xs:element name="STRING_ATTRIBUTE" type="bp:StringAttributeType" minOccurs="0" maxOccurs="unbounded">
                     <xs:annotation>
                         <xs:documentation>
-                            Attribute in the set.
+                            String attribute in the set.
                         </xs:documentation>
                     </xs:annotation>
                 </xs:element>
@@ -69,10 +69,10 @@
                         </xs:documentation>
                     </xs:annotation>
                 </xs:element>
-                <xs:element name="CODED_ATTRIBUTE" type="bp:CodedAttributeType" minOccurs="0" maxOccurs="unbounded">
+                <xs:element name="CODE_ATTRIBUTE" type="bp:CodeAttributeType" minOccurs="0" maxOccurs="unbounded">
                     <xs:annotation>
                         <xs:documentation>
-                            Coded attribute in the set.
+                            Code attribute in the set.
                         </xs:documentation>
                     </xs:annotation>
                 </xs:element>
@@ -87,15 +87,15 @@
         </xs:sequence>
     </xs:complexType>
 
-    <xs:complexType name="CodedAttributesType">
+    <xs:complexType name="CodeAttributesType">
         <xs:annotation>
             <xs:documentation>
-                Coded attributes of an object.
+                Code attributes of an object.
             </xs:documentation>
         </xs:annotation>
         <xs:sequence maxOccurs="unbounded" minOccurs="1">
             <xs:choice>
-                <xs:element name="CODED_ATTRIBUTE" type="bp:CodedAttributeType"/>
+                <xs:element name="CODE_ATTRIBUTE" type="bp:CodeAttributeType"/>
             </xs:choice>
         </xs:sequence>
     </xs:complexType>
@@ -225,7 +225,7 @@
         </xs:complexContent>
     </xs:complexType>
 
-    <xs:complexType name="CodedAttributeType">
+    <xs:complexType name="CodeAttributeType">
         <xs:annotation>
             <xs:documentation>
                 Attribute for tag-code value.
