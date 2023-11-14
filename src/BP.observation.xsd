@@ -131,7 +131,7 @@
                                 </xs:complexContent>
                             </xs:complexType>
                         </xs:element>
-                        <xs:element name="BIOLOGICALBEING_REF">
+                        <xs:element name="BIOLOGICAL_BEING_REF">
                             <xs:annotation>
                                 <xs:documentation>Identifies the referenced biological being.</xs:documentation>
                             </xs:annotation>
