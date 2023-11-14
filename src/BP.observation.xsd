@@ -110,83 +110,80 @@
                             </xs:complexContent>
                         </xs:complexType>
                     </xs:element>
-                    <xs:element name="OBSERVED_ON" minOccurs="1" maxOccurs="1">
-                        <xs:complexType>
-                            <xs:choice>
-                                <xs:element name="ANNOTATION">
-                                    <xs:annotation>
-                                        <xs:documentation>Identifies the referenced annotation.</xs:documentation>
-                                    </xs:annotation>
-                                    <xs:complexType>
-                                        <xs:complexContent>
-                                            <xs:extension base="sra:RefObjectType"> </xs:extension>
-                                        </xs:complexContent>
-                                    </xs:complexType>
-                                </xs:element>
-                                <xs:element name="CASE">
-                                    <xs:annotation>
-                                        <xs:documentation>Identifies the referenced case.</xs:documentation>
-                                    </xs:annotation>
-                                    <xs:complexType>
-                                        <xs:complexContent>
-                                            <xs:extension base="sra:RefObjectType"> </xs:extension>
-                                        </xs:complexContent>
-                                    </xs:complexType>
-                                </xs:element>
-                                <xs:element name="BIOLOGICALBEING">
-                                    <xs:annotation>
-                                        <xs:documentation>Identifies the referenced biological being.</xs:documentation>
-                                    </xs:annotation>
-                                    <xs:complexType>
-                                        <xs:complexContent>
-                                            <xs:extension base="sra:RefObjectType"> </xs:extension>
-                                        </xs:complexContent>
-                                    </xs:complexType>
-                                </xs:element>
-                                <xs:element name="SPECIMEN">
-                                    <xs:annotation>
-                                        <xs:documentation>Identifies the referenced specimen.</xs:documentation>
-                                    </xs:annotation>
-                                    <xs:complexType>
-                                        <xs:complexContent>
-                                            <xs:extension base="sra:RefObjectType"> </xs:extension>
-                                        </xs:complexContent>
-                                    </xs:complexType>
-                                </xs:element>
-                                <xs:element name="BLOCK">
-                                    <xs:annotation>
-                                        <xs:documentation>Identifies the referenced block.</xs:documentation>
-                                    </xs:annotation>
-                                    <xs:complexType>
-                                        <xs:complexContent>
-                                            <xs:extension base="sra:RefObjectType"> </xs:extension>
-                                        </xs:complexContent>
-                                    </xs:complexType>
-                                </xs:element>
-                                <xs:element name="SLIDE">
-                                    <xs:annotation>
-                                        <xs:documentation>Identifies the referenced slide.</xs:documentation>
-                                    </xs:annotation>
-                                    <xs:complexType>
-                                        <xs:complexContent>
-                                            <xs:extension base="sra:RefObjectType"> </xs:extension>
-                                        </xs:complexContent>
-                                    </xs:complexType>
-                                </xs:element>
-                                <xs:element name="IMAGE">
-                                    <xs:annotation>
-                                        <xs:documentation>Identifies the referenced image.</xs:documentation>
-                                    </xs:annotation>
-                                    <xs:complexType>
-                                        <xs:complexContent>
-                                            <xs:extension base="sra:RefObjectType"> </xs:extension>
-                                        </xs:complexContent>
-                                    </xs:complexType>
-                                </xs:element>
-                            </xs:choice>
-                        </xs:complexType>
-                    </xs:element>
-                    <xs:element name="OBSERVER" maxOccurs="unbounded" minOccurs="0">
+                    <xs:choice>
+                        <xs:element name="ANNOTATION_REF">
+                            <xs:annotation>
+                                <xs:documentation>Identifies the referenced annotation.</xs:documentation>
+                            </xs:annotation>
+                            <xs:complexType>
+                                <xs:complexContent>
+                                    <xs:extension base="sra:RefObjectType"> </xs:extension>
+                                </xs:complexContent>
+                            </xs:complexType>
+                        </xs:element>
+                        <xs:element name="CASE_REF">
+                            <xs:annotation>
+                                <xs:documentation>Identifies the referenced case.</xs:documentation>
+                            </xs:annotation>
+                            <xs:complexType>
+                                <xs:complexContent>
+                                    <xs:extension base="sra:RefObjectType"> </xs:extension>
+                                </xs:complexContent>
+                            </xs:complexType>
+                        </xs:element>
+                        <xs:element name="BIOLOGICALBEING_REF">
+                            <xs:annotation>
+                                <xs:documentation>Identifies the referenced biological being.</xs:documentation>
+                            </xs:annotation>
+                            <xs:complexType>
+                                <xs:complexContent>
+                                    <xs:extension base="sra:RefObjectType"> </xs:extension>
+                                </xs:complexContent>
+                            </xs:complexType>
+                        </xs:element>
+                        <xs:element name="SPECIMEN_REF">
+                            <xs:annotation>
+                                <xs:documentation>Identifies the referenced specimen.</xs:documentation>
+                            </xs:annotation>
+                            <xs:complexType>
+                                <xs:complexContent>
+                                    <xs:extension base="sra:RefObjectType"> </xs:extension>
+                                </xs:complexContent>
+                            </xs:complexType>
+                        </xs:element>
+                        <xs:element name="BLOCK_REF">
+                            <xs:annotation>
+                                <xs:documentation>Identifies the referenced block.</xs:documentation>
+                            </xs:annotation>
+                            <xs:complexType>
+                                <xs:complexContent>
+                                    <xs:extension base="sra:RefObjectType"> </xs:extension>
+                                </xs:complexContent>
+                            </xs:complexType>
+                        </xs:element>
+                        <xs:element name="SLIDE_REF">
+                            <xs:annotation>
+                                <xs:documentation>Identifies the referenced slide.</xs:documentation>
+                            </xs:annotation>
+                            <xs:complexType>
+                                <xs:complexContent>
+                                    <xs:extension base="sra:RefObjectType"> </xs:extension>
+                                </xs:complexContent>
+                            </xs:complexType>
+                        </xs:element>
+                        <xs:element name="IMAGE_REF">
+                            <xs:annotation>
+                                <xs:documentation>Identifies the referenced image.</xs:documentation>
+                            </xs:annotation>
+                            <xs:complexType>
+                                <xs:complexContent>
+                                    <xs:extension base="sra:RefObjectType"> </xs:extension>
+                                </xs:complexContent>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:choice>
+
+                    <xs:element name="OBSERVER_REF" maxOccurs="unbounded" minOccurs="0">
                         <xs:annotation>
                             <xs:documentation>Identifies the observer.</xs:documentation>
                         </xs:annotation>
