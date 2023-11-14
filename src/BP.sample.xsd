@@ -24,15 +24,10 @@
     <xs:complexContent>
       <xs:extension base="bp:BPObjectType">
         <xs:sequence>
-            <xs:element name="BIOLOGICAL_BEING" maxOccurs="1" minOccurs="1">
+            <xs:element name="BIOLOGICAL_BEING_REF" maxOccurs="1" minOccurs="1" type="sra:RefObjectType">
                 <xs:annotation>
                     <xs:documentation>Identifies the biological being the case is for.</xs:documentation>
                 </xs:annotation>
-                <xs:complexType>
-                    <xs:complexContent>
-                        <xs:extension base="sra:RefObjectType"> </xs:extension>
-                    </xs:complexContent>
-                </xs:complexType>
             </xs:element>
           </xs:sequence>
       </xs:extension>
@@ -48,25 +43,15 @@
     <xs:complexContent>
       <xs:extension base="bp:BPObjectType">
         <xs:sequence>
-          <xs:element name="EXTRACTED_FROM" maxOccurs="1" minOccurs="1">
+          <xs:element name="EXTRACTED_FROM_REF" maxOccurs="1" minOccurs="1" type="sra:RefObjectType">
             <xs:annotation>
               <xs:documentation>Identifies the biological being the specimen is taken from.</xs:documentation>
             </xs:annotation>
-            <xs:complexType>
-                <xs:complexContent>
-                    <xs:extension base="sra:RefObjectType"> </xs:extension>
-                </xs:complexContent>
-            </xs:complexType>
           </xs:element>
-          <xs:element name="PART_OF_CASE" maxOccurs="1" minOccurs="0">
+          <xs:element name="PART_OF_CASE_REF" maxOccurs="1" minOccurs="0" type="sra:RefObjectType">
             <xs:annotation>
                 <xs:documentation>Identifies the optional case the specimen belongs to.</xs:documentation>
             </xs:annotation>
-            <xs:complexType>
-                <xs:complexContent>
-                    <xs:extension base="sra:RefObjectType"> </xs:extension>
-                </xs:complexContent>
-            </xs:complexType>
         </xs:element>
         </xs:sequence>
       </xs:extension>
@@ -82,15 +67,10 @@
     <xs:complexContent>
       <xs:extension base="bp:BPObjectType">
         <xs:sequence>
-          <xs:element name="SAMPLED_FROM" maxOccurs="unbounded" minOccurs="1">
+          <xs:element name="SAMPLED_FROM_REF" maxOccurs="unbounded" minOccurs="1" type="sra:RefObjectType">
             <xs:annotation>
               <xs:documentation>Identifies the specimen(s) or specimen collection(s) the block is created from.</xs:documentation>
             </xs:annotation>
-            <xs:complexType>
-                <xs:complexContent>
-                    <xs:extension base="sra:RefObjectType"> </xs:extension>
-                </xs:complexContent>
-            </xs:complexType>
           </xs:element>
         </xs:sequence>
       </xs:extension>
@@ -106,25 +86,15 @@
     <xs:complexContent>
       <xs:extension base="bp:BPObjectType">
         <xs:sequence>
-          <xs:element name="CREATED_FROM" maxOccurs="1" minOccurs="1">
+          <xs:element name="CREATED_FROM_REF" maxOccurs="1" minOccurs="1" type="sra:RefObjectType">
             <xs:annotation>
               <xs:documentation>Identifies the block the slide is created from.</xs:documentation>
             </xs:annotation>
-            <xs:complexType>
-                <xs:complexContent>
-                    <xs:extension base="sra:RefObjectType"> </xs:extension>
-                </xs:complexContent>
-            </xs:complexType>
           </xs:element>
-          <xs:element name="STAINING_INFORMATION" maxOccurs="1" minOccurs="1">
+          <xs:element name="STAINING_INFORMATION_REF" maxOccurs="1" minOccurs="1" type="sra:RefObjectType">
             <xs:annotation>
               <xs:documentation>Identifies the stainings (StainingType) for the slide.</xs:documentation>
             </xs:annotation>
-            <xs:complexType>
-                <xs:complexContent>
-                    <xs:extension base="sra:RefObjectType"> </xs:extension>
-                </xs:complexContent>
-            </xs:complexType>
           </xs:element>
         </xs:sequence>
       </xs:extension>

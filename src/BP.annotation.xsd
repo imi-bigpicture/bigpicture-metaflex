@@ -46,25 +46,15 @@
         <xs:complexContent>
             <xs:extension base="bp:BPObjectType">
                 <xs:sequence>
-                    <xs:element name="STUDY_REF" minOccurs="1">
+                    <xs:element name="STUDY_REF" minOccurs="1" type="com:RefObjectType">
                         <xs:annotation>
                             <xs:documentation>Identifies the parent study.</xs:documentation>
                         </xs:annotation>
-                        <xs:complexType>
-                            <xs:complexContent>
-                                <xs:extension base="com:RefObjectType"> </xs:extension>
-                            </xs:complexContent>
-                        </xs:complexType>
                     </xs:element>
-                    <xs:element name="IMAGE_REF" minOccurs="1">
+                    <xs:element name="IMAGE_REF" minOccurs="1" type="com:RefObjectType">
                         <xs:annotation>
                             <xs:documentation>Image associated with the annotation.</xs:documentation>
                         </xs:annotation>
-                        <xs:complexType>
-                            <xs:complexContent>
-                                <xs:extension base="com:RefObjectType"></xs:extension>
-                            </xs:complexContent>
-                        </xs:complexType>
                     </xs:element>
                     <xs:sequence>
                         <xs:element name="FILES" type="AnnotationFilesType">
