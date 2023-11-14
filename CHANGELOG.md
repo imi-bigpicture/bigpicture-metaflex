@@ -11,7 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
-- Added _REF to the name of all `RefObjectType` elements.
+- Added _REF to the name of all `RefObjectType` elements and simplified type definition.
 - Removed nesting `observed on` element in `ObservationType`.
 
 ## [0.7.0] - 2023-11-09
