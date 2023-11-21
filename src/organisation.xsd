@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+<xs:element name="REMS">
+  <xs:complexType>
+    <xs:attribute name="REMSworkflowID" type="xs:string" use="required"/>
+    <xs:attribute name="REMSOrganisationID" type="xs:string" use="required"/>
+  </xs:complexType>
+  <xs:annotation>
+    <xs:documentation>REMS related preconfigured attributes to map dataset to organisation</xs:documentation>
+  </xs:annotation>
+</xs:element>
+
+<xs:element name="DatasetID">
+  <xs:complexType>
+    <xs:attribute name="CreateDOI" type="xs:boolean" use="required"/>
+  </xs:complexType>
+  <xs:simpleType>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Draft"/>
+      <xs:enumeration value="Registered"/>
+      <xs:enumeration value="Findable"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:annotation>
+    <xs:documentation>See https://support.datacite.org/docs/doi-states for more information</xs:documentation>
+  </xs:annotation>
+</xs:element>
+
+<xs:element name="Organisation">
+  <xs:complexType>
+    <xs:attribute name="OrganisationAbbreviation" type="xs:string" use="required"/>
+  </xs:complexType>
+  <xs:annotation>
+    <xs:documentation>1..N alphabets A-Ö in capital. Example: LIU</xs:documentation>
+  </xs:annotation>
+</xs:element>
+
+</xs:schema>
