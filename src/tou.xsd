@@ -1,0 +1,124 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xs:element name="Purpose">
+  <xs:complexType>
+    <xs:sequence>
+      <xs:element name="Option" maxOccurs="unbounded">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="Implementation of the Bigpicture Project (IMI2-945358)"/>
+            <xs:enumeration value="Research Use"/>
+            <xs:enumeration value="Direct Exploitation"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+</xs:element>
+<xs:element name="UseRestrictions">
+  <xs:complexType>
+    <xs:sequence>
+      <xs:element name="None" type="xs:string" minOccurs="0"/>
+      <xs:element name="DefinedResearchQuestion" type="xs:string" minOccurs="0"/>
+      <xs:element name="InformedConsentForm" minOccurs="0">
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:string">
+              <xs:attribute name="additionalText" type="xs:string"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="Other" minOccurs="0">
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:string">
+              <xs:attribute name="additionalText" type="xs:string"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+</xs:element>
+<xs:element name="Allowed geographical distribution">
+  <xs:complexType>
+    <xs:sequence>
+      <xs:element name="Option" minOccurs="1" maxOccurs="unbounded">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="European Union and EEA countries"/>
+            <xs:enumeration value="Countries with GDPR adequacy"/>
+            <xs:enumeration value="Worldwide"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+</xs:element>
+<xs:element name="Duration of Use">
+  <xs:complexType>
+    <xs:sequence>
+      <xs:element name="Option" minOccurs="1" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="Unlimited time"/>
+            <xs:enumeration value="Limited to the IMI Bigpicture project term "/>
+            <xs:enumeration value="Limited to the duration of purpose of data access request"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+</xs:element>  
+<xs:element name="Type of Access">
+  <xs:complexType>
+    <xs:sequence>
+      <xs:element name="Option" minOccurs="1" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+              <xs:enumeration value="Direct Access"/>
+              <xs:enumeration value="Indirect Access (via software only, w/o viewing data)"/> 
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+</xs:element>     
+<xs:element name="Access approval process">
+  <xs:complexType>
+    <xs:sequence>
+      <xs:element name="Option" minOccurs="1" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="Registered access (LifeScience AAI login with Bigpicture authentication, no approval by Data Access Committee required)"/>
+            <xs:enumeration value="Controlled Access (via Bigpicture Data Access Committee)"/>
+            <xs:enumeration value="Controlled Access (via other Data Access Committee)"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+</xs:element>  
+<xs:element name="Dissemination">
+  <xs:complexType>
+      <xs:choice>
+        <xs:element name="Only mandatory acknowledgement statement">
+          <xs:complexType>
+            <xs:simpleContent>
+              <xs:extension base="xs:string">
+                <xs:attribute name="text" type="xs:string" use="required">
+                  <xs:annotation>
+                    <xs:documentation>This project has received funding from the Innovative Medicines Initiative 2 Joint Undertaking under grant agreement No 945358. This Joint Undertaking receives support from the European Union’s Horizon 2020 research and innovation program and EFPIA</xs:documentation>
+                  </xs:annotation>
+                </xs:attribute>
+              </xs:extension>
+            </xs:simpleContent>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Other acknowledgement" type="xs:string"/>
+        <xs:element name="Include reference(s)" type="xs:string"/>
+      </xs:choice>
+  </xs:complexType>
+</xs:element>
+</xs:schema>
