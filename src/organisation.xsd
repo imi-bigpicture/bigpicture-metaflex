@@ -32,7 +32,7 @@
     <xs:attribute name="OrganisationAbbreviation" type="xs:string" use="required"/>
   </xs:complexType>
   <xs:annotation>
-    <xs:documentation>1..N alphabets A-Ö in capital. Example: LIU</xs:documentation>
+    <xs:documentation>1..N alphabets A-Ö in capital. Example: LIU as stated in Consortium Agreement (list). Used to identify owner (administrator) of dataset and reporting. Matching Perun organisational group must be found.</xs:documentation>
   </xs:annotation>
 </xs:element>
 
