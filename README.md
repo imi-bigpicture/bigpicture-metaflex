@@ -25,9 +25,11 @@ Implements several types that are used FileBaseType which is in other BIGPICTURE
 - CodeAttributeType: An attribute defined by code, schema, code meaning, and optional schema version.
 - SetAttributeType: A complex attribute that can hold one or several AttributeType, NumericAttributeType, CodeAttributeType, and/or SetAttributeType.
 - AttributesType: A collection of attributes of different types.
-- BPObjectType: An extension of the SRA ObjectType with the addition of an a `AttributesType` element. The base SRA ObjectType has, among other attributes:
+- BPObjectType: An derivate of the SRA ObjectType with the addition of an a `AttributesType` element and attributes:
 
-  - `alias`: Submitter designated name for the object. The name must be unique within the submission account.
+  - `alias`: Submitter designated name for the object. The name must be unique within the Study and Dataset the entity belongs to.
+  - `accession`: The object accession assigned by the archive. Should not be present when submitting.
+  - `uuid`: Optional universally unique identifier that requires no namespace.
 
 ### BP.sample.xsd
 

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"  xmlns:sra="SRA.common" xmlns:bp="BP.common">
-    <xs:import namespace="SRA.common" schemaLocation="SRA.common.xsd"/>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:bp="BP.common">
     <xs:import namespace="BP.common" schemaLocation="BP.common.xsd"/>
 
     <xs:complexType name="ObserverType">
