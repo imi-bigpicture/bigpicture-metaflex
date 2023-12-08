@@ -299,7 +299,7 @@
     </xs:complexType>
 
     <xs:complexType name="BPRefObjectType">
-        <xs:attribute name="alias" type="xs:string">
+        <xs:attribute name="alias" type="xs:string" use="required">
             <xs:annotation>
                 <xs:documentation>
                     Identifies an object by alias designated by the submitter.
