@@ -275,7 +275,7 @@
         <xs:sequence>
             <xs:element name="ATTRIBUTES" minOccurs="1" maxOccurs="1" type="bp:AttributesType" nillable="true"/>
         </xs:sequence>
-        <xs:attribute name="alias" type="xs:string">
+        <xs:attribute name="alias" type="xs:string" use="required">
             <xs:annotation>
                 <xs:documentation>
                     Submitter designated name for the object. The name must be unique within the Study and Dataset the entity belongs to.
