@@ -47,7 +47,7 @@
         <xs:complexContent>
             <xs:extension base="bp:BPObjectType">
                 <xs:sequence>
-                    <xs:element name="STUDY_REF" minOccurs="1" type="bp:BPRefObjectType">
+                    <xs:element name="STUDY_REF" minOccurs="0" maxOccurs="1" type="bp:BPRefObjectType">
                         <xs:annotation>
                             <xs:documentation>Identifies the parent study.</xs:documentation>
                         </xs:annotation>
