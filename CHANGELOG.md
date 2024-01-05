@@ -7,6 +7,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased] -
 
+## [0.9.0] - 2024-01-05
+
+### Changed
+
+- `BPObjectType` is no longer and extension of SRA `ObjectType`.
+- Changed `alias` to be a required attribute for `BPObjectType`.
+- References to other `BpObjectType` now through `BPRefObjectType` with required attribute `alias`, replacing the SRA `RefObjectType` with optional attribute `refname`.
+- `StudyRef` for `ImageType`, `AnnotationType`, and `ObervationType` is now optional and with `maxOccurs=1`.
+- `AnnotationType` can now only have one `IMAGE_REF`.
+
 ## [0.8.0] - 2023-11-14
 
 ### Changed
