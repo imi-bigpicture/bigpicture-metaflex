@@ -266,15 +266,12 @@
         </xs:complexContent>
     </xs:complexType>
 
-    <xs:complexType name="BPObjectType">
+    <xs:complexType name="ReferencableType">
         <xs:annotation>
           <xs:documentation>
-            Derivate of SRA ObjectType with BP attributes and non-optional alias attribute.
+            An object that can be referenced to by other objects using a `ReferenceObjectType`.
           </xs:documentation>
         </xs:annotation>
-        <xs:sequence>
-            <xs:element name="ATTRIBUTES" minOccurs="1" maxOccurs="1" type="bp:AttributesType" nillable="true"/>
-        </xs:sequence>
         <xs:attribute name="alias" type="xs:string" use="required">
             <xs:annotation>
                 <xs:documentation>
@@ -298,7 +295,27 @@
         </xs:attribute>
     </xs:complexType>
 
-    <xs:complexType name="BPRefObjectType">
+    <xs:complexType name="ObjectType">
+        <xs:annotation>
+          <xs:documentation>
+            An object that can be referencend by other objects and that has a list of attributes.
+          </xs:documentation>
+        </xs:annotation>
+        <xs:complexContent>
+        <xs:extension base="bp:ReferencableType">
+            <xs:sequence>
+                <xs:element name="ATTRIBUTES" minOccurs="1" maxOccurs="1" type="bp:AttributesType" nillable="true"/>
+            </xs:sequence>
+        </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="ReferenceObjectType">
+        <xs:annotation>
+          <xs:documentation>
+            An object used for referencing other objects.
+          </xs:documentation>
+        </xs:annotation>
         <xs:attribute name="alias" type="xs:string" use="required">
             <xs:annotation>
                 <xs:documentation>

@@ -23,7 +23,7 @@
       </xs:documentation>
     </xs:annotation>
     <xs:complexContent>
-      <xs:extension base="bp:BPObjectType">
+      <xs:extension base="bp:ObjectType">
         <xs:sequence>
           <xs:choice>
             <xs:element name="PROCEDURE_INFORMATION" minOccurs="1" maxOccurs="1" type="bp:AttributesType">

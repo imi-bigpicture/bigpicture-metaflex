@@ -25,7 +25,7 @@ Implements several types that are used FileBaseType which is in other BIGPICTURE
 - CodeAttributeType: An attribute defined by code, schema, code meaning, and optional schema version.
 - SetAttributeType: A complex attribute that can hold one or several AttributeType, NumericAttributeType, CodeAttributeType, and/or SetAttributeType.
 - AttributesType: A collection of attributes of different types.
-- BPObjectType: An derivate of the SRA ObjectType with the addition of an a `AttributesType` element and attributes:
+- ObjectType: An derivate of the SRA ObjectType with the addition of an a `AttributesType` element and attributes:
 
   - `alias`: Submitter designated name for the object. The name must be unique within the Study and Dataset the entity belongs to.
   - `accession`: The object accession assigned by the archive. Should not be present when submitting.
@@ -40,11 +40,11 @@ Implements the following types:
 - BlockType: A part or a collection of parts of one or many Specimens that has/have been sampled and processed for further investigation. This can for example be a block. The `SAMPLED_FROM` element references the specimen(s) the block was sampled from.
 - SlideType: A physical slide that has been created out of one or more Blocks. The `CREATED_FROM` element references the block the slide was created from.
 
-All types extends `BPObjectType`, and different types of attributes can thus be assigned to the `ATTRIBUTES` element.
+All types extends `ObjectType`, and different types of attributes can thus be assigned to the `ATTRIBUTES` element.
 
 ### BP.image.xsd
 
-Implements the ImageType that captures image objects. The ImageType extends `BPObjectType` and has the following elements:
+Implements the ImageType that captures image objects. The ImageType extends `ObjectType` and has the following elements:
 
 - `STUDY_REF`: Identifies the parent study.
 - `IMAGE_OF`: Identifies the slide the image was imaged from.
@@ -52,7 +52,7 @@ Implements the ImageType that captures image objects. The ImageType extends `BPO
 
 ### BP.annotation.xsd
 
-Implements the AnnotationType that captures annotation objects. The AnnotationType extends `BPObjectType` and has the following elements:
+Implements the AnnotationType that captures annotation objects. The AnnotationType extends `ObjectType` and has the following elements:
 
 - `STUDY_REF`: Identifies the parent study.
 - `IMAGE_REF`: One or more images associated with the annotation.
@@ -60,14 +60,14 @@ Implements the AnnotationType that captures annotation objects. The AnnotationTy
 
 ### BP.dataset.xsd
 
-Implements the BPDatasetType which is an extension of the EGA DatasetType with the additions of:
+Implements the DatasetType which is an extension of the EGA DatasetType with the additions of:
 
 - `IMAGE_REF`: Identifies the images which are part of this dataset.
 - `ANNOTATION_REF`: Identifies the annotations which are part of this dataset.
 
 ### BP.observation.xsd
 
-Implements the ObservationType that captures observation objects. The ObservationType extends `BPObjectType` and has the following elements:
+Implements the ObservationType that captures observation objects. The ObservationType extends `ObjectType` and has the following elements:
 
 - `STUDY_REF`: Identifies the parent study.
 - `OBSERVER`: Identifies the observer (optional).
@@ -99,11 +99,11 @@ The `STATEMENT` is of StatementType, which has the following elements:
 
 ### BP.staining.xsd
 
-Implements the StainType that captures stain objects. The StainType extends `BPObjectType`. A stain is defined by Attributes (string, coded, numeric or set) using tags `staining_compound`, `taining_target`, `staining_method`, `staining_reporter_type`, and/or `staining_reporter`.
+Implements the StainType that captures stain objects. The StainType extends `ObjectType`. A stain is defined by Attributes (string, coded, numeric or set) using tags `staining_compound`, `taining_target`, `staining_method`, `staining_reporter_type`, and/or `staining_reporter`.
 
 ### BP.case.xsd
 
-Implements the CaseType that represents a pathological case that references one biological being and one or more specimens. The CaseType extends `BPObjectType` and has the following elements:
+Implements the CaseType that represents a pathological case that references one biological being and one or more specimens. The CaseType extends `ObjectType` and has the following elements:
 
 - `BIOLOGICAL_BEING`: Reference to the biological being the case belongs to.
 - `RELATED_SPECIMEN`: References to specimens belonging to the case.

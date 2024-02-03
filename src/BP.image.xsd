@@ -45,14 +45,14 @@
             </xs:documentation>
         </xs:annotation>
         <xs:complexContent>
-            <xs:extension base="bp:BPObjectType">
+            <xs:extension base="bp:ObjectType">
                 <xs:sequence>
-                    <xs:element name="STUDY_REF" minOccurs="0" maxOccurs="1" type="bp:BPRefObjectType">
+                    <xs:element name="STUDY_REF" minOccurs="0" maxOccurs="1" type="bp:ReferenceObjectType">
                         <xs:annotation>
                             <xs:documentation>Identifies the parent study.</xs:documentation>
                         </xs:annotation>
                     </xs:element>
-                    <xs:element name="IMAGE_OF" maxOccurs="unbounded" minOccurs="1" type="bp:BPRefObjectType">
+                    <xs:element name="IMAGE_OF" maxOccurs="unbounded" minOccurs="1" type="bp:ReferenceObjectType">
                         <xs:annotation>
                             <xs:documentation>One of more samples imaged by the image.</xs:documentation>
                         </xs:annotation>

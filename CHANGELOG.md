@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased] -
 
+### Changed
+
+- Changed the name of `BPObjectType` to `ObjectType`, `BPRefObjectType` to `ReferenceObjectType`, and `BPSampleSetType` to `SampleSetType`.
+
+- The single element `BPDATASET` in `BP.dataset.xsd` is renamed to `DATASET` to be consistent with the `DATASET_SET` element.
+
 ## [0.9.0] - 2024-01-05
 
 ### Changed
