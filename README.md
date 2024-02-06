@@ -4,10 +4,10 @@ Metadata schemas for BIGPICTURE data submission. Based on SRA/EGA/ENA metadata s
 
 ## BIGPICTURE Metadata Specification Dependencies
 
-This version of the BIGPICTURE Metadata Storage File Fromat Specification (v.0.8.0) complies to and depends on:
+This version of the BIGPICTURE Metadata Storage File Fromat Specification (v.0.10.0) complies to and depends on:
 
 - The Common Mandatory Metadata Structure (CMMS) version 0.1.1
-- The Mandatory Submission Metadata for Directly Accessible Datasets (MSMdad) version 0.1.1
+- The Mandatory Submission Metadata for Directly Accessible Datasets (MSMdad) version 0.1.2
 
 ## Structure
 
