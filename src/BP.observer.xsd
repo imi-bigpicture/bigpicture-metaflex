@@ -7,7 +7,7 @@
             <xs:documentation>A BP observer object describes the observer that has performed an observation.</xs:documentation>
         </xs:annotation>
         <xs:complexContent>
-            <xs:extension base="bp:BPObjectType">
+            <xs:extension base="bp:ObjectType">
                 <xs:sequence>
                     <xs:element minOccurs="1" maxOccurs="1" name="OBSERVER_TYPE" >
                         <xs:annotation>

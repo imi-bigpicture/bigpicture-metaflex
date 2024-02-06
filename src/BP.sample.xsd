@@ -9,7 +9,7 @@
       </xs:documentation>
     </xs:annotation>
     <xs:complexContent>
-      <xs:extension base="bp:BPObjectType">
+      <xs:extension base="bp:ObjectType">
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
@@ -21,9 +21,9 @@
       </xs:documentation>
     </xs:annotation>
     <xs:complexContent>
-      <xs:extension base="bp:BPObjectType">
+      <xs:extension base="bp:ObjectType">
         <xs:sequence>
-            <xs:element name="BIOLOGICAL_BEING_REF" maxOccurs="1" minOccurs="1" type="bp:BPRefObjectType">
+            <xs:element name="BIOLOGICAL_BEING_REF" maxOccurs="1" minOccurs="1" type="bp:ReferenceObjectType">
                 <xs:annotation>
                     <xs:documentation>Identifies the biological being the case is for.</xs:documentation>
                 </xs:annotation>
@@ -40,14 +40,14 @@
       </xs:documentation>
     </xs:annotation>
     <xs:complexContent>
-      <xs:extension base="bp:BPObjectType">
+      <xs:extension base="bp:ObjectType">
         <xs:sequence>
-          <xs:element name="EXTRACTED_FROM_REF" maxOccurs="1" minOccurs="1" type="bp:BPRefObjectType">
+          <xs:element name="EXTRACTED_FROM_REF" maxOccurs="1" minOccurs="1" type="bp:ReferenceObjectType">
             <xs:annotation>
               <xs:documentation>Identifies the biological being the specimen is taken from.</xs:documentation>
             </xs:annotation>
           </xs:element>
-          <xs:element name="PART_OF_CASE_REF" maxOccurs="1" minOccurs="0" type="bp:BPRefObjectType">
+          <xs:element name="PART_OF_CASE_REF" maxOccurs="1" minOccurs="0" type="bp:ReferenceObjectType">
             <xs:annotation>
                 <xs:documentation>Identifies the optional case the specimen belongs to.</xs:documentation>
             </xs:annotation>
@@ -64,9 +64,9 @@
       </xs:documentation>
     </xs:annotation>
     <xs:complexContent>
-      <xs:extension base="bp:BPObjectType">
+      <xs:extension base="bp:ObjectType">
         <xs:sequence>
-          <xs:element name="SAMPLED_FROM_REF" maxOccurs="unbounded" minOccurs="1" type="bp:BPRefObjectType">
+          <xs:element name="SAMPLED_FROM_REF" maxOccurs="unbounded" minOccurs="1" type="bp:ReferenceObjectType">
             <xs:annotation>
               <xs:documentation>Identifies the specimen(s) or specimen collection(s) the block is created from.</xs:documentation>
             </xs:annotation>
@@ -83,14 +83,14 @@
       </xs:documentation>
     </xs:annotation>
     <xs:complexContent>
-      <xs:extension base="bp:BPObjectType">
+      <xs:extension base="bp:ObjectType">
         <xs:sequence>
-          <xs:element name="CREATED_FROM_REF" maxOccurs="1" minOccurs="1" type="bp:BPRefObjectType">
+          <xs:element name="CREATED_FROM_REF" maxOccurs="1" minOccurs="1" type="bp:ReferenceObjectType">
             <xs:annotation>
               <xs:documentation>Identifies the block the slide is created from.</xs:documentation>
             </xs:annotation>
           </xs:element>
-          <xs:element name="STAINING_INFORMATION_REF" maxOccurs="1" minOccurs="1" type="bp:BPRefObjectType">
+          <xs:element name="STAINING_INFORMATION_REF" maxOccurs="1" minOccurs="1" type="bp:ReferenceObjectType">
             <xs:annotation>
               <xs:documentation>Identifies the stainings (StainingType) for the slide.</xs:documentation>
             </xs:annotation>
@@ -100,7 +100,7 @@
     </xs:complexContent>
   </xs:complexType>
 
-  <xs:complexType name="BPSampleSetType">
+  <xs:complexType name="SampleSetType">
     <xs:sequence minOccurs="1" maxOccurs="unbounded">
     <xs:choice>
       <xs:element name="BIOLOGICAL_BEING" type="BiologicalBeingType"/>
@@ -112,7 +112,7 @@
     </xs:sequence>
   </xs:complexType>
 
-  <xs:element name="SAMPLE_SET" type="BPSampleSetType">
+  <xs:element name="SAMPLE_SET" type="SampleSetType">
     <xs:annotation>
       <xs:documentation>
         SAMPLE_SET serves as a container for a set of samples and a name space
