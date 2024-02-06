@@ -1,21 +1,21 @@
-# metadata-schema
+# Bigpicture Metadata Schema
 
 Metadata schemas for BIGPICTURE data submission. Based on SRA/EGA/ENA metadata schemas.
 
-## BIGPICTURE Metadata Specification Dependencies
+## Bigpicture Metadata Specification Dependencies
 
-This version of the BIGPICTURE Metadata Storage File Fromat Specification (v.0.10.0) complies to and depends on:
+This version of the Bigpicture Metadata Storage File Fromat Specification (v.0.10.0) complies to and depends on:
 
 - The Common Mandatory Metadata Structure (CMMS) version 0.1.1
 - The Mandatory Submission Metadata for Directly Accessible Datasets (MSMdad) version 0.1.2
 
 ## Structure
 
-The schema developed explicitly for BIGPICTURE, extending the SRA/EGA/ENA metadata schema, are located in files prefixed with BP. The following paragraphs discuss each of the newly created files in more depth.
+The schema developed explicitly for Bigpicture, extending the SRA/EGA/ENA metadata schema, are located in files prefixed with BP. The following paragraphs discuss each of the newly created files in more depth.
 
 ### BP.common.xsd
 
-Implements several types that are used FileBaseType which is in other BIGPICTURE types:
+Implements several types that are used FileBaseType which is in other Bigpicture types:
 
 - FileBaseType: Type for representing a submitted data file with filename and checksum.
 - AttributeBaseType: A base attribute type that is identified by a `TAG`. StringAttributeType, NumericAttributeType, MeasurementAttributeType, CodeAttributeType, and SetAttributeType extends from this type.
