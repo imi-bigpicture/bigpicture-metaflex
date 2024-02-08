@@ -7,8 +7,4 @@
     <xs:import schemaLocation="BP.observer.xsd"/>
     <xs:import schemaLocation="BP.sample.xsd"/>
     <xs:import schemaLocation="BP.staining.xsd"/>
-    <xs:import schemaLocation="EGA.dac.xsd" namespace="SRA"/>
-    <xs:import schemaLocation="EGA.policy.xsd" namespace="SRA"/>
-    <xs:import schemaLocation="SRA.study.xsd" namespace="SRA"/>
-    <xs:import schemaLocation="BP.submission.xsd" namespace="SRA"/>
 </xs:schema>
