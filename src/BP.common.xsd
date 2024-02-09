@@ -266,7 +266,7 @@
         </xs:complexContent>
     </xs:complexType>
 
-    <xs:complexType name="ReferencableType">
+    <xs:complexType name="ReferenceableType">
         <xs:annotation>
           <xs:documentation>
             An object that can be referenced to by other objects using a `ReferenceObjectType`.
@@ -302,7 +302,7 @@
           </xs:documentation>
         </xs:annotation>
         <xs:complexContent>
-        <xs:extension base="bp:ReferencableType">
+        <xs:extension base="bp:ReferenceableType">
             <xs:sequence>
                 <xs:element name="ATTRIBUTES" minOccurs="1" maxOccurs="1" type="bp:AttributesType" nillable="true"/>
             </xs:sequence>
