@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"  targetNamespace="SRA">
-    <xs:import schemaLocation="EGA.dac.xsd"/>
-    <xs:import schemaLocation="EGA.policy.xsd"/>
-    <xs:import schemaLocation="SRA.study.xsd"/>
-    <xs:import schemaLocation="BP.submission.xsd"/>
-</xs:schema>
