@@ -53,7 +53,7 @@
     <xs:complexType name="AttributesType">
         <xs:annotation>
             <xs:documentation>
-                Set of tag-value attribute under a common tag.
+                Collection of attributes.
             </xs:documentation>
         </xs:annotation>
         <xs:sequence minOccurs="1" maxOccurs="unbounded">
@@ -100,7 +100,7 @@
     <xs:complexType name="CodeAttributesType">
         <xs:annotation>
             <xs:documentation>
-                Code attributes of an object.
+                Collection of code attributes.
             </xs:documentation>
         </xs:annotation>
         <xs:sequence maxOccurs="unbounded" minOccurs="1">
@@ -111,6 +111,11 @@
     </xs:complexType>
 
     <xs:simpleType name="ChecksumString">
+        <xs:annotation>
+            <xs:documentation>
+                SHA256 checksum string.
+            </xs:documentation>
+        </xs:annotation>
       <xs:restriction base="xs:string">
         <xs:pattern value='[0-9a-f]{64}'/>
       </xs:restriction>
