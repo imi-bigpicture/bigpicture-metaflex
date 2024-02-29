@@ -280,7 +280,7 @@
     <xs:complexType name="ReferenceableType">
         <xs:annotation>
           <xs:documentation>
-            An object that can be referenced to by other objects using a `ReferenceObjectType`.
+            An object that can be referenced to by other objects using a `ReferenceType`.
           </xs:documentation>
         </xs:annotation>
         <xs:attribute name="alias" type="xs:string" use="required">
@@ -321,7 +321,7 @@
         </xs:complexContent>
     </xs:complexType>
 
-    <xs:complexType name="ReferenceObjectType">
+    <xs:complexType name="ReferenceType">
         <xs:annotation>
           <xs:documentation>
             An object used for referencing other objects.
@@ -341,7 +341,5 @@
                 </xs:documentation>
             </xs:annotation>
         </xs:attribute>
-
-
     </xs:complexType>
 </xs:schema>

@@ -110,50 +110,50 @@
         <xs:complexContent>
             <xs:extension base="bp:ObjectType">
                 <xs:sequence>
-                    <xs:element name="STUDY_REF" minOccurs="0" maxOccurs="1" type="bp:ReferenceObjectType">
+                    <xs:element name="STUDY_REF" minOccurs="0" maxOccurs="1" type="bp:ReferenceType">
                         <xs:annotation>
                             <xs:documentation>Identifies the parent study.</xs:documentation>
                         </xs:annotation>
                     </xs:element>
                     <xs:choice>
-                        <xs:element name="ANNOTATION_REF" type="bp:ReferenceObjectType">
+                        <xs:element name="ANNOTATION_REF" type="bp:ReferenceType">
                             <xs:annotation>
                                 <xs:documentation>Identifies the referenced annotation.</xs:documentation>
                             </xs:annotation>
                         </xs:element>
-                        <xs:element name="CASE_REF" type="bp:ReferenceObjectType">
+                        <xs:element name="CASE_REF" type="bp:ReferenceType">
                             <xs:annotation>
                                 <xs:documentation>Identifies the referenced case.</xs:documentation>
                             </xs:annotation>
                         </xs:element>
-                        <xs:element name="BIOLOGICAL_BEING_REF" type="bp:ReferenceObjectType">
+                        <xs:element name="BIOLOGICAL_BEING_REF" type="bp:ReferenceType">
                             <xs:annotation>
                                 <xs:documentation>Identifies the referenced biological being.</xs:documentation>
                             </xs:annotation>
                         </xs:element>
-                        <xs:element name="SPECIMEN_REF" type="bp:ReferenceObjectType">
+                        <xs:element name="SPECIMEN_REF" type="bp:ReferenceType">
                             <xs:annotation>
                                 <xs:documentation>Identifies the referenced specimen.</xs:documentation>
                             </xs:annotation>
                         </xs:element>
-                        <xs:element name="BLOCK_REF" type="bp:ReferenceObjectType">
+                        <xs:element name="BLOCK_REF" type="bp:ReferenceType">
                             <xs:annotation>
                                 <xs:documentation>Identifies the referenced block.</xs:documentation>
                             </xs:annotation>
                         </xs:element>
-                        <xs:element name="SLIDE_REF" type="bp:ReferenceObjectType">
+                        <xs:element name="SLIDE_REF" type="bp:ReferenceType">
                             <xs:annotation>
                                 <xs:documentation>Identifies the referenced slide.</xs:documentation>
                             </xs:annotation>
                         </xs:element>
-                        <xs:element name="IMAGE_REF" type="bp:ReferenceObjectType">
+                        <xs:element name="IMAGE_REF" type="bp:ReferenceType">
                             <xs:annotation>
                                 <xs:documentation>Identifies the referenced image.</xs:documentation>
                             </xs:annotation>
                         </xs:element>
                     </xs:choice>
 
-                    <xs:element name="OBSERVER_REF" maxOccurs="unbounded" minOccurs="0" type="bp:ReferenceObjectType">
+                    <xs:element name="OBSERVER_REF" maxOccurs="unbounded" minOccurs="0" type="bp:ReferenceType">
                         <xs:annotation>
                             <xs:documentation>Identifies the observer.</xs:documentation>
                         </xs:annotation>

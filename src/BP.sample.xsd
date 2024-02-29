@@ -34,7 +34,7 @@
     <xs:complexContent>
       <xs:extension base="bp:ObjectType">
         <xs:sequence>
-            <xs:element name="BIOLOGICAL_BEING_REF" maxOccurs="1" minOccurs="1" type="bp:ReferenceObjectType">
+            <xs:element name="BIOLOGICAL_BEING_REF" maxOccurs="1" minOccurs="1" type="bp:ReferenceType">
                 <xs:annotation>
                     <xs:documentation>Identifies the biological being the case is related to.</xs:documentation>
                 </xs:annotation>
@@ -53,12 +53,12 @@
     <xs:complexContent>
       <xs:extension base="bp:ObjectType">
         <xs:sequence>
-          <xs:element name="EXTRACTED_FROM_REF" maxOccurs="1" minOccurs="1" type="bp:ReferenceObjectType">
+          <xs:element name="EXTRACTED_FROM_REF" maxOccurs="1" minOccurs="1" type="bp:ReferenceType">
             <xs:annotation>
               <xs:documentation>Identifies the biological being the specimen is taken from.</xs:documentation>
             </xs:annotation>
           </xs:element>
-          <xs:element name="PART_OF_CASE_REF" maxOccurs="1" minOccurs="0" type="bp:ReferenceObjectType">
+          <xs:element name="PART_OF_CASE_REF" maxOccurs="1" minOccurs="0" type="bp:ReferenceType">
             <xs:annotation>
                 <xs:documentation>Identifies the optional case the specimen belongs to.</xs:documentation>
             </xs:annotation>
@@ -77,7 +77,7 @@
     <xs:complexContent>
       <xs:extension base="bp:ObjectType">
         <xs:sequence>
-          <xs:element name="SAMPLED_FROM_REF" maxOccurs="unbounded" minOccurs="1" type="bp:ReferenceObjectType">
+          <xs:element name="SAMPLED_FROM_REF" maxOccurs="unbounded" minOccurs="1" type="bp:ReferenceType">
             <xs:annotation>
               <xs:documentation>Identifies the specimen(s) or specimen collection(s) the block is created from.</xs:documentation>
             </xs:annotation>
@@ -96,12 +96,12 @@
     <xs:complexContent>
       <xs:extension base="bp:ObjectType">
         <xs:sequence>
-          <xs:element name="CREATED_FROM_REF" maxOccurs="1" minOccurs="1" type="bp:ReferenceObjectType">
+          <xs:element name="CREATED_FROM_REF" maxOccurs="1" minOccurs="1" type="bp:ReferenceType">
             <xs:annotation>
               <xs:documentation>Identifies the block the slide is created from.</xs:documentation>
             </xs:annotation>
           </xs:element>
-          <xs:element name="STAINING_INFORMATION_REF" maxOccurs="1" minOccurs="1" type="bp:ReferenceObjectType">
+          <xs:element name="STAINING_INFORMATION_REF" maxOccurs="1" minOccurs="1" type="bp:ReferenceType">
             <xs:annotation>
               <xs:documentation>Identifies the stainings (StainingType) for the slide.</xs:documentation>
             </xs:annotation>
