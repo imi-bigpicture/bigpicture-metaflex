@@ -30,7 +30,7 @@ Implements several types that are used in other types:
   - `alias`: Submitter designated name for the object. The name must be unique within the Study and Dataset the entity belongs to.
   - `accession`: The object accession assigned by the archive. Should not be present when submitting.
   - `uuid`: Optional universally unique identifier that requires no namespace.
-- ReferenceObjectType: A type used for referencing to other objects, either by alias or accesion.
+- ReferenceType: A type used for referencing to other objects, either by alias or accesion.
 
 ### BP.sample.xsd
 
