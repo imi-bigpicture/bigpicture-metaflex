@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased] -
 
+### Changed
+
+- Merged `ReferenceableType` and `ObjectType`.
+- Changed the name of `ReferenceObjectType` to `ReferenceType`.
+- Added `abstract="true"` to `FileBaseType` and `ObjectType`.
+
 ## [0.10.0] - 2024-02-06
 
 ### Changed
