@@ -282,12 +282,15 @@
         </xs:complexContent>
     </xs:complexType>
 
-    <xs:complexType name="ReferenceableType" abstract="true">
+    <xs:complexType name="ObjectType" abstract="true">
         <xs:annotation>
           <xs:documentation>
-            An object that can be referenced to by other objects using a `ReferenceType`.
+            An object that can be referencend by other objects and that has a list of attributes.
           </xs:documentation>
         </xs:annotation>
+        <xs:sequence>
+            <xs:element name="ATTRIBUTES" minOccurs="1" maxOccurs="1" type="bp:AttributesType" nillable="true"/>
+        </xs:sequence>
         <xs:attribute name="alias" type="xs:string" use="required">
             <xs:annotation>
                 <xs:documentation>
@@ -309,21 +312,6 @@
                 </xs:documentation>
             </xs:annotation>
         </xs:attribute>
-    </xs:complexType>
-
-    <xs:complexType name="ObjectType" abstract="true">
-        <xs:annotation>
-          <xs:documentation>
-            An object that can be referencend by other objects and that has a list of attributes.
-          </xs:documentation>
-        </xs:annotation>
-        <xs:complexContent>
-        <xs:extension base="bp:ReferenceableType">
-            <xs:sequence>
-                <xs:element name="ATTRIBUTES" minOccurs="1" maxOccurs="1" type="bp:AttributesType" nillable="true"/>
-            </xs:sequence>
-        </xs:extension>
-        </xs:complexContent>
     </xs:complexType>
 
     <xs:complexType name="ReferenceType">
