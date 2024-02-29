@@ -116,7 +116,7 @@
       </xs:restriction>
     </xs:simpleType>
 
-    <xs:complexType name="FileBaseType">
+    <xs:complexType name="FileBaseType" abstract="true">
         <xs:attribute name="filename" type="xs:string" use="required">
             <xs:annotation>
                 <xs:documentation>The file name.</xs:documentation>
@@ -277,7 +277,7 @@
         </xs:complexContent>
     </xs:complexType>
 
-    <xs:complexType name="ReferenceableType">
+    <xs:complexType name="ReferenceableType" abstract="true">
         <xs:annotation>
           <xs:documentation>
             An object that can be referenced to by other objects using a `ReferenceType`.
@@ -306,7 +306,7 @@
         </xs:attribute>
     </xs:complexType>
 
-    <xs:complexType name="ObjectType">
+    <xs:complexType name="ObjectType" abstract="true">
         <xs:annotation>
           <xs:documentation>
             An object that can be referencend by other objects and that has a list of attributes.
