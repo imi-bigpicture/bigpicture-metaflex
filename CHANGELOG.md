@@ -13,6 +13,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Changed the name of `ReferenceObjectType` to `ReferenceType`.
 - Added `abstract="true"` to `FileBaseType` and `ObjectType`.
 
+### Fixed
+
+- Removed `<xs:choice>` from `CodeAttributesType`.
+
 ## [0.10.0] - 2024-02-06
 
 ### Changed
