@@ -1,7 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright 2024 The Bigpicture MetaFleX Authors
+  ~ Licensed under the Apache License, Version 2.0 (the "License"); you may not use this
+  ~ file except in compliance with the License. You may obtain a copy of the License at
+  ~ http://www.apache.org/licenses/LICENSE-2.0
+  ~ Unless required by applicable law or agreed to in writing, software distributed under the
+  ~ License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+  ~ CONDITIONS OF ANY KIND, either express or implied. See the License for the
+  ~ specific language governing permissions and limitations under the License.
+  -->
+
+<!-- version:0.11.0 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:bp="BP.common">
   <xs:import namespace="BP.common" schemaLocation="BP.common.xsd"/>
-
   <xs:complexType name="BiologicalBeingType">
     <xs:annotation>
       <xs:documentation>
@@ -23,9 +34,9 @@
     <xs:complexContent>
       <xs:extension base="bp:ObjectType">
         <xs:sequence>
-            <xs:element name="BIOLOGICAL_BEING_REF" maxOccurs="1" minOccurs="1" type="bp:ReferenceObjectType">
+            <xs:element name="BIOLOGICAL_BEING_REF" maxOccurs="1" minOccurs="1" type="bp:ReferenceType">
                 <xs:annotation>
-                    <xs:documentation>Identifies the biological being the case is for.</xs:documentation>
+                    <xs:documentation>Identifies the biological being the case is related to.</xs:documentation>
                 </xs:annotation>
             </xs:element>
           </xs:sequence>
@@ -42,12 +53,12 @@
     <xs:complexContent>
       <xs:extension base="bp:ObjectType">
         <xs:sequence>
-          <xs:element name="EXTRACTED_FROM_REF" maxOccurs="1" minOccurs="1" type="bp:ReferenceObjectType">
+          <xs:element name="EXTRACTED_FROM_REF" maxOccurs="1" minOccurs="1" type="bp:ReferenceType">
             <xs:annotation>
               <xs:documentation>Identifies the biological being the specimen is taken from.</xs:documentation>
             </xs:annotation>
           </xs:element>
-          <xs:element name="PART_OF_CASE_REF" maxOccurs="1" minOccurs="0" type="bp:ReferenceObjectType">
+          <xs:element name="PART_OF_CASE_REF" maxOccurs="1" minOccurs="0" type="bp:ReferenceType">
             <xs:annotation>
                 <xs:documentation>Identifies the optional case the specimen belongs to.</xs:documentation>
             </xs:annotation>
@@ -66,7 +77,7 @@
     <xs:complexContent>
       <xs:extension base="bp:ObjectType">
         <xs:sequence>
-          <xs:element name="SAMPLED_FROM_REF" maxOccurs="unbounded" minOccurs="1" type="bp:ReferenceObjectType">
+          <xs:element name="SAMPLED_FROM_REF" maxOccurs="unbounded" minOccurs="1" type="bp:ReferenceType">
             <xs:annotation>
               <xs:documentation>Identifies the specimen(s) or specimen collection(s) the block is created from.</xs:documentation>
             </xs:annotation>
@@ -85,12 +96,12 @@
     <xs:complexContent>
       <xs:extension base="bp:ObjectType">
         <xs:sequence>
-          <xs:element name="CREATED_FROM_REF" maxOccurs="1" minOccurs="1" type="bp:ReferenceObjectType">
+          <xs:element name="CREATED_FROM_REF" maxOccurs="1" minOccurs="1" type="bp:ReferenceType">
             <xs:annotation>
               <xs:documentation>Identifies the block the slide is created from.</xs:documentation>
             </xs:annotation>
           </xs:element>
-          <xs:element name="STAINING_INFORMATION_REF" maxOccurs="1" minOccurs="1" type="bp:ReferenceObjectType">
+          <xs:element name="STAINING_INFORMATION_REF" maxOccurs="1" minOccurs="1" type="bp:ReferenceType">
             <xs:annotation>
               <xs:documentation>Identifies the stainings (StainingType) for the slide.</xs:documentation>
             </xs:annotation>

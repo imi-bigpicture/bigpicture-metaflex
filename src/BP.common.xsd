@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:bp="BP.common" targetNamespace="BP.common">
+<!--
+  ~ Copyright 2024 The Bigpicture MetaFleX Authors
+  ~ Licensed under the Apache License, Version 2.0 (the "License"); you may not use this
+  ~ file except in compliance with the License. You may obtain a copy of the License at
+  ~ http://www.apache.org/licenses/LICENSE-2.0
+  ~ Unless required by applicable law or agreed to in writing, software distributed under the
+  ~ License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+  ~ CONDITIONS OF ANY KIND, either express or implied. See the License for the
+  ~ specific language governing permissions and limitations under the License.
+  -->
 
+<!-- version:0.11.0 -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:bp="BP.common" targetNamespace="BP.common">
     <xs:complexType name="CodeType">
         <xs:annotation>
             <xs:documentation>
@@ -42,7 +53,7 @@
     <xs:complexType name="AttributesType">
         <xs:annotation>
             <xs:documentation>
-                Set of tag-value attribute under a common tag.
+                Collection of attributes.
             </xs:documentation>
         </xs:annotation>
         <xs:sequence minOccurs="1" maxOccurs="unbounded">
@@ -89,23 +100,26 @@
     <xs:complexType name="CodeAttributesType">
         <xs:annotation>
             <xs:documentation>
-                Code attributes of an object.
+                Collection of code attributes.
             </xs:documentation>
         </xs:annotation>
         <xs:sequence maxOccurs="unbounded" minOccurs="1">
-            <xs:choice>
-                <xs:element name="CODE_ATTRIBUTE" type="bp:CodeAttributeType"/>
-            </xs:choice>
+            <xs:element name="CODE_ATTRIBUTE" type="bp:CodeAttributeType"/>
         </xs:sequence>
     </xs:complexType>
 
     <xs:simpleType name="ChecksumString">
+        <xs:annotation>
+            <xs:documentation>
+                SHA256 checksum string.
+            </xs:documentation>
+        </xs:annotation>
       <xs:restriction base="xs:string">
         <xs:pattern value='[0-9a-f]{64}'/>
       </xs:restriction>
     </xs:simpleType>
 
-    <xs:complexType name="FileBaseType">
+    <xs:complexType name="FileBaseType" abstract="true">
         <xs:attribute name="filename" type="xs:string" use="required">
             <xs:annotation>
                 <xs:documentation>The file name.</xs:documentation>
@@ -266,12 +280,15 @@
         </xs:complexContent>
     </xs:complexType>
 
-    <xs:complexType name="ReferencableType">
+    <xs:complexType name="ObjectType" abstract="true">
         <xs:annotation>
           <xs:documentation>
-            An object that can be referenced to by other objects using a `ReferenceObjectType`.
+            An object that can be referencend by other objects and that has a list of attributes.
           </xs:documentation>
         </xs:annotation>
+        <xs:sequence>
+            <xs:element name="ATTRIBUTES" minOccurs="1" maxOccurs="1" type="bp:AttributesType" nillable="true"/>
+        </xs:sequence>
         <xs:attribute name="alias" type="xs:string" use="required">
             <xs:annotation>
                 <xs:documentation>
@@ -295,22 +312,7 @@
         </xs:attribute>
     </xs:complexType>
 
-    <xs:complexType name="ObjectType">
-        <xs:annotation>
-          <xs:documentation>
-            An object that can be referencend by other objects and that has a list of attributes.
-          </xs:documentation>
-        </xs:annotation>
-        <xs:complexContent>
-        <xs:extension base="bp:ReferencableType">
-            <xs:sequence>
-                <xs:element name="ATTRIBUTES" minOccurs="1" maxOccurs="1" type="bp:AttributesType" nillable="true"/>
-            </xs:sequence>
-        </xs:extension>
-        </xs:complexContent>
-    </xs:complexType>
-
-    <xs:complexType name="ReferenceObjectType">
+    <xs:complexType name="ReferenceType">
         <xs:annotation>
           <xs:documentation>
             An object used for referencing other objects.
@@ -330,7 +332,5 @@
                 </xs:documentation>
             </xs:annotation>
         </xs:attribute>
-
-
     </xs:complexType>
 </xs:schema>

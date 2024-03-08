@@ -7,6 +7,24 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased] -
 
+## [0.11.0] - 2024-03-08
+
+### Added
+
+- License notice to all the files.
+- Acknowledgement to funding and contributors in readme file.
+
+### Changed
+
+- Merged `ReferenceableType` and `ObjectType`.
+- Changed the name of `ReferenceObjectType` to `ReferenceType`.
+- Added `abstract="true"` to `FileBaseType` and `ObjectType`.
+
+### Fixed
+
+- Removed `<xs:choice>` from `CodeAttributesType`.
+- Fixed and improved type annotations.
+
 ## [0.10.0] - 2024-02-06
 
 ### Changed
