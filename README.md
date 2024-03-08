@@ -1,13 +1,13 @@
 # Bigpicture Flexible Metadata File Exchange Format (MetaFleX)
 
-Metadata schemas for BigPicture data submission. Based on SRA/EGA/ENA metadata schemas.
+Metadata schemas for Bigpicture data submission. Based on SRA/EGA/ENA metadata schemas.
 
 ## Bigpicture MetaFleX Dependencies
 
-This version of the Bigpicture MetaFleX (v.0.10.0)complies to and depends on:
+This version of the Bigpicture MetaFleX (v.0.11.0) complies to and depends on:
 
 - The Common Mandatory Metadata Structure (CMMS) version 0.1.1
-- The Mandatory Submission Metadata for Directly Accessible Datasets (MSMdad)version 0.1.2
+- The Mandatory Submission Metadata for Directly Accessible Datasets (MSMdad) version 0.1.2
 
 ## Structure
 
@@ -38,7 +38,7 @@ Implements the following types:
 
 - BiologicalBeingType: A human being or animal.
 - SpecimenType: A removed part of a human/animal being. The `EXTRACTED_FROM` element references the biological being the specimen was extracted from.
-- BlockType: A part or a collection of parts of one or many Specimens that has/have been sampled and processed for further investigation. This can for example be a block. The `SAMPLED_FROM` element references the specimen(s)the block was sampled from.
+- BlockType: A part or a collection of parts of one or many Specimens that has/have been sampled and processed for further investigation. This can for example be a block. The `SAMPLED_FROM` element references the specimen(s) the block was sampled from.
 - SlideType: A physical slide that has been created out of one or more Blocks. The `CREATED_FROM` element references the block the slide was created from.
 
 All types extends `ObjectType`, and different types of attributes can thus be assigned to the `ATTRIBUTES` element.
@@ -74,7 +74,7 @@ Implements the ObservationType that captures observation objects. The Observatio
 - `OBSERVER`: Identifies the observer (optional).
 - `STATEMENT`: The statement for the observation.
 
-The object that the observation references is defined by using one (and only one)of the following elements:
+The object that the observation references is defined by using one (and only one) of the following elements:
 
 - `ANNOTATION`: Identifies the referenced annotation.
 - `CASE`: Identifies the referenced case.
@@ -92,15 +92,15 @@ The `STATEMENT` is of StatementType, which has the following elements:
   - `Microscopic Description`
   - `Finding`
 - `STATEMENT_STATUS`: The status of the statement. Either:
-  - `Summary`: Integrating downstream information into the statement about the given entity, thereby the statement is not necessarily true for all downstream entities (e.g. BP Images)but only true for the entire collection/set of downstream or related entities.
+  - `Summary`: Integrating downstream information into the statement about the given entity, thereby the statement is not necessarily true for all downstream entities (e.g. BP Images) but only true for the entire collection/set of downstream or related entities.
   - `Distinct`: The statement is true for the entity it is related to and all downstream entities.
 - `CODE_ATTRIBUTES`: These types of attributes refer to attributes that can be coded by the means of some internationally or at least published schema, classification, nomenclature or ontology. They comprise the same functionality as all `CodeAttributeTypes` in the BP XSD Schema. As the complexity of a pathological statement can be in many instances not be coded using only one Ontology/Classifiation/Nomenclature (I.e. ICDO + TNM or multiple SEND/CDISC Variables)it was decided that one can add multiple coded Attributes to a given statement.
-- `CUSTOM_ATTRIBUTES`: These types of attributes refer to information which can be stored by the means of a 'TAG' > 'VALUE' concept. All different types of BP XSD Schema Attributes can be used here.  As the complexity of a pathological statement can require a set of Custom Attributes (I.e. set of customly defined morphological descriptors)it was decided that multiple Custom Attributes can be assigned to a given statement.
+- `CUSTOM_ATTRIBUTES`: These types of attributes refer to information which can be stored by the means of a 'TAG' > 'VALUE' concept. All different types of BP XSD Schema Attributes can be used here.  As the complexity of a pathological statement can require a set of Custom Attributes (I.e. set of customly defined morphological descriptors) it was decided that multiple Custom Attributes can be assigned to a given statement.
 - `FREETEXT`: This section of a statement comprises information that is only available as free text. It should be used to store original unparsed data, extracted from some source.
 
 ### BP.staining.xsd
 
-Implements the StainType that captures stain objects. The StainType extends `ObjectType`. A stain is defined by Attributes (string, coded, numeric or set)using tags `staining_compound`, `taining_target`, `staining_method`, `staining_reporter_type`, and/or `staining_reporter`.
+Implements the StainType that captures stain objects. The StainType extends `ObjectType`. A stain is defined by Attributes (string, coded, numeric or set) using tags `staining_compound`, `taining_target`, `staining_method`, `staining_reporter_type`, and/or `staining_reporter`.
 
 ### BP.case.xsd
 
@@ -115,7 +115,7 @@ The Study, Policy, DAC, and sumbission types are used as in EGA.
 
 ## License
 
-BigPicture Metadata Schema is licensed under Apache 2.0.
+Bigpicture Flexible Metadata File Exchange Format is licensed under Apache 2.0.
 
 ## Acknowledgement
 
