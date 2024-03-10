@@ -32,7 +32,7 @@
         <xs:complexContent>
             <xs:extension base="bp:ObjectType">
                 <xs:sequence>
-                    <xs:element name="DATASET_REF" minOccurs="0" maxOccurs="1" type="bp:ReferenceType">
+                    <xs:element name="DATASET_REF" minOccurs="1" maxOccurs="1" type="bp:ReferenceType">
                         <xs:annotation>
                             <xs:documentation>Identifiers the dataset the landing page describes.</xs:documentation>
                         </xs:annotation>
