@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright 2024 The Bigpicture MetaFleX Authors
+  ~ Licensed under the Apache License, Version 2.0 (the "License"); you may not use this
+  ~ file except in compliance with the License. You may obtain a copy of the License at
+  ~ http://www.apache.org/licenses/LICENSE-2.0
+  ~ Unless required by applicable law or agreed to in writing, software distributed under the
+  ~ License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+  ~ CONDITIONS OF ANY KIND, either express or implied. See the License for the
+  ~ specific language governing permissions and limitations under the License.
+  -->
+
+<!-- version:0.11.0 -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"  xmlns:bp="BP.common">
+    <xs:import namespace="BP.common" schemaLocation="BP.common.xsd"/>
+
+    <xs:complexType name="LandingPageSetType">
+        <xs:sequence maxOccurs="unbounded" minOccurs="1">
+            <xs:element name="LANDING_PAGE" type="LandingPageType"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="LANDINGP_AGE_SET" type="LandingPageSetType">
+        <xs:annotation>
+            <xs:documentation>A container of analysis objects.</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="LANDING_PAGE" type="LandingPageType"/>
+    <xs:complexType name="LandingPageType">
+        <xs:annotation>
+            <xs:documentation>A landing page object contains the public information visible on a landing page for a dataset.</xs:documentation>
+        </xs:annotation>
+        <xs:complexContent>
+            <xs:extension base="bp:ObjectType">
+                <xs:sequence>
+                    <xs:element name="DATASET_REF" minOccurs="0" maxOccurs="1" type="bp:ReferenceType">
+                        <xs:annotation>
+                            <xs:documentation>Identifiers the dataset the landing page describes.</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+</xs:schema>

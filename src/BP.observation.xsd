@@ -15,7 +15,7 @@
     <xs:import namespace="BP.common" schemaLocation="BP.common.xsd"/>
     <xs:complexType name="StatementType">
         <xs:annotation>
-            <xs:documentation>A BP statement object describes the statements for an observeration.</xs:documentation>
+            <xs:documentation>A statement object describes the statements for an observeration.</xs:documentation>
         </xs:annotation>
         <xs:sequence>
             <xs:element minOccurs="1" maxOccurs="1" name="STATEMENT_TYPE" >
@@ -105,7 +105,7 @@
 
     <xs:complexType name="ObservationType">
         <xs:annotation>
-            <xs:documentation>A BP observation object captures observation objects.</xs:documentation>
+            <xs:documentation>An observation object captures observation objects.</xs:documentation>
         </xs:annotation>
         <xs:complexContent>
             <xs:extension base="bp:ObjectType">

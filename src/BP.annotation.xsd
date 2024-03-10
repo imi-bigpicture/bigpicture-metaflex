@@ -50,7 +50,7 @@
     <xs:element name="ANNOTATION" type="AnnotationType"/>
     <xs:complexType name="AnnotationType">
         <xs:annotation>
-            <xs:documentation>A BP annotation object captures annotation objects.</xs:documentation>
+            <xs:documentation>An annotation object captures annotation objects.</xs:documentation>
         </xs:annotation>
         <xs:complexContent>
             <xs:extension base="bp:ObjectType">

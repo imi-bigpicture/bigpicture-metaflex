@@ -52,7 +52,7 @@
 
     <xs:complexType name="ImageType">
         <xs:annotation>
-            <xs:documentation>A BP image object captures image objects.
+            <xs:documentation>An image object captures image objects.
             </xs:documentation>
         </xs:annotation>
         <xs:complexContent>
