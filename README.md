@@ -111,7 +111,7 @@ Implements the CaseType that represents a pathological case that references one 
 
 ## Study, Policy, DAC, and Submission
 
-The Study, Policy, DAC, and sumbission types are used as in EGA.
+The Study, Policy, DAC, and submission types are used as in EGA.
 
 ## License
 
