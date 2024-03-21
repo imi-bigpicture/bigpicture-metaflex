@@ -21,7 +21,7 @@
     </xs:complexType>
     <xs:element name="LANDING_PAGE_SET" type="LandingPageSetType">
         <xs:annotation>
-            <xs:documentation>A container of analysis objects.</xs:documentation>
+            <xs:documentation>A container of landing page objects.</xs:documentation>
         </xs:annotation>
     </xs:element>
     <xs:element name="LANDING_PAGE" type="LandingPageType"/>
