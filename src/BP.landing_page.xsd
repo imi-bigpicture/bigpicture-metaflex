@@ -19,7 +19,7 @@
             <xs:element name="LANDING_PAGE" type="LandingPageType"/>
         </xs:sequence>
     </xs:complexType>
-    <xs:element name="LANDINGP_AGE_SET" type="LandingPageSetType">
+    <xs:element name="LANDING_PAGE_SET" type="LandingPageSetType">
         <xs:annotation>
             <xs:documentation>A container of analysis objects.</xs:documentation>
         </xs:annotation>
