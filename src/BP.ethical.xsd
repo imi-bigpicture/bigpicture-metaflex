@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright 2024 The Bigpicture MetaFleX Authors
+  ~ Licensed under the Apache License, Version 2.0 (the "License"); you may not use this
+  ~ file except in compliance with the License. You may obtain a copy of the License at
+  ~ http://www.apache.org/licenses/LICENSE-2.0
+  ~ Unless required by applicable law or agreed to in writing, software distributed under the
+  ~ License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+  ~ CONDITIONS OF ANY KIND, either express or implied. See the License for the
+  ~ specific language governing permissions and limitations under the License.
+  -->
+
+<!-- version:0.11.0 -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"  xmlns:bp="BP.common">
+    <xs:import namespace="BP.common" schemaLocation="BP.common.xsd"/>
+    <xs:complexType name="EthicalFileType">
+        <xs:complexContent>
+            <xs:extension base="bp:FileBaseType">
+                <xs:attribute name="filetype" use="required">
+                    <xs:annotation>
+                        <xs:documentation>The type of the file.</xs:documentation>
+                    </xs:annotation>
+                    <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                            <xs:enumeration value="pdf"/>
+                        </xs:restriction>
+                    </xs:simpleType>
+                </xs:attribute>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="EthicalSetType">
+        <xs:sequence maxOccurs="unbounded" minOccurs="1">
+            <xs:element name="ETHICAL" type="EthicalType"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="ETHICAL_SET" type="EthicalSetType">
+        <xs:annotation>
+            <xs:documentation>A container of analysis objects.</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="ETHICAL" type="EthicalType"/>
+    <xs:complexType name="EthicalType">
+        <xs:annotation>
+            <xs:documentation>A ethical object contains the declaration of compliance for a dataset.</xs:documentation>
+        </xs:annotation>
+        <xs:complexContent>
+            <xs:extension base="bp:ObjectType">
+                <xs:sequence>
+                    <xs:element name="DATASET_REF" minOccurs="1" maxOccurs="1" type="bp:ReferenceType">
+                        <xs:annotation>
+                            <xs:documentation>Identifiers the dataset the ethical object describes.</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:sequence>
+                        <xs:element name="DECLARATION_OF_COMPLIANCE" minOccurs="1" maxOccurs="1" type="EthicalFileType">
+                            <xs:annotation>
+                                <xs:documentation>File declaring the ethical compliance of the dataset.</xs:documentation>
+                            </xs:annotation>
+                        </xs:element>
+                        <xs:element name="ETHICAL_APPROVAL" minOccurs="0" maxOccurs="unbounded" type="EthicalFileType">
+                            <xs:annotation>
+                                <xs:documentation>File with the ethical approval supporting the declaration of compliance.</xs:documentation>
+                            </xs:annotation>
+                        </xs:element>
+                        <xs:element name="INFORMED_CONSENT" minOccurs="0" maxOccurs="unbounded" type="EthicalFileType">
+                            <xs:annotation>
+                                <xs:documentation>File with the informed consent form supporting the declaration of compliance.</xs:documentation>
+                            </xs:annotation>
+                        </xs:element>
+                        <xs:element name="STUDY_PROTOCOL" minOccurs="0" maxOccurs="unbounded" type="EthicalFileType">
+                            <xs:annotation>
+                                <xs:documentation>File with the study protocol supporting the declaration of compliance.</xs:documentation>
+                            </xs:annotation>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+</xs:schema>
