@@ -44,7 +44,7 @@
     </xs:complexType>
     <xs:element name="ANNOTATION_SET" type="AnnotationSetType">
         <xs:annotation>
-            <xs:documentation>A container of analysis objects.</xs:documentation>
+            <xs:documentation>A container of annotation objects.</xs:documentation>
         </xs:annotation>
     </xs:element>
     <xs:element name="ANNOTATION" type="AnnotationType"/>
