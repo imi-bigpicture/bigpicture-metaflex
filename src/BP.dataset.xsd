@@ -44,7 +44,13 @@
 					<xs:element maxOccurs="1" minOccurs="1" name="POLICY_REF" type="bp:ReferenceType">
 						<xs:annotation>
 							<xs:documentation>Identifies the data access policy controlling this data set.
-					</xs:documentation>
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element maxOccurs="1" minOccurs="1" name="ETHICAL_REF" type="bp:ReferenceType">
+						<xs:annotation>
+							<xs:documentation>Identifies the ethical entity for this data set.
+							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element maxOccurs="unbounded" minOccurs="0" name="IMAGE_REF" type="bp:ReferenceType"
