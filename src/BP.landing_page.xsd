@@ -37,6 +37,11 @@
                             <xs:documentation>Identifiers the dataset the landing page describes.</xs:documentation>
                         </xs:annotation>
                     </xs:element>
+                    <xs:element name="REMS_ACCESS_LINK" maxOccurs="1" minOccurs="0" type="xs:anyURI">
+						<xs:annotation>
+							<xs:documentation>URI link for user to get access to the dataset.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
                 </xs:sequence>
             </xs:extension>
         </xs:complexContent>
