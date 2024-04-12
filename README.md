@@ -165,3 +165,4 @@ This project acknowledges the work to establish the underlying metadata specific
 - Anna Lena Frisk (WP3)
 - Grégoire Vincke (WP4)
 - Jesper Molin (WP4)
+- Caroline Bivik Stadler (WP3)
