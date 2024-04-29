@@ -15,15 +15,15 @@
     <xs:import namespace="BP.common" schemaLocation="BP.common.xsd"/>
     <xs:complexType name="OrganisationSetType">
         <xs:sequence maxOccurs="unbounded" minOccurs="1">
-            <xs:element name="POLICY" type="OrganisationType"/>
+            <xs:element name="ORGANISATION" type="OrganisationType"/>
         </xs:sequence>
     </xs:complexType>
-    <xs:element name="POLICY_SET" type="OrganisationSetType">
+    <xs:element name="ORGANISATION_SET" type="OrganisationSetType">
         <xs:annotation>
             <xs:documentation>A container of organisation objects.</xs:documentation>
         </xs:annotation>
     </xs:element>
-    <xs:element name="POLICY" type="OrganisationType"/>
+    <xs:element name="ORGANISATION" type="OrganisationType"/>
     <xs:complexType name="OrganisationType">
         <xs:annotation>
             <xs:documentation>A organisation object contains information about the submitter of a dataset.</xs:documentation>
