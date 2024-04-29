@@ -49,24 +49,20 @@
             <xs:extension base="bp:ObjectType">
                 <xs:sequence>
                     <xs:sequence>
-                        <xs:element name="DECLARATION_OF_COMPLIANCE_FILE" minOccurs="1" maxOccurs="1" type="EthicalFileType">
-                            <xs:annotation>
-                                <xs:documentation>File declaring the ethical compliance of the dataset.</xs:documentation>
-                            </xs:annotation>
-                        </xs:element>
-                        <xs:element name="ETHICAL_APPROVAL_FILE" minOccurs="0" maxOccurs="unbounded" type="EthicalFileType">
-                            <xs:annotation>
-                                <xs:documentation>File with ethical approval supporting the declaration of compliance.</xs:documentation>
-                            </xs:annotation>
-                        </xs:element>
+
                         <xs:element name="INFORMED_CONSENT_FILE" minOccurs="0" maxOccurs="unbounded" type="EthicalFileType">
                             <xs:annotation>
-                                <xs:documentation>File with informed consent form supporting the declaration of compliance.</xs:documentation>
+                                <xs:documentation>File with informed consent form supporting the ethical approval.</xs:documentation>
                             </xs:annotation>
                         </xs:element>
                         <xs:element name="STUDY_PROTOCOL_FILE" minOccurs="0" maxOccurs="unbounded" type="EthicalFileType">
                             <xs:annotation>
-                                <xs:documentation>File with study protocol supporting the declaration of compliance.</xs:documentation>
+                                <xs:documentation>File with study protocol supporting the ethical approval.</xs:documentation>
+                            </xs:annotation>
+                        </xs:element>
+                        <xs:element name="OTHER_ETHICAL_APPROVAL_SUPPORTING_FILE" minOccurs="0" maxOccurs="unbounded" type="EthicalFileType">
+                            <xs:annotation>
+                                <xs:documentation>Other file supporting the ethical approval.</xs:documentation>
                             </xs:annotation>
                         </xs:element>
                     </xs:sequence>
