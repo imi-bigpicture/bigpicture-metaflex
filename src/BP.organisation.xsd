@@ -13,35 +13,29 @@
 <!-- version:0.11.0 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"  xmlns:bp="BP.common">
     <xs:import namespace="BP.common" schemaLocation="BP.common.xsd"/>
-
-    <xs:complexType name="LandingPageSetType">
+    <xs:complexType name="OrganisationSetType">
         <xs:sequence maxOccurs="unbounded" minOccurs="1">
-            <xs:element name="LANDING_PAGE" type="LandingPageType"/>
+            <xs:element name="POLICY" type="OrganisationType"/>
         </xs:sequence>
     </xs:complexType>
-    <xs:element name="LANDING_PAGE_SET" type="LandingPageSetType">
+    <xs:element name="POLICY_SET" type="OrganisationSetType">
         <xs:annotation>
-            <xs:documentation>A container of landing page objects.</xs:documentation>
+            <xs:documentation>A container of organisation objects.</xs:documentation>
         </xs:annotation>
     </xs:element>
-    <xs:element name="LANDING_PAGE" type="LandingPageType"/>
-    <xs:complexType name="LandingPageType">
+    <xs:element name="POLICY" type="OrganisationType"/>
+    <xs:complexType name="OrganisationType">
         <xs:annotation>
-            <xs:documentation>A landing page object contains the public information visible on a landing page for a dataset.</xs:documentation>
+            <xs:documentation>A organisation object contains information about the submitter of a dataset.</xs:documentation>
         </xs:annotation>
         <xs:complexContent>
             <xs:extension base="bp:ObjectType">
                 <xs:sequence>
                     <xs:element name="DATASET_REF" minOccurs="1" maxOccurs="1" type="bp:ReferenceType">
                         <xs:annotation>
-                            <xs:documentation>Identifies the dataset the landing page describes.</xs:documentation>
+                            <xs:documentation>Identifies the dataset the organisation submitted.</xs:documentation>
                         </xs:annotation>
                     </xs:element>
-                    <xs:element name="REMS_ACCESS_LINK" maxOccurs="1" minOccurs="0" type="xs:anyURI">
-						<xs:annotation>
-							<xs:documentation>URI link for user to get access to the dataset.</xs:documentation>
-						</xs:annotation>
-					</xs:element>
                 </xs:sequence>
             </xs:extension>
         </xs:complexContent>
