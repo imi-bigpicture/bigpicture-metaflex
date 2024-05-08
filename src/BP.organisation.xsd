@@ -31,6 +31,21 @@
         <xs:complexContent>
             <xs:extension base="bp:ObjectType">
                 <xs:sequence>
+                    <xs:element name="NAME" maxOccurs="1" minOccurs="1" type="xs:string">
+						<xs:annotation>
+							<xs:documentation>The name of the organization as defined in the EU Funding and Tenders Portal.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+                    <xs:element name="PIC_CODE" maxOccurs="1" minOccurs="1" type="xs:int">
+						<xs:annotation>
+							<xs:documentation>The 9-digit Participant Identification Code (PIC) of the submitting organization as defined in the EU Funding and Tenders Portal.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+                    <xs:element name="DATAMANAGER_PERUN_GROUP" maxOccurs="1" minOccurs="1" type="xs:string">
+						<xs:annotation>
+							<xs:documentation>A Perun group UUID identifying the group, which contains persons who are eligible to administrate this dataset in the Bigpicture repository.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
                     <xs:element name="DATASET_REF" minOccurs="1" maxOccurs="1" type="bp:ReferenceType">
                         <xs:annotation>
                             <xs:documentation>Identifies the dataset the organisation submitted.</xs:documentation>
