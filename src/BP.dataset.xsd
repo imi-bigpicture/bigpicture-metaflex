@@ -26,12 +26,27 @@
 				<xs:sequence>
 					<xs:element name="TITLE" maxOccurs="1" minOccurs="1" type="xs:string">
 						<xs:annotation>
-							<xs:documentation>Short text that can be used to call out data sets in searches or in displays.</xs:documentation>
+							<xs:documentation>The title of the dataset.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="SHORT_NAME" maxOccurs="1" minOccurs="1" type="xs:string">
+						<xs:annotation>
+							<xs:documentation>A short name of the dataset.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element name="DESCRIPTION" type="xs:string" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>Free-form text describing the data sets.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="VERSION" type="xs:string" minOccurs="1" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>The version of the dataset.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="METADATA_STANDARD" type="xs:string" minOccurs="1" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>The metadata standard version of the dataset.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element minOccurs="0" name="DATASET_TYPE" maxOccurs="unbounded">
