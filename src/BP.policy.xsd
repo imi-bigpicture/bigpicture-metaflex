@@ -30,6 +30,13 @@
         </xs:annotation>
         <xs:complexContent>
             <xs:extension base="bp:ObjectType">
+                <xs:sequence>
+                    <xs:element name="DATASET_REF" minOccurs="1" maxOccurs="1" type="bp:ReferenceType">
+                        <xs:annotation>
+                            <xs:documentation>Identifies the dataset the policy applies to.</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                </xs:sequence>
             </xs:extension>
         </xs:complexContent>
     </xs:complexType>
