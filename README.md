@@ -47,7 +47,6 @@ All types extends `ObjectType`, and different types of attributes can thus be as
 
 Implements the ImageType that captures image objects. The ImageType extends `ObjectType` and has the following elements:
 
-- `STUDY_REF`: Identifies the parent study.
 - `IMAGE_OF`: Identifies the slide the image was imaged from.
 - `FILES`: Data files associated with the image.
 
@@ -55,7 +54,6 @@ Implements the ImageType that captures image objects. The ImageType extends `Obj
 
 Implements the AnnotationType that captures annotation objects. The AnnotationType extends `ObjectType` and has the following elements:
 
-- `STUDY_REF`: Identifies the parent study.
 - `IMAGE_REF`: One or more images associated with the annotation.
 - `FILES`: Data files associated with the annotation.
 
@@ -70,7 +68,6 @@ Implements the DatasetType which is an extension of the EGA DatasetType with the
 
 Implements the ObservationType that captures observation objects. The ObservationType extends `ObjectType` and has the following elements:
 
-- `STUDY_REF`: Identifies the parent study.
 - `OBSERVER`: Identifies the observer (optional).
 - `STATEMENT`: The statement for the observation.
 

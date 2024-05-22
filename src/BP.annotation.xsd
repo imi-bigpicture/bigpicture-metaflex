@@ -55,11 +55,6 @@
         <xs:complexContent>
             <xs:extension base="bp:ObjectType">
                 <xs:sequence>
-                    <xs:element name="STUDY_REF" minOccurs="0" maxOccurs="1" type="bp:ReferenceType">
-                        <xs:annotation>
-                            <xs:documentation>Identifies the parent study.</xs:documentation>
-                        </xs:annotation>
-                    </xs:element>
                     <xs:element name="IMAGE_REF" minOccurs="1" maxOccurs="1" type="bp:ReferenceType">
                         <xs:annotation>
                             <xs:documentation>Image associated with the annotation.</xs:documentation>
