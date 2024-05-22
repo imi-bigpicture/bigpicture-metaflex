@@ -110,11 +110,6 @@
         <xs:complexContent>
             <xs:extension base="bp:ObjectType">
                 <xs:sequence>
-                    <xs:element name="STUDY_REF" minOccurs="0" maxOccurs="1" type="bp:ReferenceType">
-                        <xs:annotation>
-                            <xs:documentation>Identifies the parent study.</xs:documentation>
-                        </xs:annotation>
-                    </xs:element>
                     <xs:choice>
                         <xs:element name="ANNOTATION_REF" type="bp:ReferenceType">
                             <xs:annotation>
