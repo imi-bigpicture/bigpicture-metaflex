@@ -49,6 +49,11 @@
 							<xs:documentation>The metadata standard version of the dataset.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
+					<xs:element name="DATA_OWNER_CONTACT_EMAIL" type="xs:string" minOccurs="1" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>An email address of the data owner that can be used to get in contact in case of suspicion of a data breach.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
 					<xs:element minOccurs="0" name="DATASET_TYPE" maxOccurs="unbounded">
 						<xs:simpleType>
 							<xs:restriction base="xs:string">
