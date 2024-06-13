@@ -38,7 +38,7 @@
 					</xs:element>
                     <xs:element name="ORGANISATION_ID" maxOccurs="1" minOccurs="1" type="xs:string">
 						<xs:annotation>
-							<xs:documentation>A Organisation ID within REMS.</xs:documentation>
+							<xs:documentation>An Organisation ID within REMS.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
                     <xs:element name="DATASET_REF" minOccurs="1" maxOccurs="1" type="bp:ReferenceType">
