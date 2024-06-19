@@ -16,7 +16,7 @@
     <xs:complexType name="AnnotationFilesType">
         <xs:sequence>
             <xs:element maxOccurs="unbounded" minOccurs="1" name="FILE"
-                type="AnnotationFileType"/>
+                type="AnnotationFileType" />
         </xs:sequence>
     </xs:complexType>
     <xs:complexType name="AnnotationFileType">
@@ -28,8 +28,8 @@
                     </xs:annotation>
                     <xs:simpleType>
                         <xs:restriction base="xs:string">
-                            <xs:enumeration value="dcm"/>
-                            <xs:enumeration value="json"/>
+                            <xs:enumeration value="dcm" />
+                            <xs:enumeration value="json" />
                         </xs:restriction>
                     </xs:simpleType>
                 </xs:attribute>
@@ -39,7 +39,7 @@
 
     <xs:complexType name="AnnotationSetType">
         <xs:sequence maxOccurs="unbounded" minOccurs="1">
-            <xs:element name="ANNOTATION" type="AnnotationType"/>
+            <xs:element name="ANNOTATION" type="AnnotationType" />
         </xs:sequence>
     </xs:complexType>
     <xs:element name="ANNOTATION_SET" type="AnnotationSetType">
@@ -47,7 +47,7 @@
             <xs:documentation>A container of annotation objects.</xs:documentation>
         </xs:annotation>
     </xs:element>
-    <xs:element name="ANNOTATION" type="AnnotationType"/>
+    <xs:element name="ANNOTATION" type="AnnotationType" />
     <xs:complexType name="AnnotationType">
         <xs:annotation>
             <xs:documentation>An annotation object captures annotation objects.</xs:documentation>
@@ -61,7 +61,8 @@
                         </xs:annotation>
                     </xs:element>
                     <xs:sequence>
-                        <xs:element name="FILES" type="AnnotationFilesType">
+                        <xs:element name="FILES" minOccurs="1" maxOccurs="1"
+                            type="AnnotationFilesType">
                             <xs:annotation>
                                 <xs:documentation>Data files associated with the annotation.</xs:documentation>
                             </xs:annotation>

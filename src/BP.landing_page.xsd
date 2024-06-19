@@ -13,6 +13,12 @@
 <!-- version:0.11.0 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:bp="BP.common">
     <xs:import namespace="BP.common" schemaLocation="BP.common.xsd" />
+    <xs:complexType name="SampleImageFilesType">
+        <xs:sequence>
+            <xs:element minOccurs="1" maxOccurs="5" name="SAMPLE_IMAGE_FILE"
+                type="SampleImageFileType" />
+        </xs:sequence>
+    </xs:complexType>
     <xs:complexType name="SampleImageFileType">
         <xs:complexContent>
             <xs:extension base="bp:FileBaseType">
@@ -60,8 +66,8 @@
                             <xs:documentation>URI link for user to get access to the dataset.</xs:documentation>
                         </xs:annotation>
                     </xs:element>
-                    <xs:element name="SAMPLE_IMAGE_FILES" minOccurs="0" maxOccurs="5"
-                        type="SampleImageFileType">
+                    <xs:element name="SAMPLE_IMAGE_FILES" minOccurs="0" maxOccurs="1"
+                        type="SampleImageFilesType">
                         <xs:annotation>
                             <xs:documentation>Sample images to display in the landing page.</xs:documentation>
                         </xs:annotation>
