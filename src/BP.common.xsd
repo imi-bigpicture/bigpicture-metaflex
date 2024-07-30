@@ -10,7 +10,7 @@
   ~ specific language governing permissions and limitations under the License.
   -->
 
-<!-- version:0.11.0 -->
+<!-- version:1.0.0 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:bp="BP.common" targetNamespace="BP.common">
     <xs:complexType name="CodeType">
         <xs:annotation>
