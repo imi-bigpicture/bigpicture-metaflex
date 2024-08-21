@@ -75,22 +75,24 @@
                                     to.</xs:documentation>
                             </xs:annotation>
                         </xs:element>
-                        <xs:element name="INFORMED_CONSENT_FILES" minOccurs="0"
-                            maxOccurs="1" type="InformedConsentFilesType">
+                        <xs:element name="INFORMED_CONSENT_FILES" minOccurs="1"
+                            maxOccurs="1" nillable="true" type="InformedConsentFilesType">
                             <xs:annotation>
                                 <xs:documentation>File with informed consent form supporting the
                                     ethical approval.</xs:documentation>
                             </xs:annotation>
                         </xs:element>
-                        <xs:element name="STUDY_PROTOCOL_FILES" minOccurs="0" maxOccurs="1"
+                        <xs:element name="STUDY_PROTOCOL_FILES" minOccurs="1" maxOccurs="1"
+                            nillable="true"
                             type="StudyProtocolFilesType">
                             <xs:annotation>
                                 <xs:documentation>File with study protocol supporting the ethical
                                     approval.</xs:documentation>
                             </xs:annotation>
                         </xs:element>
-                        <xs:element name="OTHER_ETHICAL_APPROVAL_SUPPORTING_FILES" minOccurs="0"
-                            maxOccurs="1" type="OtherEthicalApprovalSupportingFilesType">
+                        <xs:element name="OTHER_ETHICAL_APPROVAL_SUPPORTING_FILES" minOccurs="1"
+                            maxOccurs="1" nillable="true"
+                            type="OtherEthicalApprovalSupportingFilesType">
                             <xs:annotation>
                                 <xs:documentation>Other file supporting the ethical approval.</xs:documentation>
                             </xs:annotation>
