@@ -43,7 +43,7 @@
 					</xs:element>
                     <xs:element name="DATAMANAGER_PERUN_GROUP" maxOccurs="1" minOccurs="1" type="xs:string">
 						<xs:annotation>
-							<xs:documentation>A Perun group UUID identifying the group, which contains persons who are eligible to administrate this dataset in the Bigpicture repository.</xs:documentation>
+							<xs:documentation>A Perun group ID identifying the group, which contains persons who are eligible to administrate this dataset in the Bigpicture repository.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
                     <xs:element name="DATASET_REF" minOccurs="1" maxOccurs="1" type="bp:ReferenceType">
