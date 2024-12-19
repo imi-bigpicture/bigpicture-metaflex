@@ -15,7 +15,7 @@
   <xs:import namespace="BP.common" schemaLocation="BP.common.xsd" />
   <xs:complexType name="BiologicalBeingType">
     <xs:annotation>
-      <xs:documentation> A human being or animal. </xs:documentation>
+      <xs:documentation>A human being or animal.</xs:documentation>
     </xs:annotation>
     <xs:complexContent>
       <xs:extension base="bp:ObjectType">
@@ -29,7 +29,7 @@
 
   <xs:complexType name="CaseType">
     <xs:annotation>
-      <xs:documentation> A pathological case that references one biological being. </xs:documentation>
+      <xs:documentation>A pathological case that references one biological being.</xs:documentation>
     </xs:annotation>
     <xs:complexContent>
       <xs:extension base="bp:ObjectType">
@@ -49,8 +49,8 @@
 
   <xs:complexType name="SpecimenType">
     <xs:annotation>
-      <xs:documentation> A removed part of a human/animal being. Can optionally also be part of a
-        case. </xs:documentation>
+      <xs:documentation>A removed part of a human/animal being. Can optionally also be part of a
+        case.</xs:documentation>
     </xs:annotation>
     <xs:complexContent>
       <xs:extension base="bp:ObjectType">
@@ -74,8 +74,8 @@
 
   <xs:complexType name="BlockType">
     <xs:annotation>
-      <xs:documentation> A part or a collection of parts of one or many Specimens that has/have been
-        sampled and processed for further investigation. </xs:documentation>
+      <xs:documentation>A part or a collection of parts of one or many Specimens that has/have been
+        sampled and processed for further investigation.</xs:documentation>
     </xs:annotation>
     <xs:complexContent>
       <xs:extension base="bp:ObjectType">
@@ -96,7 +96,7 @@
 
   <xs:complexType name="SlideType">
     <xs:annotation>
-      <xs:documentation> A physical slide that has been created out of one or more Blocks. </xs:documentation>
+      <xs:documentation>A physical slide that has been created out of one or more Blocks.</xs:documentation>
     </xs:annotation>
     <xs:complexContent>
       <xs:extension base="bp:ObjectType">
@@ -133,8 +133,8 @@
 
   <xs:element name="SAMPLE_SET" type="SampleSetType">
     <xs:annotation>
-      <xs:documentation> SAMPLE_SET serves as a container for a set of samples and a name space for
-        establishing referential integrity between them. </xs:documentation>
+      <xs:documentation>SAMPLE_SET serves as a container for a set of samples and a name space for
+        establishing referential integrity between them.</xs:documentation>
     </xs:annotation>
 
   </xs:element>

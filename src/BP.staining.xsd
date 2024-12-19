@@ -21,7 +21,7 @@
 
   <xs:element name="STAINING_SET" type="StainingSetType">
     <xs:annotation>
-      <xs:documentation>A container of staining (StainingType) objects. </xs:documentation>
+      <xs:documentation>A container of staining (StainingType) objects.</xs:documentation>
     </xs:annotation>
   </xs:element>
 
@@ -29,8 +29,8 @@
 
   <xs:complexType name="StainingType">
     <xs:annotation>
-      <xs:documentation> Describes stains used for a slide. Can be referencesd. Stains are either
-        defined by procedure information or a list of stains. </xs:documentation>
+      <xs:documentation>Describes stains used for a slide. Can be referencesd. Stains are either
+        defined by procedure information or a list of stains.</xs:documentation>
     </xs:annotation>
     <xs:complexContent>
       <xs:extension base="bp:ObjectType">
@@ -39,17 +39,17 @@
             <xs:element name="PROCEDURE_INFORMATION" minOccurs="1" maxOccurs="1"
               type="bp:AttributesType">
               <xs:annotation>
-                <xs:documentation> Describes the used staining procedure of a slide. Only one
+                <xs:documentation>Describes the used staining procedure of a slide. Only one
                   procedure information can be specified. Can only be used with chemical stains. If
-                  used no additional stains must be stated. </xs:documentation>
+                  used no additional stains must be stated.</xs:documentation>
               </xs:annotation>
             </xs:element>
             <xs:element name="STAIN" minOccurs="1" maxOccurs="unbounded" type="bp:AttributesType">
               <xs:annotation>
-                <xs:documentation> Describes an individual stain used during a staining procedure of
+                <xs:documentation>Describes an individual stain used during a staining procedure of
                   a Slide. Multiple stains can be specified. Must be used with targeted stainings,
                   however, can be used for chemical stainings. If used the PROCEDURE_INFORMATION
-                  must not be provided. </xs:documentation>
+                  must not be provided.</xs:documentation>
               </xs:annotation>
             </xs:element>
           </xs:choice>
