@@ -11,8 +11,8 @@
   -->
 
 <!-- version:1.0.0 -->
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"  xmlns:bp="BP.common">
-    <xs:import namespace="BP.common" schemaLocation="BP.common.xsd"/>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:bp="BP.common">
+    <xs:import namespace="BP.common" schemaLocation="BP.common.xsd" />
     <xs:complexType name="AnnotationFilesType">
         <xs:sequence>
             <xs:element maxOccurs="unbounded" minOccurs="1" name="FILE"
@@ -68,6 +68,9 @@
                             </xs:annotation>
                         </xs:element>
                     </xs:sequence>
+                    <xs:element name="ATTRIBUTES" minOccurs="1" maxOccurs="1"
+                        type="bp:AttributesType" nillable="true" />
+
                 </xs:sequence>
             </xs:extension>
         </xs:complexContent>

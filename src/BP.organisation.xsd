@@ -11,11 +11,11 @@
   -->
 
 <!-- version:0.11.0 -->
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"  xmlns:bp="BP.common">
-    <xs:import namespace="BP.common" schemaLocation="BP.common.xsd"/>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:bp="BP.common">
+    <xs:import namespace="BP.common" schemaLocation="BP.common.xsd" />
     <xs:complexType name="OrganisationSetType">
         <xs:sequence maxOccurs="unbounded" minOccurs="1">
-            <xs:element name="ORGANISATION" type="OrganisationType"/>
+            <xs:element name="ORGANISATION" type="OrganisationType" />
         </xs:sequence>
     </xs:complexType>
     <xs:element name="ORGANISATION_SET" type="OrganisationSetType">
@@ -23,19 +23,21 @@
             <xs:documentation>A container of organisation objects.</xs:documentation>
         </xs:annotation>
     </xs:element>
-    <xs:element name="ORGANISATION" type="OrganisationType"/>
+    <xs:element name="ORGANISATION" type="OrganisationType" />
     <xs:complexType name="OrganisationType">
         <xs:annotation>
-            <xs:documentation>A organisation object contains information about the submitter of a dataset.</xs:documentation>
+            <xs:documentation>A organisation object contains information about the submitter of a
+                dataset.</xs:documentation>
         </xs:annotation>
         <xs:complexContent>
             <xs:extension base="bp:ObjectType">
                 <xs:sequence>
                     <xs:element name="NAME" maxOccurs="1" minOccurs="1" type="xs:string">
-						<xs:annotation>
-							<xs:documentation>The name of the organization as defined in the EU Funding and Tenders Portal.</xs:documentation>
-						</xs:annotation>
-					</xs:element>
+                        <xs:annotation>
+                            <xs:documentation>The name of the organization as defined in the EU
+                                Funding and Tenders Portal.</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
                     <xs:element name="PIC_CODE" maxOccurs="1" minOccurs="1" type="xs:int">
 						<xs:annotation>
 							<xs:documentation>The 9-digit Participant Identification Code (PIC) of the submitting organization as defined in the EU Funding and Tenders Portal.</xs:documentation>
@@ -51,6 +53,9 @@
                             <xs:documentation>Identifies the dataset the organisation submitted.</xs:documentation>
                         </xs:annotation>
                     </xs:element>
+                    <xs:element name="ATTRIBUTES" minOccurs="1" maxOccurs="1"
+                        type="bp:AttributesType" nillable="true" />
+
                 </xs:sequence>
             </xs:extension>
         </xs:complexContent>

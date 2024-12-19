@@ -12,11 +12,11 @@
 
 <!-- version:1.0.0 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:bp="BP.common">
-    <xs:import namespace="BP.common" schemaLocation="BP.common.xsd"/>
+    <xs:import namespace="BP.common" schemaLocation="BP.common.xsd" />
     <xs:complexType name="ImageFilesType">
         <xs:sequence>
             <xs:element maxOccurs="unbounded" minOccurs="1" name="FILE"
-                type="ImageFileType"/>
+                type="ImageFileType" />
         </xs:sequence>
     </xs:complexType>
     <xs:complexType name="ImageFileType">
@@ -28,7 +28,7 @@
                     </xs:annotation>
                     <xs:simpleType>
                         <xs:restriction base="xs:string">
-                            <xs:enumeration value="dcm"/>
+                            <xs:enumeration value="dcm" />
                         </xs:restriction>
                     </xs:simpleType>
                 </xs:attribute>
@@ -38,7 +38,7 @@
 
     <xs:complexType name="ImageSetType">
         <xs:sequence maxOccurs="unbounded" minOccurs="1">
-            <xs:element name="IMAGE" type="ImageType"/>
+            <xs:element name="IMAGE" type="ImageType" />
         </xs:sequence>
     </xs:complexType>
 
@@ -48,17 +48,17 @@
         </xs:annotation>
     </xs:element>
 
-    <xs:element name="IMAGE" type="ImageType"/>
+    <xs:element name="IMAGE" type="ImageType" />
 
     <xs:complexType name="ImageType">
         <xs:annotation>
-            <xs:documentation>An image object captures image objects.
-            </xs:documentation>
+            <xs:documentation>An image object captures image objects. </xs:documentation>
         </xs:annotation>
         <xs:complexContent>
             <xs:extension base="bp:ObjectType">
                 <xs:sequence>
-                    <xs:element name="IMAGE_OF" maxOccurs="unbounded" minOccurs="1" type="bp:ReferenceType">
+                    <xs:element name="IMAGE_OF" maxOccurs="unbounded" minOccurs="1"
+                        type="bp:ReferenceType">
                         <xs:annotation>
                             <xs:documentation>One of more samples imaged by the image.</xs:documentation>
                         </xs:annotation>
@@ -81,6 +81,9 @@
                             </xs:annotation>
                         </xs:element>
                     </xs:sequence>
+                    <xs:element name="ATTRIBUTES" minOccurs="1" maxOccurs="1"
+                        type="bp:AttributesType" nillable="true" />
+
                 </xs:sequence>
             </xs:extension>
         </xs:complexContent>

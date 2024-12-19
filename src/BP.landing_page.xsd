@@ -72,6 +72,9 @@
                             <xs:documentation>Sample images to display in the landing page.</xs:documentation>
                         </xs:annotation>
                     </xs:element>
+                    <xs:element name="ATTRIBUTES" minOccurs="1" maxOccurs="1"
+                        type="bp:AttributesType" nillable="true" />
+
                 </xs:sequence>
             </xs:extension>
         </xs:complexContent>

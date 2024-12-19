@@ -11,40 +11,32 @@
   -->
 
 <!-- version:1.0.0 -->
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:bp="BP.common" targetNamespace="BP.common">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:bp="BP.common"
+    targetNamespace="BP.common">
     <xs:complexType name="CodeType">
         <xs:annotation>
-            <xs:documentation>
-                A coded value.
-            </xs:documentation>
+            <xs:documentation> A coded value. </xs:documentation>
         </xs:annotation>
         <xs:sequence>
             <xs:element name="CODE" type="xs:string" minOccurs="1" maxOccurs="1">
                 <xs:annotation>
-                    <xs:documentation>
-                        The code value.
-                    </xs:documentation>
+                    <xs:documentation> The code value. </xs:documentation>
                 </xs:annotation>
             </xs:element>
             <xs:element name="SCHEME" type="xs:string" minOccurs="1" maxOccurs="1">
                 <xs:annotation>
-                    <xs:documentation>
-                        The scheme designator of the code.
-                    </xs:documentation>
+                    <xs:documentation> The scheme designator of the code. </xs:documentation>
                 </xs:annotation>
             </xs:element>
             <xs:element name="MEANING" type="xs:string" minOccurs="1" maxOccurs="1">
                 <xs:annotation>
-                    <xs:documentation>
-                        Cleartext meaning of the code.
-                    </xs:documentation>
+                    <xs:documentation> Cleartext meaning of the code. </xs:documentation>
                 </xs:annotation>
             </xs:element>
-            <xs:element name="SCHEME_VERSION" type="xs:string" minOccurs="1" maxOccurs="1" nillable="true">
+            <xs:element name="SCHEME_VERSION" type="xs:string" minOccurs="1" maxOccurs="1"
+                nillable="true">
                 <xs:annotation>
-                    <xs:documentation>
-                        Optional scheme version of the scheme designator.
-                    </xs:documentation>
+                    <xs:documentation> Optional scheme version of the scheme designator. </xs:documentation>
                 </xs:annotation>
             </xs:element>
         </xs:sequence>
@@ -52,45 +44,38 @@
 
     <xs:complexType name="AttributesType">
         <xs:annotation>
-            <xs:documentation>
-                Collection of attributes.
-            </xs:documentation>
+            <xs:documentation> Collection of attributes. </xs:documentation>
         </xs:annotation>
         <xs:sequence minOccurs="1" maxOccurs="unbounded">
             <xs:choice>
-                <xs:element name="STRING_ATTRIBUTE" type="bp:StringAttributeType" minOccurs="0" maxOccurs="unbounded">
+                <xs:element name="STRING_ATTRIBUTE" type="bp:StringAttributeType" minOccurs="0"
+                    maxOccurs="unbounded">
                     <xs:annotation>
-                        <xs:documentation>
-                            String attribute in the set.
-                        </xs:documentation>
+                        <xs:documentation> String attribute in the set. </xs:documentation>
                     </xs:annotation>
                 </xs:element>
-                <xs:element name="NUMERIC_ATTRIBUTE" type="bp:NumericAttributeType" minOccurs="0" maxOccurs="unbounded">
+                <xs:element name="NUMERIC_ATTRIBUTE" type="bp:NumericAttributeType" minOccurs="0"
+                    maxOccurs="unbounded">
                     <xs:annotation>
-                        <xs:documentation>
-                            Numeric attribute in the set.
-                        </xs:documentation>
+                        <xs:documentation> Numeric attribute in the set. </xs:documentation>
                     </xs:annotation>
                 </xs:element>
-                <xs:element name="MEASUREMENT_ATTRIBUTE" type="bp:MeasurementAttributeType" minOccurs="0" maxOccurs="unbounded">
+                <xs:element name="MEASUREMENT_ATTRIBUTE" type="bp:MeasurementAttributeType"
+                    minOccurs="0" maxOccurs="unbounded">
                     <xs:annotation>
-                        <xs:documentation>
-                            Measurement attribute in the set.
-                        </xs:documentation>
+                        <xs:documentation> Measurement attribute in the set. </xs:documentation>
                     </xs:annotation>
                 </xs:element>
-                <xs:element name="CODE_ATTRIBUTE" type="bp:CodeAttributeType" minOccurs="0" maxOccurs="unbounded">
+                <xs:element name="CODE_ATTRIBUTE" type="bp:CodeAttributeType" minOccurs="0"
+                    maxOccurs="unbounded">
                     <xs:annotation>
-                        <xs:documentation>
-                            Code attribute in the set.
-                        </xs:documentation>
+                        <xs:documentation> Code attribute in the set. </xs:documentation>
                     </xs:annotation>
                 </xs:element>
-                <xs:element name="SET_ATTRIBUTE" type="bp:SetAttributeType" minOccurs="0" maxOccurs="unbounded">
+                <xs:element name="SET_ATTRIBUTE" type="bp:SetAttributeType" minOccurs="0"
+                    maxOccurs="unbounded">
                     <xs:annotation>
-                        <xs:documentation>
-                            Set Attribute in the set.
-                        </xs:documentation>
+                        <xs:documentation> Set Attribute in the set. </xs:documentation>
                     </xs:annotation>
                 </xs:element>
             </xs:choice>
@@ -99,24 +84,20 @@
 
     <xs:complexType name="CodeAttributesType">
         <xs:annotation>
-            <xs:documentation>
-                Collection of code attributes.
-            </xs:documentation>
+            <xs:documentation> Collection of code attributes. </xs:documentation>
         </xs:annotation>
         <xs:sequence maxOccurs="unbounded" minOccurs="1">
-            <xs:element name="CODE_ATTRIBUTE" type="bp:CodeAttributeType"/>
+            <xs:element name="CODE_ATTRIBUTE" type="bp:CodeAttributeType" />
         </xs:sequence>
     </xs:complexType>
 
     <xs:simpleType name="ChecksumString">
         <xs:annotation>
-            <xs:documentation>
-                SHA256 checksum string.
-            </xs:documentation>
+            <xs:documentation> SHA256 checksum string. </xs:documentation>
         </xs:annotation>
-      <xs:restriction base="xs:string">
-        <xs:pattern value='[0-9a-f]{64}'/>
-      </xs:restriction>
+        <xs:restriction base="xs:string">
+            <xs:pattern value='[0-9a-f]{64}' />
+        </xs:restriction>
     </xs:simpleType>
 
     <xs:complexType name="FileBaseType" abstract="true">
@@ -146,23 +127,20 @@
         </xs:attribute>
         <xs:attribute name="unencrypted_checksum" type="bp:ChecksumString" use="optional">
             <xs:annotation>
-                <xs:documentation>The checksum of the unencrypted file (used in conjunction with the checksum of an encrypted file).</xs:documentation>
+                <xs:documentation>The checksum of the unencrypted file (used in conjunction with the
+                    checksum of an encrypted file).</xs:documentation>
             </xs:annotation>
         </xs:attribute>
     </xs:complexType>
 
     <xs:complexType name="AttributeBaseType" abstract="true">
         <xs:annotation>
-            <xs:documentation>
-                Base attribute type with a tag.
-            </xs:documentation>
+            <xs:documentation> Base attribute type with a tag. </xs:documentation>
         </xs:annotation>
         <xs:sequence>
             <xs:element name="TAG" type="xs:string" minOccurs="1" maxOccurs="1">
                 <xs:annotation>
-                    <xs:documentation>
-                        Name of the attribute.
-                    </xs:documentation>
+                    <xs:documentation> Name of the attribute. </xs:documentation>
                 </xs:annotation>
             </xs:element>
         </xs:sequence>
@@ -170,18 +148,15 @@
 
     <xs:complexType name="StringAttributeType">
         <xs:annotation>
-            <xs:documentation>
-                Attribute for tag-string value.
-            </xs:documentation>
+            <xs:documentation> Attribute for tag-string value. </xs:documentation>
         </xs:annotation>
         <xs:complexContent>
             <xs:extension base="bp:AttributeBaseType">
                 <xs:sequence>
-                    <xs:element name="VALUE" type="xs:string" minOccurs="1" maxOccurs="1" nillable="true">
+                    <xs:element name="VALUE" type="xs:string" minOccurs="1" maxOccurs="1"
+                        nillable="true">
                         <xs:annotation>
-                            <xs:documentation>
-                                Value of the attribute.
-                            </xs:documentation>
+                            <xs:documentation> Value of the attribute. </xs:documentation>
                         </xs:annotation>
                     </xs:element>
                 </xs:sequence>
@@ -191,18 +166,15 @@
 
     <xs:complexType name="NumericAttributeType">
         <xs:annotation>
-            <xs:documentation>
-                Attribute for tag-numeric value.
-            </xs:documentation>
+            <xs:documentation> Attribute for tag-numeric value. </xs:documentation>
         </xs:annotation>
         <xs:complexContent>
             <xs:extension base="bp:AttributeBaseType">
                 <xs:sequence>
-                    <xs:element name="VALUE" type="xs:decimal" minOccurs="1" maxOccurs="1" nillable="true">
+                    <xs:element name="VALUE" type="xs:decimal" minOccurs="1" maxOccurs="1"
+                        nillable="true">
                         <xs:annotation>
-                            <xs:documentation>
-                                Value of the attribute.
-                            </xs:documentation>
+                            <xs:documentation> Value of the attribute. </xs:documentation>
                         </xs:annotation>
                     </xs:element>
                 </xs:sequence>
@@ -212,25 +184,20 @@
 
     <xs:complexType name="MeasurementAttributeType">
         <xs:annotation>
-            <xs:documentation>
-                Attribute for tag-numeric value with units.
-            </xs:documentation>
+            <xs:documentation> Attribute for tag-numeric value with units. </xs:documentation>
         </xs:annotation>
         <xs:complexContent>
             <xs:extension base="bp:AttributeBaseType">
                 <xs:sequence>
-                    <xs:element name="VALUE" type="xs:decimal" minOccurs="1" maxOccurs="1" nillable="true">
+                    <xs:element name="VALUE" type="xs:decimal" minOccurs="1" maxOccurs="1"
+                        nillable="true">
                         <xs:annotation>
-                            <xs:documentation>
-                                Value of the attribute.
-                            </xs:documentation>
+                            <xs:documentation> Value of the attribute. </xs:documentation>
                         </xs:annotation>
                     </xs:element>
                     <xs:element name="UNITS" type="xs:string" minOccurs="1" maxOccurs="1">
                         <xs:annotation>
-                            <xs:documentation>
-                                Scientific units of the value.
-                            </xs:documentation>
+                            <xs:documentation> Scientific units of the value. </xs:documentation>
                         </xs:annotation>
                     </xs:element>
                 </xs:sequence>
@@ -240,18 +207,15 @@
 
     <xs:complexType name="CodeAttributeType">
         <xs:annotation>
-            <xs:documentation>
-                Attribute for tag-code value.
-            </xs:documentation>
+            <xs:documentation> Attribute for tag-code value. </xs:documentation>
         </xs:annotation>
         <xs:complexContent>
             <xs:extension base="bp:AttributeBaseType">
                 <xs:sequence>
-                    <xs:element name="VALUE" type="bp:CodeType" minOccurs="1" maxOccurs="1" nillable="true">
+                    <xs:element name="VALUE" type="bp:CodeType" minOccurs="1" maxOccurs="1"
+                        nillable="true">
                         <xs:annotation>
-                            <xs:documentation>
-                                Value of the attribute.
-                            </xs:documentation>
+                            <xs:documentation> Value of the attribute. </xs:documentation>
                         </xs:annotation>
                     </xs:element>
                 </xs:sequence>
@@ -261,18 +225,15 @@
 
     <xs:complexType name="SetAttributeType">
         <xs:annotation>
-            <xs:documentation>
-                Set of tag-value attributes under a common tag.
-            </xs:documentation>
+            <xs:documentation> Set of tag-value attributes under a common tag. </xs:documentation>
         </xs:annotation>
         <xs:complexContent>
             <xs:extension base="bp:AttributeBaseType">
                 <xs:sequence>
-                    <xs:element name="VALUE" type="bp:AttributesType" minOccurs="1" maxOccurs="1" nillable="true">
+                    <xs:element name="VALUE" type="bp:AttributesType" minOccurs="1" maxOccurs="1"
+                        nillable="true">
                         <xs:annotation>
-                            <xs:documentation>
-                                Value of the attribute.
-                            </xs:documentation>
+                            <xs:documentation> Value of the attribute. </xs:documentation>
                         </xs:annotation>
                     </xs:element>
                 </xs:sequence>
@@ -282,54 +243,42 @@
 
     <xs:complexType name="ObjectType" abstract="true">
         <xs:annotation>
-          <xs:documentation>
-            An object that can be referencend by other objects and that has a list of attributes.
-          </xs:documentation>
+            <xs:documentation> An object that can be referencend by other objects and that has a
+                list of attributes. </xs:documentation>
         </xs:annotation>
-        <xs:sequence>
-            <xs:element name="ATTRIBUTES" minOccurs="1" maxOccurs="1" type="bp:AttributesType" nillable="true"/>
-        </xs:sequence>
         <xs:attribute name="alias" type="xs:string" use="required">
             <xs:annotation>
-                <xs:documentation>
-                    Submitter designated name for the object. The name must be unique within the Study and Dataset the entity belongs to.
-                </xs:documentation>
+                <xs:documentation> Submitter designated name for the object. The name must be unique
+                    within the Study and Dataset the entity belongs to. </xs:documentation>
             </xs:annotation>
         </xs:attribute>
         <xs:attribute name="accession" type="xs:string" use="optional">
             <xs:annotation>
-                <xs:documentation>
-                    The object accession assigned by the archive. Should not be present when submitting.
-                </xs:documentation>
+                <xs:documentation> The object accession assigned by the archive. Should not be
+                    present when submitting. </xs:documentation>
             </xs:annotation>
         </xs:attribute>
         <xs:attribute name="uuid" type="xs:string" use="optional">
             <xs:annotation>
-                <xs:documentation>
-                    Optional universally unique identifier that requires no namespace.
-                </xs:documentation>
+                <xs:documentation> Optional universally unique identifier that requires no
+                    namespace. </xs:documentation>
             </xs:annotation>
         </xs:attribute>
     </xs:complexType>
 
     <xs:complexType name="ReferenceType">
         <xs:annotation>
-          <xs:documentation>
-            An object used for referencing other objects.
-          </xs:documentation>
+            <xs:documentation> An object used for referencing other objects. </xs:documentation>
         </xs:annotation>
         <xs:attribute name="alias" type="xs:string" use="required">
             <xs:annotation>
-                <xs:documentation>
-                    Identifies an object by alias designated by the submitter.
-                </xs:documentation>
+                <xs:documentation> Identifies an object by alias designated by the submitter. </xs:documentation>
             </xs:annotation>
         </xs:attribute>
         <xs:attribute name="accession" type="xs:string" use="optional">
             <xs:annotation>
-                <xs:documentation>
-                    Identifies a record by its accession. The scope of resolution is the entire Archive. Should not be present when submitting.
-                </xs:documentation>
+                <xs:documentation> Identifies a record by its accession. The scope of resolution is
+                    the entire Archive. Should not be present when submitting. </xs:documentation>
             </xs:annotation>
         </xs:attribute>
     </xs:complexType>

@@ -37,6 +37,7 @@ Implements several types that are used in other types:
 Implements the following types:
 
 - BiologicalBeingType: A human being or animal.
+- CaseType: Implements the CaseType that represents a pathological case that references one biological being and one or more specimens. The `BIOLOGICAL_BEING` element references  the biological being the case belongs to and the `RELATED_SPECIMEN` elements references to specimens belonging to the case.
 - SpecimenType: A removed part of a human/animal being. The `EXTRACTED_FROM` element references the biological being the specimen was extracted from.
 - BlockType: A part or a collection of parts of one or many Specimens that has/have been sampled and processed for further investigation. This can for example be a block. The `SAMPLED_FROM` element references the specimen(s) the block was sampled from.
 - SlideType: A physical slide that has been created out of one or more Blocks. The `CREATED_FROM` element references the block the slide was created from.
@@ -59,10 +60,11 @@ Implements the AnnotationType that captures annotation objects. The AnnotationTy
 
 ### BP.dataset.xsd
 
-Implements the DatasetType which is an extension of the EGA DatasetType with the additions of:
+Implements the DatasetType which collects various entities to a dataset:
 
-- `IMAGE_REF`: Identifies the images which are part of this dataset.
-- `ANNOTATION_REF`: Identifies the annotations which are part of this dataset.
+- `IMAGE_REF`: Identifies the images which are part of the dataset.
+- `ANNOTATION_REF`: Identifies the annotations which are part of the dataset.
+- `OBSERVATION_REF`: Identifies the observations which are part of the dataset.
 
 ### BP.observation.xsd
 
@@ -99,16 +101,13 @@ The `STATEMENT` is of StatementType, which has the following elements:
 
 Implements the StainType that captures stain objects. The StainType extends `ObjectType`. A stain is defined by Attributes (string, coded, numeric or set) using tags `staining_compound`, `taining_target`, `staining_method`, `staining_reporter_type`, and/or `staining_reporter`.
 
-### BP.case.xsd
+### Bp.rems.xsd
 
-Implements the CaseType that represents a pathological case that references one biological being and one or more specimens. The CaseType extends `ObjectType` and has the following elements:
+### BP.organisation.xsd
 
-- `BIOLOGICAL_BEING`: Reference to the biological being the case belongs to.
-- `RELATED_SPECIMEN`: References to specimens belonging to the case.
+### BP.lading_page.xsd
 
-## Study, Policy, DAC, and Submission
-
-The Study, Policy, DAC, and submission types are used as in EGA.
+### BP.policy.xsd
 
 ## License
 
