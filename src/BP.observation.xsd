@@ -13,6 +13,7 @@
 <!-- version:2.0.0 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:bp="BP.common">
     <xs:import namespace="BP.common" schemaLocation="BP.common.xsd" />
+
     <xs:complexType name="StatementType">
         <xs:annotation>
             <xs:documentation>A statement object describes the statements for an observeration.</xs:documentation>
@@ -169,7 +170,6 @@
                             </xs:annotation>
                         </xs:element>
                     </xs:choice>
-
                     <xs:element name="OBSERVER_REF" maxOccurs="unbounded" minOccurs="0"
                         type="bp:ReferenceType">
                         <xs:annotation>
@@ -183,7 +183,6 @@
                     </xs:element>
                     <xs:element name="ATTRIBUTES" minOccurs="1" maxOccurs="1"
                         type="bp:AttributesType" nillable="true" />
-
                 </xs:sequence>
             </xs:extension>
         </xs:complexContent>

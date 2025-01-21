@@ -13,12 +13,14 @@
 <!-- version:2.0.0 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:bp="BP.common">
     <xs:import namespace="BP.common" schemaLocation="BP.common.xsd" />
+
     <xs:complexType name="AnnotationFilesType">
         <xs:sequence>
             <xs:element maxOccurs="unbounded" minOccurs="1" name="FILE"
                 type="AnnotationFileType" />
         </xs:sequence>
     </xs:complexType>
+
     <xs:complexType name="AnnotationFileType">
         <xs:complexContent>
             <xs:extension base="bp:FileBaseType">
@@ -48,6 +50,7 @@
         </xs:annotation>
     </xs:element>
     <xs:element name="ANNOTATION" type="AnnotationType" />
+
     <xs:complexType name="AnnotationType">
         <xs:annotation>
             <xs:documentation>An annotation object captures annotation objects.</xs:documentation>
@@ -70,7 +73,6 @@
                     </xs:sequence>
                     <xs:element name="ATTRIBUTES" minOccurs="1" maxOccurs="1"
                         type="bp:AttributesType" nillable="true" />
-
                 </xs:sequence>
             </xs:extension>
         </xs:complexContent>

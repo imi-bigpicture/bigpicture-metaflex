@@ -13,17 +13,21 @@
 <!-- version:0.11.0 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:bp="BP.common">
     <xs:import namespace="BP.common" schemaLocation="BP.common.xsd" />
+
     <xs:complexType name="OrganisationSetType">
         <xs:sequence maxOccurs="unbounded" minOccurs="1">
             <xs:element name="ORGANISATION" type="OrganisationType" />
         </xs:sequence>
     </xs:complexType>
+
     <xs:element name="ORGANISATION_SET" type="OrganisationSetType">
         <xs:annotation>
             <xs:documentation>A container of organisation objects.</xs:documentation>
         </xs:annotation>
     </xs:element>
+
     <xs:element name="ORGANISATION" type="OrganisationType" />
+
     <xs:complexType name="OrganisationType">
         <xs:annotation>
             <xs:documentation>A organisation object contains information about the submitter of a
@@ -61,7 +65,6 @@
                     </xs:element>
                     <xs:element name="ATTRIBUTES" minOccurs="1" maxOccurs="1"
                         type="bp:AttributesType" nillable="true" />
-
                 </xs:sequence>
             </xs:extension>
         </xs:complexContent>

@@ -13,6 +13,7 @@
 <!-- version:2.0.0 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:bp="BP.common">
   <xs:import namespace="BP.common" schemaLocation="BP.common.xsd" />
+
   <xs:complexType name="BiologicalBeingType">
     <xs:annotation>
       <xs:documentation>A human being or animal.</xs:documentation>
@@ -136,13 +137,15 @@
       <xs:documentation>SAMPLE_SET serves as a container for a set of samples and a name space for
         establishing referential integrity between them.</xs:documentation>
     </xs:annotation>
-
   </xs:element>
 
   <xs:element name="BIOLOGICAL_BEING" type="BiologicalBeingType" />
-  <xs:element name="CASE" type="CaseType" />
-  <xs:element name="SPECIMEN" type="SpecimenType" />
-  <xs:element name="BLOCK" type="BlockType" />
-  <xs:element name="SLIDE" type="SlideType" />
 
+  <xs:element name="CASE" type="CaseType" />
+
+  <xs:element name="SPECIMEN" type="SpecimenType" />
+
+  <xs:element name="BLOCK" type="BlockType" />
+
+  <xs:element name="SLIDE" type="SlideType" />
 </xs:schema>
