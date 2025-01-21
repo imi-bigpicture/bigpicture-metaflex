@@ -10,18 +10,18 @@
   ~ specific language governing permissions and limitations under the License.
   -->
 
-<!-- version:2.0.0 -->
+<!-- version:0.11.0 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:bp="BP.common">
     <xs:import namespace="BP.common" schemaLocation="BP.common.xsd" />
 
-    <xs:complexType name="ImageFilesType">
+    <xs:complexType name="SampleImageFilesType">
         <xs:sequence>
-            <xs:element maxOccurs="unbounded" minOccurs="1" name="FILE"
-                type="ImageFileType" />
+            <xs:element minOccurs="1" maxOccurs="5" name="SAMPLE_IMAGE_FILE"
+                type="SampleImageFileType" />
         </xs:sequence>
     </xs:complexType>
 
-    <xs:complexType name="ImageFileType">
+    <xs:complexType name="SampleImageFileType">
         <xs:complexContent>
             <xs:extension base="bp:FileBaseType">
                 <xs:attribute name="filetype" use="required">
@@ -30,7 +30,8 @@
                     </xs:annotation>
                     <xs:simpleType>
                         <xs:restriction base="xs:string">
-                            <xs:enumeration value="dcm" />
+                            <xs:enumeration value="jpg" />
+                            <xs:enumeration value="png" />
                         </xs:restriction>
                     </xs:simpleType>
                 </xs:attribute>
@@ -38,54 +39,47 @@
         </xs:complexContent>
     </xs:complexType>
 
-    <xs:complexType name="ImageSetType">
+    <xs:complexType name="LandingPageSetType">
         <xs:sequence maxOccurs="unbounded" minOccurs="1">
-            <xs:element name="IMAGE" type="ImageType" />
+            <xs:element name="LANDING_PAGE" type="LandingPageType" />
         </xs:sequence>
     </xs:complexType>
 
-    <xs:element name="IMAGE_SET" type="ImageSetType">
+    <xs:element name="LANDING_PAGE_SET" type="LandingPageSetType">
         <xs:annotation>
-            <xs:documentation>A container of image objects.</xs:documentation>
+            <xs:documentation>A container of landing page objects.</xs:documentation>
         </xs:annotation>
     </xs:element>
 
-    <xs:element name="IMAGE" type="ImageType" />
+    <xs:element name="LANDING_PAGE" type="LandingPageType" />
 
-    <xs:complexType name="ImageType">
+    <xs:complexType name="LandingPageType">
         <xs:annotation>
-            <xs:documentation>An image object captures image objects.</xs:documentation>
+            <xs:documentation>A landing page object contains the public information visible on a
+                landing page for a dataset.</xs:documentation>
         </xs:annotation>
         <xs:complexContent>
             <xs:extension base="bp:ObjectType">
                 <xs:sequence>
-                    <xs:element name="IMAGE_OF" maxOccurs="unbounded" minOccurs="1"
+                    <xs:element name="DATASET_REF" minOccurs="1" maxOccurs="1"
                         type="bp:ReferenceType">
                         <xs:annotation>
-                            <xs:documentation>One of more samples imaged by the image.</xs:documentation>
+                            <xs:documentation>Identifies the dataset the landing page describes.</xs:documentation>
                         </xs:annotation>
                     </xs:element>
-                    <xs:element maxOccurs="1" minOccurs="1" name="IMAGE_TYPE">
+                    <xs:element name="REMS_ACCESS_LINK" maxOccurs="1" minOccurs="0" type="xs:anyURI">
                         <xs:annotation>
-                            <xs:documentation>The type of the image.</xs:documentation>
+                            <xs:documentation>URI link for user to get access to the dataset.</xs:documentation>
                         </xs:annotation>
-                        <xs:complexType>
-                            <xs:choice>
-                                <xs:element name="WSI_IMAGE"></xs:element>
-                                <xs:element name="GROSS_IMAGE"></xs:element>
-                            </xs:choice>
-                        </xs:complexType>
                     </xs:element>
-                    <xs:sequence>
-                        <xs:element name="FILES" minOccurs="1" maxOccurs="1" type="ImageFilesType">
-                            <xs:annotation>
-                                <xs:documentation>Data files associated with the image.</xs:documentation>
-                            </xs:annotation>
-                        </xs:element>
-                    </xs:sequence>
+                    <xs:element name="SAMPLE_IMAGE_FILES" minOccurs="0" maxOccurs="1"
+                        type="SampleImageFilesType">
+                        <xs:annotation>
+                            <xs:documentation>Sample images to display in the landing page.</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
                     <xs:element name="ATTRIBUTES" minOccurs="1" maxOccurs="1"
                         type="bp:AttributesType" nillable="true" />
-
                 </xs:sequence>
             </xs:extension>
         </xs:complexContent>

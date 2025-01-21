@@ -10,15 +10,17 @@
   ~ specific language governing permissions and limitations under the License.
   -->
 
-<!-- version:1.0.0 -->
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"  xmlns:bp="BP.common">
-    <xs:import namespace="BP.common" schemaLocation="BP.common.xsd"/>
+<!-- version:2.0.0 -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:bp="BP.common">
+    <xs:import namespace="BP.common" schemaLocation="BP.common.xsd" />
+
     <xs:complexType name="AnnotationFilesType">
         <xs:sequence>
             <xs:element maxOccurs="unbounded" minOccurs="1" name="FILE"
-                type="AnnotationFileType"/>
+                type="AnnotationFileType" />
         </xs:sequence>
     </xs:complexType>
+
     <xs:complexType name="AnnotationFileType">
         <xs:complexContent>
             <xs:extension base="bp:FileBaseType">
@@ -28,8 +30,8 @@
                     </xs:annotation>
                     <xs:simpleType>
                         <xs:restriction base="xs:string">
-                            <xs:enumeration value="dcm"/>
-                            <xs:enumeration value="json"/>
+                            <xs:enumeration value="dcm" />
+                            <xs:enumeration value="json" />
                         </xs:restriction>
                     </xs:simpleType>
                 </xs:attribute>
@@ -39,39 +41,38 @@
 
     <xs:complexType name="AnnotationSetType">
         <xs:sequence maxOccurs="unbounded" minOccurs="1">
-            <xs:element name="ANNOTATION" type="AnnotationType"/>
+            <xs:element name="ANNOTATION" type="AnnotationType" />
         </xs:sequence>
     </xs:complexType>
     <xs:element name="ANNOTATION_SET" type="AnnotationSetType">
         <xs:annotation>
-            <xs:documentation>A container of analysis objects.</xs:documentation>
+            <xs:documentation>A container of annotation objects.</xs:documentation>
         </xs:annotation>
     </xs:element>
-    <xs:element name="ANNOTATION" type="AnnotationType"/>
+    <xs:element name="ANNOTATION" type="AnnotationType" />
+
     <xs:complexType name="AnnotationType">
         <xs:annotation>
-            <xs:documentation>A BP annotation object captures annotation objects.</xs:documentation>
+            <xs:documentation>An annotation object captures annotation objects.</xs:documentation>
         </xs:annotation>
         <xs:complexContent>
             <xs:extension base="bp:ObjectType">
                 <xs:sequence>
-                    <xs:element name="STUDY_REF" minOccurs="0" maxOccurs="1" type="bp:ReferenceType">
-                        <xs:annotation>
-                            <xs:documentation>Identifies the parent study.</xs:documentation>
-                        </xs:annotation>
-                    </xs:element>
                     <xs:element name="IMAGE_REF" minOccurs="1" maxOccurs="1" type="bp:ReferenceType">
                         <xs:annotation>
                             <xs:documentation>Image associated with the annotation.</xs:documentation>
                         </xs:annotation>
                     </xs:element>
                     <xs:sequence>
-                        <xs:element name="FILES" type="AnnotationFilesType">
+                        <xs:element name="FILES" minOccurs="1" maxOccurs="1"
+                            type="AnnotationFilesType">
                             <xs:annotation>
                                 <xs:documentation>Data files associated with the annotation.</xs:documentation>
                             </xs:annotation>
                         </xs:element>
                     </xs:sequence>
+                    <xs:element name="ATTRIBUTES" minOccurs="1" maxOccurs="1"
+                        type="bp:AttributesType" nillable="true" />
                 </xs:sequence>
             </xs:extension>
         </xs:complexContent>

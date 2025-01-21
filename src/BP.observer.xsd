@@ -10,17 +10,19 @@
   ~ specific language governing permissions and limitations under the License.
   -->
 
-<!-- version:1.0.0 -->
+<!-- version:2.0.0 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:bp="BP.common">
-    <xs:import namespace="BP.common" schemaLocation="BP.common.xsd"/>
+    <xs:import namespace="BP.common" schemaLocation="BP.common.xsd" />
+
     <xs:complexType name="ObserverType">
         <xs:annotation>
-            <xs:documentation>A BP observer object describes the observer that has performed an observation.</xs:documentation>
+            <xs:documentation>A BP observer object describes the observer that has performed an
+                observation.</xs:documentation>
         </xs:annotation>
         <xs:complexContent>
             <xs:extension base="bp:ObjectType">
                 <xs:sequence>
-                    <xs:element minOccurs="1" maxOccurs="1" name="OBSERVER_TYPE" >
+                    <xs:element minOccurs="1" maxOccurs="1" name="OBSERVER_TYPE">
                         <xs:annotation>
                             <xs:documentation>The type of observer.</xs:documentation>
                         </xs:annotation>
@@ -39,6 +41,8 @@
                             </xs:restriction>
                         </xs:simpleType>
                     </xs:element>
+                    <xs:element name="ATTRIBUTES" minOccurs="1" maxOccurs="1"
+                        type="bp:AttributesType" nillable="true" />
                 </xs:sequence>
             </xs:extension>
         </xs:complexContent>
@@ -46,7 +50,7 @@
 
     <xs:complexType name="ObserverSetType">
         <xs:sequence maxOccurs="unbounded" minOccurs="1">
-            <xs:element name="OBSERVER" type="ObserverType"/>
+            <xs:element name="OBSERVER" type="ObserverType" />
         </xs:sequence>
     </xs:complexType>
 
@@ -56,5 +60,5 @@
         </xs:annotation>
     </xs:element>
 
-    <xs:element name="OBSERVER" type="ObserverType"/>
+    <xs:element name="OBSERVER" type="ObserverType" />
 </xs:schema>

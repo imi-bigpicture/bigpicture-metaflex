@@ -10,23 +10,36 @@
   ~ specific language governing permissions and limitations under the License.
   -->
 
-<!-- version:1.0.0 -->
+<!-- version:2.0.0 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:bp="BP.common">
-	<xs:import namespace="BP.common" schemaLocation="BP.common.xsd"/>
+	<xs:import namespace="BP.common" schemaLocation="BP.common.xsd" />
 
+	<xs:element name="DATASET" type="DatasetType" />
 
-	<xs:element name="DATASET" type="DatasetType"/>
+	<xs:simpleType name="VersionType2_0">
+		<xs:annotation>
+			<xs:documentation>Type that only allows strings of form 2.0.x.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:pattern value="2\.0\.\d+" />
+		</xs:restriction>
+	</xs:simpleType>
+
 	<xs:complexType name="DatasetType">
 		<xs:annotation>
-			<xs:documentation>Describes an object that contains the samples in the data set.
-    		</xs:documentation>
+			<xs:documentation>Describes an object that contains the samples in the data set.</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
 			<xs:extension base="bp:ObjectType">
 				<xs:sequence>
 					<xs:element name="TITLE" maxOccurs="1" minOccurs="1" type="xs:string">
 						<xs:annotation>
-							<xs:documentation>Short text that can be used to call out data sets in searches or in displays.</xs:documentation>
+							<xs:documentation>The title of the dataset.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="SHORT_NAME" maxOccurs="1" minOccurs="1" type="xs:string">
+						<xs:annotation>
+							<xs:documentation>A short name of the dataset.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element name="DESCRIPTION" type="xs:string" minOccurs="0" maxOccurs="1">
@@ -34,51 +47,64 @@
 							<xs:documentation>Free-form text describing the data sets.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
+					<xs:element name="VERSION" type="xs:string" minOccurs="1" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>The version of the dataset.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="METADATA_STANDARD" type="VersionType2_0" minOccurs="1"
+						maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>The metadata standard version of the dataset.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="DATASET_OWNER_CONTACT_EMAIL" type="xs:string" minOccurs="0"
+						maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>An email address of the data owner that can be used to
+								get in contact in case of suspicion of a data breach.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
 					<xs:element minOccurs="0" name="DATASET_TYPE" maxOccurs="unbounded">
 						<xs:simpleType>
 							<xs:restriction base="xs:string">
-							<xs:enumeration value="Whole slide imaging"/>
+								<xs:enumeration value="Whole slide imaging" />
 							</xs:restriction>
 						</xs:simpleType>
 					</xs:element>
-					<xs:element maxOccurs="1" minOccurs="1" name="POLICY_REF" type="bp:ReferenceType">
-						<xs:annotation>
-							<xs:documentation>Identifies the data access policy controlling this data set.
-					</xs:documentation>
-						</xs:annotation>
-					</xs:element>
-					<xs:element maxOccurs="unbounded" minOccurs="0" name="IMAGE_REF" type="bp:ReferenceType"
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="IMAGE_REF"
+						type="bp:ReferenceType"
 						nillable="false">
 						<xs:annotation>
-							<xs:documentation>
-								Identifies the images which are part of this dataset.
-							</xs:documentation>
+							<xs:documentation>Identifies the images which are part of this dataset.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element maxOccurs="unbounded" minOccurs="0" name="ANNOTATION_REF" type="bp:ReferenceType"
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="ANNOTATION_REF"
+						type="bp:ReferenceType"
 						nillable="false">
 						<xs:annotation>
-							<xs:documentation>
-								Identifies the annotations which are part of this dataset.
-							</xs:documentation>
+							<xs:documentation>Identifies the annotations which are part of this
+								dataset.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element maxOccurs="unbounded" minOccurs="0" name="OBSERVATION_REF" type="bp:ReferenceType"
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="OBSERVATION_REF"
+						type="bp:ReferenceType"
 						nillable="false">
 						<xs:annotation>
-							<xs:documentation>
-								Identifies the observations which are part of this dataset.
-							</xs:documentation>
+							<xs:documentation>Identifies the observations which are part of this
+								dataset.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element maxOccurs="unbounded" minOccurs="0" name="COMPLEMENTS_DATASET_REF" type="bp:ReferenceType"
-					nillable="false">
-					<xs:annotation>
-						<xs:documentation>
-							Identifies the datasets which this dataset complements.
-						</xs:documentation>
-					</xs:annotation>
-				</xs:element>
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="COMPLEMENTS_DATASET_REF"
+						type="bp:ReferenceType"
+						nillable="false">
+						<xs:annotation>
+							<xs:documentation>Identifies the datasets which this dataset
+								complements.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="ATTRIBUTES" minOccurs="1" maxOccurs="1"
+						type="bp:AttributesType" nillable="true" />
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
@@ -86,13 +112,13 @@
 
 	<xs:element name="DATASET_SET" type="DatasetSetType">
 		<xs:annotation>
-			<xs:documentation>Container for a set of data sets.
-			</xs:documentation>
+			<xs:documentation>Container for a set of data sets.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
+
 	<xs:complexType name="DatasetSetType">
 		<xs:sequence maxOccurs="unbounded" minOccurs="1">
-            <xs:element name="DATASET" type="DatasetType"/>
+			<xs:element name="DATASET" type="DatasetType" />
 		</xs:sequence>
 	</xs:complexType>
 </xs:schema>
