@@ -4,10 +4,10 @@ Metadata schemas for Bigpicture data submission. Based on SRA/EGA/ENA metadata s
 
 ## Bigpicture MetaFleX Dependencies
 
-This version of the Bigpicture MetaFleX (v.1.0.0) complies to and depends on:
+This version of the Bigpicture MetaFleX (2.0.0) complies to and depends on:
 
-- The Common Mandatory Metadata Structure (CMMS) version 1.0.0
-- The Mandatory Submission Metadata for Directly Accessible Datasets (MSMdad) version 1.0.0
+- The Common Mandatory Metadata Structure (CMMS) version 2.0.0
+- The Mandatory Submission Metadata for Directly Accessible Datasets (MSMdad) version 2.0.0
 
 ## Structure
 

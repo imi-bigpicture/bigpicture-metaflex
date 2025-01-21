@@ -7,13 +7,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased] -
 
+## [2.0.0] - 2025-01-01
+
 ### Added
 
+- Support for version 2.0.0 of the CMMS and MSMdad.
 - Definitions for REMS, organisation, landing page, and policy.
 - Move ATTRIBUTES to last in sequence.
 
 ### Removed
 
+- Support for version 1.0.0 of the CMMS and MSMdad.
 - Definitions from SRA/ENA/EGA.
 
 ## [1.0.0] - 2024-07-30
