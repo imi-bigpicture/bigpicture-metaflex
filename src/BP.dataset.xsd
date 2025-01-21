@@ -16,6 +16,15 @@
 
 	<xs:element name="DATASET" type="DatasetType" />
 
+	<xs:simpleType name="VersionType2_0">
+		<xs:annotation>
+			<xs:documentation>Type that only allows strings of form 2.0.x.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:pattern value="2\.0\.\d+" />
+		</xs:restriction>
+	</xs:simpleType>
+
 	<xs:complexType name="DatasetType">
 		<xs:annotation>
 			<xs:documentation>Describes an object that contains the samples in the data set.</xs:documentation>
@@ -43,7 +52,7 @@
 							<xs:documentation>The version of the dataset.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="METADATA_STANDARD" type="xs:string" minOccurs="1"
+					<xs:element name="METADATA_STANDARD" type="VersionType2_0" minOccurs="1"
 						maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>The metadata standard version of the dataset.</xs:documentation>
