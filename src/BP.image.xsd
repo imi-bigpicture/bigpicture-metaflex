@@ -54,7 +54,7 @@
 
     <xs:complexType name="ImageType">
         <xs:annotation>
-            <xs:documentation>An image object captures image objects.</xs:documentation>
+            <xs:documentation>An image of a sample.</xs:documentation>
         </xs:annotation>
         <xs:complexContent>
             <xs:extension base="bp:ObjectType">

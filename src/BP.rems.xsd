@@ -30,7 +30,7 @@
 
     <xs:complexType name="REMSType">
         <xs:annotation>
-            <xs:documentation>A rems object contains information rems of a dataset.</xs:documentation>
+            <xs:documentation>A rems object contains rems information of a dataset.</xs:documentation>
         </xs:annotation>
         <xs:complexContent>
             <xs:extension base="bp:ObjectType">

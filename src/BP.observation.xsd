@@ -128,7 +128,7 @@
 
     <xs:complexType name="ObservationType">
         <xs:annotation>
-            <xs:documentation>An observation object captures observation objects.</xs:documentation>
+            <xs:documentation>An observation done on a sample, image, or annotation.</xs:documentation>
         </xs:annotation>
         <xs:complexContent>
             <xs:extension base="bp:ObjectType">
