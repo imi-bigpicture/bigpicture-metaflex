@@ -53,7 +53,7 @@
 
     <xs:complexType name="AnnotationType">
         <xs:annotation>
-            <xs:documentation>An annotation object captures annotation objects.</xs:documentation>
+            <xs:documentation>An annotation of an image.</xs:documentation>
         </xs:annotation>
         <xs:complexContent>
             <xs:extension base="bp:ObjectType">
@@ -63,14 +63,36 @@
                             <xs:documentation>Image associated with the annotation.</xs:documentation>
                         </xs:annotation>
                     </xs:element>
-                    <xs:sequence>
-                        <xs:element name="FILES" minOccurs="1" maxOccurs="1"
-                            type="AnnotationFilesType">
-                            <xs:annotation>
-                                <xs:documentation>Data files associated with the annotation.</xs:documentation>
-                            </xs:annotation>
-                        </xs:element>
-                    </xs:sequence>
+                    <xs:element name="FILES" minOccurs="1" maxOccurs="1"
+                        type="AnnotationFilesType">
+                        <xs:annotation>
+                            <xs:documentation>Data files associated with the annotation.</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="ANNOTATOR_REF" minOccurs="1" maxOccurs="unbounded"
+                        type="bp:ReferenceType">
+                        <xs:annotation>
+                            <xs:documentation>Annotator associated with the annotation.</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="ONTOLOGY_REF" minOccurs="1" maxOccurs="1"
+                        type="bp:ReferenceType">
+                        <xs:annotation>
+                            <xs:documentation>Ontology associated with the annotation.</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="TASK_REF" minOccurs="1" maxOccurs="1"
+                        type="bp:ReferenceType">
+                        <xs:annotation>
+                            <xs:documentation>Task associated with the annotation.</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="PARENT_ANNOTATION_REF" minOccurs="0" maxOccurs="1"
+                        type="bp:ReferenceType" nillable="true">
+                        <xs:annotation>
+                            <xs:documentation>Parent annotation associated with the annotation.</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
                     <xs:element name="ATTRIBUTES" minOccurs="1" maxOccurs="1"
                         type="bp:AttributesType" nillable="true" />
                 </xs:sequence>
