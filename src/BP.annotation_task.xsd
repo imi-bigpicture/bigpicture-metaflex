@@ -53,7 +53,7 @@
         <xs:complexContent>
             <xs:extension base="bp:ObjectType">
                 <xs:sequence>
-                    <xs:element name="FILE" minOccurs="1" maxOccurs="1"
+                    <xs:element name="FILE" minOccurs="1" maxOccurs="1" nillable="true"
                         type="AnnotationTaskFileType">
                         <xs:annotation>
                             <xs:documentation>Data file associated with the annotation task.</xs:documentation>
