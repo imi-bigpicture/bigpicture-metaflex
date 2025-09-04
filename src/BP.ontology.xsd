@@ -13,7 +13,12 @@
 <!-- version:2.0.0 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:bp="BP.common">
     <xs:import namespace="BP.common" schemaLocation="BP.common.xsd" />
-
+    <xs:complexType name="OntologyFilesType">
+        <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="1" name="FILE"
+                type="OntologyFileType" />
+        </xs:sequence>
+    </xs:complexType>
     <xs:complexType name="OntologyFileType">
         <xs:complexContent>
             <xs:extension base="bp:FileBaseType">
@@ -50,10 +55,10 @@
         <xs:complexContent>
             <xs:extension base="bp:ObjectType">
                 <xs:sequence>
-                    <xs:element name="FILE" minOccurs="1" maxOccurs="1"
-                        type="OntologyFileType">
+                    <xs:element name="FILES" minOccurs="1" maxOccurs="1"
+                        type="OntologyFilesType">
                         <xs:annotation>
-                            <xs:documentation>Data file associated with the ontology task.</xs:documentation>
+                            <xs:documentation>Data files associated with the ontology.</xs:documentation>
                         </xs:annotation>
                     </xs:element>
                     <xs:element name="ATTRIBUTES" minOccurs="1" maxOccurs="1"
