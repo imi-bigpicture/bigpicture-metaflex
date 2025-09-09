@@ -30,8 +30,6 @@
                     </xs:annotation>
                     <xs:simpleType>
                         <xs:restriction base="xs:string">
-                            <xs:enumeration value="doc" />
-                            <xs:enumeration value="docx" />
                             <xs:enumeration value="pdf" />
                             <xs:enumeration value="txt" />
                             <xs:enumeration value="md" />
