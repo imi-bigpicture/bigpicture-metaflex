@@ -32,6 +32,7 @@
                         <xs:restriction base="xs:string">
                             <xs:enumeration value="dcm" />
                             <xs:enumeration value="json" />
+                            <xs:enumeration value="geojson" />
                         </xs:restriction>
                     </xs:simpleType>
                 </xs:attribute>
