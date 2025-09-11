@@ -60,7 +60,7 @@
             <xs:extension base="bp:ObjectType">
                 <xs:sequence>
                     <xs:element name="FILES" minOccurs="1" maxOccurs="1"
-                        type="AnnotationTaskFilesType">
+                        type="AnnotationTaskFilesType" nillable="true">
                         <xs:annotation>
                             <xs:documentation>Data files associated with the annotation task.</xs:documentation>
                         </xs:annotation>
