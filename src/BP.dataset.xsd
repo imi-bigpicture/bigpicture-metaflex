@@ -10,18 +10,18 @@
   ~ specific language governing permissions and limitations under the License.
   -->
 
-<!-- version:2.0.0 -->
+<!-- version:3.0.0 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:bp="BP.common">
 	<xs:import namespace="BP.common" schemaLocation="BP.common.xsd" />
 
 	<xs:element name="DATASET" type="DatasetType" />
 
-	<xs:simpleType name="VersionType2_0">
+	<xs:simpleType name="VersionType3_0">
 		<xs:annotation>
-			<xs:documentation>Type that only allows strings of form 2.0.x.</xs:documentation>
+			<xs:documentation>Type that only allows strings of form 3.0.x.</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
-			<xs:pattern value="2\.0\.\d+" />
+			<xs:pattern value="3\.0\.\d+" />
 		</xs:restriction>
 	</xs:simpleType>
 
@@ -52,7 +52,7 @@
 							<xs:documentation>The version of the dataset.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="METADATA_STANDARD" type="VersionType2_0" minOccurs="1"
+					<xs:element name="METADATA_STANDARD" type="VersionType3_0" minOccurs="1"
 						maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>The metadata standard version of the dataset.</xs:documentation>
