@@ -15,7 +15,7 @@
     <xs:import namespace="BP.common" schemaLocation="BP.common.xsd" />
     <xs:complexType name="OntologyFilesType">
         <xs:sequence>
-            <xs:element maxOccurs="unbounded" minOccurs="1" name="FILE"
+            <xs:element maxOccurs="1" minOccurs="1" name="FILE"
                 type="OntologyFileType" />
         </xs:sequence>
     </xs:complexType>
