@@ -74,7 +74,7 @@
                             <xs:documentation>Annotator associated with the annotation.</xs:documentation>
                         </xs:annotation>
                     </xs:element>
-                    <xs:element name="ONTOLOGY_REF" minOccurs="0" maxOccurs="1"
+                    <xs:element name="ONTOLOGY_REF" minOccurs="1" maxOccurs="1"
                         type="bp:ReferenceType" nillable="true">
                         <xs:annotation>
                             <xs:documentation>Ontology associated with the annotation.</xs:documentation>
