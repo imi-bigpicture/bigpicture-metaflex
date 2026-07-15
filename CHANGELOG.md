@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased] -
 
+### Added
+
+- `LANDING_PAGE_REF` to `DatasetType`, referencing the dataset's landing page.
+
 ### Changed
 
 - `ObserverType` now carries the observer type and description as attributes instead of a dedicated `OBSERVER_TYPE` element.
