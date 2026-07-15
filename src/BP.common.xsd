@@ -120,9 +120,9 @@
                 </xs:restriction>
             </xs:simpleType>
         </xs:attribute>
-        <xs:attribute name="checksum" type="bp:ChecksumString" use="required">
+        <xs:attribute name="checksum" type="bp:ChecksumString" use="optional">
             <xs:annotation>
-                <xs:documentation>The file checksum.</xs:documentation>
+                <xs:documentation>The file checksum. Optional for encrypted files.</xs:documentation>
             </xs:annotation>
         </xs:attribute>
         <xs:attribute name="unencrypted_checksum" type="bp:ChecksumString" use="optional">
