@@ -22,25 +22,6 @@
         <xs:complexContent>
             <xs:extension base="bp:ObjectType">
                 <xs:sequence>
-                    <xs:element minOccurs="1" maxOccurs="1" name="OBSERVER_TYPE">
-                        <xs:annotation>
-                            <xs:documentation>The type of observer.</xs:documentation>
-                        </xs:annotation>
-                        <xs:simpleType>
-                            <xs:restriction base="xs:string">
-                                <xs:enumeration value="Human">
-                                    <xs:annotation>
-                                        <xs:documentation></xs:documentation>
-                                    </xs:annotation>
-                                </xs:enumeration>
-                                <xs:enumeration value="Machine">
-                                    <xs:annotation>
-                                        <xs:documentation></xs:documentation>
-                                    </xs:annotation>
-                                </xs:enumeration>
-                            </xs:restriction>
-                        </xs:simpleType>
-                    </xs:element>
                     <xs:element name="ATTRIBUTES" minOccurs="1" maxOccurs="1"
                         type="bp:AttributesType" nillable="true" />
                 </xs:sequence>
