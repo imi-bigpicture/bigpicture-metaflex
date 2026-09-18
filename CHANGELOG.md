@@ -14,6 +14,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 - File `checksum` attribute is now optional (`use="optional"`); the checksum of an encrypted file may be omitted.
+- File `unencrypted_checksum` attribute is now required (`use="required"`).
 - `ObserverType` now carries the observer type and description as attributes instead of a dedicated `OBSERVER_TYPE` element.
 
 ### Removed

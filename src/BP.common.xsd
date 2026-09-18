@@ -125,7 +125,7 @@
                 <xs:documentation>The file checksum. Optional for encrypted files.</xs:documentation>
             </xs:annotation>
         </xs:attribute>
-        <xs:attribute name="unencrypted_checksum" type="bp:ChecksumString" use="optional">
+        <xs:attribute name="unencrypted_checksum" type="bp:ChecksumString" use="required">
             <xs:annotation>
                 <xs:documentation>The checksum of the unencrypted file (used in conjunction with the
                     checksum of an encrypted file).</xs:documentation>
