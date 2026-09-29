@@ -4,10 +4,10 @@ Metadata schemas for Bigpicture data submission. Based on SRA/EGA/ENA metadata s
 
 ## Bigpicture MetaFleX Dependencies
 
-This version of the Bigpicture MetaFleX (2.0.0) complies to and depends on:
+This version of the Bigpicture MetaFleX (3.0.0) complies to and depends on:
 
-- The Common Mandatory Metadata Structure (CMMS) version 2.0.0
-- The Mandatory Submission Metadata for Directly Accessible Datasets (MSMdad) version 2.0.0
+- The Common Mandatory Metadata Structure (CMMS) version 3.0.0
+- The Mandatory Submission Metadata for Directly Accessible Datasets (MSMdad) version 3.0.0
 
 ## Structure
 
@@ -56,7 +56,27 @@ Implements the ImageType that captures image objects. The ImageType extends `Obj
 Implements the AnnotationType that captures annotation objects. The AnnotationType extends `ObjectType` and has the following elements:
 
 - `IMAGE_REF`: One or more images associated with the annotation.
-- `FILES`: Data files associated with the annotation.
+- `FILES`: Data files (GeoJSON) associated with the annotation.
+- `ANNOTATOR_REF`: One or more annotators that created the annotation.
+- `ONTOLOGY_REF`: The ontology describing the concepts used in the annotation.
+- `TASK_REF`: The task performed when creating the annotation.
+- `PARENT_ANNOTATION_REF`: The annotation this annotation is derived from (optional).
+
+### BP.annotator.xsd
+
+Implements the AnnotatorType that captures who created an annotation. The AnnotatorType extends `ObjectType`, and the type and description of the annotator are given as attributes.
+
+### BP.annotation_task.xsd
+
+Implements the AnnotationTaskType that describes the task performed when creating annotations. The AnnotationTaskType extends `ObjectType` and has the following elements:
+
+- `FILES`: Data files (PDF, text, or Markdown) describing the task.
+
+### BP.ontology.xsd
+
+Implements the OntologyType that describes the concepts used in annotations. The OntologyType extends `ObjectType` and has the following elements:
+
+- `FILES`: Data file (JSON) with the ontology.
 
 ### BP.dataset.xsd
 
@@ -65,6 +85,7 @@ Implements the DatasetType which collects various entities to a dataset:
 - `IMAGE_REF`: Identifies the images which are part of the dataset.
 - `ANNOTATION_REF`: Identifies the annotations which are part of the dataset.
 - `OBSERVATION_REF`: Identifies the observations which are part of the dataset.
+- `LANDING_PAGE_REF`: Identifies the landing page of the dataset (optional).
 
 ### BP.observation.xsd
 
@@ -75,7 +96,6 @@ Implements the ObservationType that captures observation objects. The Observatio
 
 The object that the observation references is defined by using one (and only one) of the following elements:
 
-- `ANNOTATION`: Identifies the referenced annotation.
 - `CASE`: Identifies the referenced case.
 - `BIOLOGICALBEING`: Identifies the referenced biological being.
 - `SPECIMEN`: Identifies the referenced specimen.

@@ -5,20 +5,29 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased] -
+## [Unreleased]
+
+## [3.0.0] - 2026-09-29
 
 ### Added
 
+- Support for version 3.0.0 of the CMMS and MSMdad.
+- Annotator, annotation task, and ontology schemas (`BP.annotator.xsd`, `BP.annotation_task.xsd`, and `BP.ontology.xsd`).
+- References from `AnnotationType` to its annotators, task, ontology, and optional parent annotation.
 - `LANDING_PAGE_REF` to `DatasetType`, referencing the dataset's landing page.
 
 ### Changed
 
+- `METADATA_STANDARD` of a dataset now only accepts versions 3.0.x.
+- Annotation files are now GeoJSON (`geojson`) instead of DICOM or JSON.
 - File `checksum` attribute is now optional (`use="optional"`); the checksum of an encrypted file may be omitted.
 - File `unencrypted_checksum` attribute is now required (`use="required"`).
 - `ObserverType` now carries the observer type and description as attributes instead of a dedicated `OBSERVER_TYPE` element.
+- Clarified the documentation of the annotation, image, observation, and REMS types.
 
 ### Removed
 
+- Support for version 2.0.0 of the CMMS and MSMdad.
 - `ANNOTATION_REF` from the reference choice in `ObservationType`; an observation can no longer be made on an annotation.
 - `OBSERVER_TYPE` element from `ObserverType`.
 
@@ -165,7 +174,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Implementation of MSMdad 0.1.0.
 
-[Unreleased]: https://github.com/imi-bigpicture/metadata-schema/compare/v2.0.0..HEAD
+[Unreleased]: https://github.com/imi-bigpicture/metadata-schema/compare/v3.0.0..HEAD
+[3.0.0]: https://github.com/imi-bigpicture/metadata-schema/compare/v2.0.0..v3.0.0
 [2.0.0]: https://github.com/imi-bigpicture/metadata-schema/compare/v1.0.0..v2.0.0
 [1.0.0]: https://github.com/imi-bigpicture/metadata-schema/compare/v0.10.0..v1.0.0
 [0.10.0]: https://github.com/imi-bigpicture/metadata-schema/compare/v0.9.0..v0.10.0
