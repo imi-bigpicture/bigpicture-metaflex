@@ -25,6 +25,22 @@
 		</xs:restriction>
 	</xs:simpleType>
 
+	<xs:simpleType name="BigpictureNodeType">
+		<xs:annotation>
+			<xs:documentation>The Bigpicture nodes a dataset can be assigned to.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Cancer node" />
+			<xs:enumeration value="Clinical trial node" />
+			<xs:enumeration value="Liver node" />
+			<xs:enumeration value="Non-Clinical node" />
+			<xs:enumeration value="Lung node" />
+			<xs:enumeration value="Renal node" />
+			<xs:enumeration value="Skin node" />
+			<xs:enumeration value="Other" />
+		</xs:restriction>
+	</xs:simpleType>
+
 	<xs:complexType name="DatasetType">
 		<xs:annotation>
 			<xs:documentation>Describes an object that contains the samples in the data set.</xs:documentation>
@@ -71,6 +87,13 @@
 								<xs:enumeration value="Whole slide imaging" />
 							</xs:restriction>
 						</xs:simpleType>
+					</xs:element>
+					<xs:element name="BIGPICTURE_NODE" type="BigpictureNodeType" minOccurs="1"
+						maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>The node assigned to the dataset for reporting purposes,
+								agreed between the submitter and coordinator before the submission.</xs:documentation>
+						</xs:annotation>
 					</xs:element>
 					<xs:element maxOccurs="unbounded" minOccurs="0" name="IMAGE_REF"
 						type="bp:ReferenceType"

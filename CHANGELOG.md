@@ -12,6 +12,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - Support for version 3.0.0 of the CMMS and MSMdad.
+- Required `BIGPICTURE_NODE` element in `DatasetType`, the node the dataset is assigned to for reporting.
 - Annotator, annotation task, and ontology schemas (`BP.annotator.xsd`, `BP.annotation_task.xsd`, and `BP.ontology.xsd`).
 - References from `AnnotationType` to its annotators, task, ontology, and optional parent annotation.
 - `LANDING_PAGE_REF` to `DatasetType`, referencing the dataset's landing page.

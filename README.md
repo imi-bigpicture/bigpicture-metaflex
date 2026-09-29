@@ -87,6 +87,8 @@ Implements the DatasetType which collects various entities to a dataset:
 - `OBSERVATION_REF`: Identifies the observations which are part of the dataset.
 - `LANDING_PAGE_REF`: Identifies the landing page of the dataset (optional).
 
+The `BIGPICTURE_NODE` element gives the node the dataset is assigned to for reporting, one of `Cancer node`, `Clinical trial node`, `Liver node`, `Non-Clinical node`, `Lung node`, `Renal node`, `Skin node`, or `Other`.
+
 ### BP.observation.xsd
 
 Implements the ObservationType that captures observation objects. The ObservationType extends `ObjectType` and has the following elements:
