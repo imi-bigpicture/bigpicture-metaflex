@@ -10,7 +10,7 @@
   ~ specific language governing permissions and limitations under the License.
   -->
 
-<!-- version:2.0.0 -->
+<!-- version:3.0.0 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:bp="BP.common"
     targetNamespace="BP.common">
     <xs:complexType name="CodeType">
@@ -120,12 +120,12 @@
                 </xs:restriction>
             </xs:simpleType>
         </xs:attribute>
-        <xs:attribute name="checksum" type="bp:ChecksumString" use="required">
+        <xs:attribute name="checksum" type="bp:ChecksumString" use="optional">
             <xs:annotation>
-                <xs:documentation>The file checksum.</xs:documentation>
+                <xs:documentation>The file checksum. Optional for encrypted files.</xs:documentation>
             </xs:annotation>
         </xs:attribute>
-        <xs:attribute name="unencrypted_checksum" type="bp:ChecksumString" use="optional">
+        <xs:attribute name="unencrypted_checksum" type="bp:ChecksumString" use="required">
             <xs:annotation>
                 <xs:documentation>The checksum of the unencrypted file (used in conjunction with the
                     checksum of an encrypted file).</xs:documentation>

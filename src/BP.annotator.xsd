@@ -14,10 +14,22 @@
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:bp="BP.common">
     <xs:import namespace="BP.common" schemaLocation="BP.common.xsd" />
 
-    <xs:complexType name="ObserverType">
+
+    <xs:complexType name="AnnotatorSetType">
+        <xs:sequence maxOccurs="unbounded" minOccurs="1">
+            <xs:element name="ANNOTATOR" type="AnnotatorType" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="ANNOTATOR_SET" type="AnnotatorSetType">
         <xs:annotation>
-            <xs:documentation>A BP observer object describes the observer that has performed an
-                observation.</xs:documentation>
+            <xs:documentation>A container of annotator objects.</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="ANNOTATOR" type="AnnotatorType" />
+
+    <xs:complexType name="AnnotatorType">
+        <xs:annotation>
+            <xs:documentation>The annotator that has created an annotation.</xs:documentation>
         </xs:annotation>
         <xs:complexContent>
             <xs:extension base="bp:ObjectType">
@@ -28,18 +40,4 @@
             </xs:extension>
         </xs:complexContent>
     </xs:complexType>
-
-    <xs:complexType name="ObserverSetType">
-        <xs:sequence maxOccurs="unbounded" minOccurs="1">
-            <xs:element name="OBSERVER" type="ObserverType" />
-        </xs:sequence>
-    </xs:complexType>
-
-    <xs:element name="OBSERVER_SET" type="ObserverSetType">
-        <xs:annotation>
-            <xs:documentation>A container of observer objects.</xs:documentation>
-        </xs:annotation>
-    </xs:element>
-
-    <xs:element name="OBSERVER" type="ObserverType" />
 </xs:schema>

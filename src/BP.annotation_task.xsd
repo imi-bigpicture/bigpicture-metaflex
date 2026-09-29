@@ -14,14 +14,14 @@
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:bp="BP.common">
     <xs:import namespace="BP.common" schemaLocation="BP.common.xsd" />
 
-    <xs:complexType name="ImageFilesType">
+    <xs:complexType name="AnnotationTaskFilesType">
         <xs:sequence>
             <xs:element maxOccurs="unbounded" minOccurs="1" name="FILE"
-                type="ImageFileType" />
+                type="AnnotationTaskFileType" />
         </xs:sequence>
     </xs:complexType>
 
-    <xs:complexType name="ImageFileType">
+    <xs:complexType name="AnnotationTaskFileType">
         <xs:complexContent>
             <xs:extension base="bp:FileBaseType">
                 <xs:attribute name="filetype" use="required">
@@ -30,7 +30,9 @@
                     </xs:annotation>
                     <xs:simpleType>
                         <xs:restriction base="xs:string">
-                            <xs:enumeration value="dcm" />
+                            <xs:enumeration value="pdf" />
+                            <xs:enumeration value="txt" />
+                            <xs:enumeration value="md" />
                         </xs:restriction>
                     </xs:simpleType>
                 </xs:attribute>
@@ -38,54 +40,33 @@
         </xs:complexContent>
     </xs:complexType>
 
-    <xs:complexType name="ImageSetType">
+    <xs:complexType name="AnnotationTaskSetType">
         <xs:sequence maxOccurs="unbounded" minOccurs="1">
-            <xs:element name="IMAGE" type="ImageType" />
+            <xs:element name="ANNOTATION_TASK" type="AnnotationTaskType" />
         </xs:sequence>
     </xs:complexType>
-
-    <xs:element name="IMAGE_SET" type="ImageSetType">
+    <xs:element name="ANNOTATION_TASK_SET" type="AnnotationTaskSetType">
         <xs:annotation>
-            <xs:documentation>A container of image objects.</xs:documentation>
+            <xs:documentation>A container of annotation task objects.</xs:documentation>
         </xs:annotation>
     </xs:element>
+    <xs:element name="ANNOTATION_TASK" type="AnnotationTaskType" />
 
-    <xs:element name="IMAGE" type="ImageType" />
-
-    <xs:complexType name="ImageType">
+    <xs:complexType name="AnnotationTaskType">
         <xs:annotation>
-            <xs:documentation>An image of a sample.</xs:documentation>
+            <xs:documentation>The task that has been performed when creating annotations.</xs:documentation>
         </xs:annotation>
         <xs:complexContent>
             <xs:extension base="bp:ObjectType">
                 <xs:sequence>
-                    <xs:element name="IMAGE_OF" maxOccurs="unbounded" minOccurs="1"
-                        type="bp:ReferenceType">
+                    <xs:element name="FILES" minOccurs="1" maxOccurs="1"
+                        type="AnnotationTaskFilesType" nillable="true">
                         <xs:annotation>
-                            <xs:documentation>One of more samples imaged by the image.</xs:documentation>
+                            <xs:documentation>Data files associated with the annotation task.</xs:documentation>
                         </xs:annotation>
                     </xs:element>
-                    <xs:element maxOccurs="1" minOccurs="1" name="IMAGE_TYPE">
-                        <xs:annotation>
-                            <xs:documentation>The type of the image.</xs:documentation>
-                        </xs:annotation>
-                        <xs:complexType>
-                            <xs:choice>
-                                <xs:element name="WSI_IMAGE"></xs:element>
-                                <xs:element name="GROSS_IMAGE"></xs:element>
-                            </xs:choice>
-                        </xs:complexType>
-                    </xs:element>
-                    <xs:sequence>
-                        <xs:element name="FILES" minOccurs="1" maxOccurs="1" type="ImageFilesType">
-                            <xs:annotation>
-                                <xs:documentation>Data files associated with the image.</xs:documentation>
-                            </xs:annotation>
-                        </xs:element>
-                    </xs:sequence>
                     <xs:element name="ATTRIBUTES" minOccurs="1" maxOccurs="1"
                         type="bp:AttributesType" nillable="true" />
-
                 </xs:sequence>
             </xs:extension>
         </xs:complexContent>

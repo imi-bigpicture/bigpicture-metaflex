@@ -7,6 +7,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased] -
 
+### Added
+
+- `LANDING_PAGE_REF` to `DatasetType`, referencing the dataset's landing page.
+
+### Changed
+
+- File `checksum` attribute is now optional (`use="optional"`); the checksum of an encrypted file may be omitted.
+- File `unencrypted_checksum` attribute is now required (`use="required"`).
+- `ObserverType` now carries the observer type and description as attributes instead of a dedicated `OBSERVER_TYPE` element.
+
+### Removed
+
+- `ANNOTATION_REF` from the reference choice in `ObservationType`; an observation can no longer be made on an annotation.
+- `OBSERVER_TYPE` element from `ObserverType`.
+
 ## [2.0.0] - 2025-01-21
 
 ### Added

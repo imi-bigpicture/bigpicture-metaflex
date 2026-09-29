@@ -13,15 +13,13 @@
 <!-- version:3.0.0 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:bp="BP.common">
     <xs:import namespace="BP.common" schemaLocation="BP.common.xsd" />
-
-    <xs:complexType name="ImageFilesType">
+    <xs:complexType name="OntologyFilesType">
         <xs:sequence>
-            <xs:element maxOccurs="unbounded" minOccurs="1" name="FILE"
-                type="ImageFileType" />
+            <xs:element maxOccurs="1" minOccurs="1" name="FILE"
+                type="OntologyFileType" />
         </xs:sequence>
     </xs:complexType>
-
-    <xs:complexType name="ImageFileType">
+    <xs:complexType name="OntologyFileType">
         <xs:complexContent>
             <xs:extension base="bp:FileBaseType">
                 <xs:attribute name="filetype" use="required">
@@ -30,7 +28,7 @@
                     </xs:annotation>
                     <xs:simpleType>
                         <xs:restriction base="xs:string">
-                            <xs:enumeration value="dcm" />
+                            <xs:enumeration value="json" />
                         </xs:restriction>
                     </xs:simpleType>
                 </xs:attribute>
@@ -38,54 +36,33 @@
         </xs:complexContent>
     </xs:complexType>
 
-    <xs:complexType name="ImageSetType">
+    <xs:complexType name="OntologySetType">
         <xs:sequence maxOccurs="unbounded" minOccurs="1">
-            <xs:element name="IMAGE" type="ImageType" />
+            <xs:element name="ONTOLOGY" type="OntologyType" />
         </xs:sequence>
     </xs:complexType>
-
-    <xs:element name="IMAGE_SET" type="ImageSetType">
+    <xs:element name="ONTOLOGY_SET" type="OntologySetType">
         <xs:annotation>
-            <xs:documentation>A container of image objects.</xs:documentation>
+            <xs:documentation>A container of ontology objects.</xs:documentation>
         </xs:annotation>
     </xs:element>
+    <xs:element name="ONTOLOGY" type="OntologyType" />
 
-    <xs:element name="IMAGE" type="ImageType" />
-
-    <xs:complexType name="ImageType">
+    <xs:complexType name="OntologyType">
         <xs:annotation>
-            <xs:documentation>An image of a sample.</xs:documentation>
+            <xs:documentation>Ontology describing used concepts.</xs:documentation>
         </xs:annotation>
         <xs:complexContent>
             <xs:extension base="bp:ObjectType">
                 <xs:sequence>
-                    <xs:element name="IMAGE_OF" maxOccurs="unbounded" minOccurs="1"
-                        type="bp:ReferenceType">
+                    <xs:element name="FILES" minOccurs="1" maxOccurs="1"
+                        type="OntologyFilesType">
                         <xs:annotation>
-                            <xs:documentation>One of more samples imaged by the image.</xs:documentation>
+                            <xs:documentation>Data files associated with the ontology.</xs:documentation>
                         </xs:annotation>
                     </xs:element>
-                    <xs:element maxOccurs="1" minOccurs="1" name="IMAGE_TYPE">
-                        <xs:annotation>
-                            <xs:documentation>The type of the image.</xs:documentation>
-                        </xs:annotation>
-                        <xs:complexType>
-                            <xs:choice>
-                                <xs:element name="WSI_IMAGE"></xs:element>
-                                <xs:element name="GROSS_IMAGE"></xs:element>
-                            </xs:choice>
-                        </xs:complexType>
-                    </xs:element>
-                    <xs:sequence>
-                        <xs:element name="FILES" minOccurs="1" maxOccurs="1" type="ImageFilesType">
-                            <xs:annotation>
-                                <xs:documentation>Data files associated with the image.</xs:documentation>
-                            </xs:annotation>
-                        </xs:element>
-                    </xs:sequence>
                     <xs:element name="ATTRIBUTES" minOccurs="1" maxOccurs="1"
                         type="bp:AttributesType" nillable="true" />
-
                 </xs:sequence>
             </xs:extension>
         </xs:complexContent>
