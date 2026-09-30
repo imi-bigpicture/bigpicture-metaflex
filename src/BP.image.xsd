@@ -59,10 +59,10 @@
         <xs:complexContent>
             <xs:extension base="bp:ObjectType">
                 <xs:sequence>
-                    <xs:element name="IMAGE_OF" maxOccurs="unbounded" minOccurs="1"
+                    <xs:element name="IMAGE_OF" maxOccurs="1" minOccurs="1"
                         type="bp:ReferenceType">
                         <xs:annotation>
-                            <xs:documentation>One of more samples imaged by the image.</xs:documentation>
+                            <xs:documentation>The slide the image was created from.</xs:documentation>
                         </xs:annotation>
                     </xs:element>
                     <xs:element maxOccurs="1" minOccurs="1" name="IMAGE_TYPE">
