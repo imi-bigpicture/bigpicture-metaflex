@@ -2,6 +2,8 @@
 
 Metadata schemas for Bigpicture data submission. Based on SRA/EGA/ENA metadata schemas.
 
+![Bigpicture Entities](bigpicture_entities.dot.svg)
+
 ## Bigpicture MetaFleX Dependencies
 
 This version of the Bigpicture MetaFleX (3.0.0) complies to and depends on:
