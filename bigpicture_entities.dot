@@ -1,0 +1,100 @@
+digraph BIGPICTURE {
+    label="BIGPICTURE Metadata Standard — Entity Relationships";
+    labelloc=t; fontsize=20; fontname="Helvetica-Bold";
+    rankdir=TB; newrank=true; splines=spline;
+    nodesep=0.5; ranksep=0.6; pad=0.3; bgcolor="#fafafa";
+
+    node [shape=box, style="rounded,filled", fontname="Helvetica",
+          fontsize=13, width=1.8, height=0.55, penwidth=1.5];
+    edge [color="#4b5563", arrowsize=0.8, penwidth=1.3];
+
+    // Administrative
+    subgraph cluster_admin {
+        style="rounded,dashed"; color="#9bb8f0"; label="";
+        node [fillcolor="#dbe8ff", color="#4a80e8", fontcolor="#1e3a8a"];
+        Policy; REMS; Organisation; LandingPage;
+    }
+
+    Dataset [fillcolor="#e6dcff", color="#8b5cf6", fontcolor="#4c1d95"];
+
+    // Annotation
+    subgraph cluster_ann {
+        style="rounded,dashed"; color="#f5c87a"; label="";
+        node [fillcolor="#fff1c6", color="#f5a524", fontcolor="#92400e"];
+        Annotation     [label=<Annotation<BR/><I><FONT POINT-SIZE="10">(optional)</FONT></I>>];
+        Annotator      [label=<Annotator<BR/><I><FONT POINT-SIZE="10">(optional)</FONT></I>>];
+        AnnotationTask [label=<Annotation Task<BR/><I><FONT POINT-SIZE="10">(optional)</FONT></I>>];
+        Ontology       [label=<Ontology<BR/><I><FONT POINT-SIZE="10">(optional)</FONT></I>>];
+    }
+
+    // Image / anatomy
+    subgraph cluster_img {
+        style="rounded,dashed"; color="#8fdcb8"; label="";
+        node [fillcolor="#d5f8e6", color="#34c38f", fontcolor="#065f46"];
+        Image; Slide; Staining; Block; Specimen; Case;
+        BiologicalBeing [label="Biological Being"];
+    }
+
+    // Observation
+    subgraph cluster_obs {
+        style="rounded,dashed"; color="#f2a3a3"; label="";
+        node [fillcolor="#ffe0e0", color="#ef4444", fontcolor="#991b1b"];
+        Observation [ordering=out, label=<Observation<BR/><I><FONT POINT-SIZE="10">(optional)</FONT></I>>];
+        Observer    [label=<Observer<BR/><I><FONT POINT-SIZE="10">(optional)</FONT></I>>];
+    }
+
+    // Rank alignment
+    { rank=same; Annotation; Image; Observation; }
+    { rank=same; Annotator; Slide; Staining; }
+    { rank=same; Block; AnnotationTask; }
+    { rank=same; Specimen; Case; Observer; }
+
+    // Part-of / made-of (solid)
+    Policy -> Dataset; REMS -> Dataset; Organisation -> Dataset; LandingPage -> Dataset;
+    Dataset -> Annotation; Dataset -> Image; Dataset -> Observation;
+    Annotation -> Annotator; Annotation -> AnnotationTask; Annotation -> Ontology;
+    Image -> Slide; Slide -> Staining; Slide -> Block; Block -> Specimen;
+    Specimen -> Case; Specimen -> BiologicalBeing; Case -> BiologicalBeing;
+    Observation -> Observer [minlen=2, style=solid, color="#4b5563", constraint=true];
+
+    // Refers-to (dashed, excluded from layout ranking)
+    edge [style=dashed, color="#6b7280", constraint=false];
+    Dataset -> Dataset       [label=" parent", fontsize=10, fontcolor="#6b7280"];
+    Annotation:w -> Annotation:w [label="parent ", fontsize=10, fontcolor="#6b7280"];
+    Annotation -> Image;
+    Observation -> Image; Observation -> Slide; Observation -> Block;
+    Observation -> Specimen;
+    Observer -> Case; Observer -> BiologicalBeing;
+
+    // Legend
+    subgraph cluster_legend {
+        label=<<B>Legend</B>>; labeljust=l; fontsize=13; fontname="Helvetica";
+        style="rounded"; color="#d1d5db"; bgcolor="white"; margin=12;
+        node [shape=plaintext, style="", width=0, height=0, fontsize=11];
+        edge [constraint=true, arrowsize=0.7];
+
+        la [label=""]; lb [label="Part-of / made-of   "];
+        lc [label=""]; ld [label="Refers-to      "];
+        lopt [label=<<I>(optional)</I> = may be absent from a dataset>];
+        ld -> lopt [style=invis];
+        la -> lb [color="#4b5563", style=solid, minlen=1];
+        lc -> ld [color="#6b7280", style=dashed, minlen=1];
+        swatches -> la [style=invis];
+        lb -> lc [style=invis, minlen=1];
+
+        swatches [label=<
+          <TABLE BORDER="0" CELLSPACING="6" CELLPADDING="3">
+            <TR>
+              <TD BGCOLOR="#dbe8ff" COLOR="#4a80e8" BORDER="1" WIDTH="14"> </TD><TD ALIGN="LEFT">Administrative</TD>
+              <TD BGCOLOR="#e6dcff" COLOR="#8b5cf6" BORDER="1" WIDTH="14"> </TD><TD ALIGN="LEFT">Dataset</TD>
+              <TD BGCOLOR="#d5f8e6" COLOR="#34c38f" BORDER="1" WIDTH="14"> </TD><TD ALIGN="LEFT">Image / Anatomy</TD>
+              <TD BGCOLOR="#fff1c6" COLOR="#f5a524" BORDER="1" WIDTH="14"> </TD><TD ALIGN="LEFT">Annotation</TD>
+              <TD BGCOLOR="#ffe0e0" COLOR="#ef4444" BORDER="1" WIDTH="14"> </TD><TD ALIGN="LEFT">Observation</TD>
+              
+            </TR>
+          </TABLE>>];
+        { rank=same; la; lb; lc; ld; lopt; }
+    }
+    // Pin the legend below the diagram
+    BiologicalBeing -> swatches [style=invis, constraint=true, minlen=1];
+}
