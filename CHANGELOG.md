@@ -19,6 +19,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - `METADATA_STANDARD` of a dataset now only accepts versions 3.0.x.
 - `IMAGE_OF` of `ImageType` now accepts exactly one reference, as an image is created from one slide.
+- `ONTOLOGY_REF` of `AnnotationType` is no longer nillable, as every annotation references exactly one ontology.
 - Annotation files are now GeoJSON (`geojson`) instead of DICOM or JSON.
 - File `checksum` attribute is now optional (`use="optional"`); the checksum of an encrypted file may be omitted.
 - File `unencrypted_checksum` attribute is now required (`use="required"`).
