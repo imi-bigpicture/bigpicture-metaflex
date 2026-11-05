@@ -33,6 +33,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `ANNOTATION_REF` from the reference choice in `ObservationType`; an observation can no longer be made on an annotation.
 - `OBSERVER_TYPE` element from `ObserverType`.
 
+### Fixed
+
+- The README now uses the element names of the schemas, such as `CREATED_FROM_REF` and `OBSERVER_REF`, and states that an annotation references one image.
+- The documentation of `SlideType` and `STAINING_INFORMATION_REF` now states that a slide is created from one block and references one staining, as the schema requires, and spelling errors in the documentation of several types are corrected.
+
 ## [2.0.0] - 2025-01-21
 
 ### Added
