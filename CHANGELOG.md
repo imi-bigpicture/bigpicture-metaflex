@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [3.0.0] - 2026-11-05
+
 ### Added
 
 - Support for version 3.0.0 of the CMMS and MSMdad.
@@ -32,6 +34,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Support for version 2.0.0 of the CMMS and MSMdad.
 - `ANNOTATION_REF` from the reference choice in `ObservationType`; an observation can no longer be made on an annotation.
 - `OBSERVER_TYPE` element from `ObserverType`.
+
+### Fixed
+
+- The README now uses the element names of the schemas, such as `CREATED_FROM_REF` and `OBSERVER_REF`, and states that an annotation references one image.
+- The documentation of `SlideType` and `STAINING_INFORMATION_REF` now states that a slide is created from one block and references one staining, as the schema requires, and spelling errors in the documentation of several types are corrected.
 
 ## [2.0.0] - 2025-01-21
 
@@ -176,7 +183,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Implementation of MSMdad 0.1.0.
 
-[Unreleased]: https://github.com/imi-bigpicture/metadata-schema/compare/v2.0.0..HEAD
+[Unreleased]: https://github.com/imi-bigpicture/metadata-schema/compare/v3.0.0..HEAD
+[3.0.0]: https://github.com/imi-bigpicture/metadata-schema/compare/v2.0.0..v3.0.0
 [2.0.0]: https://github.com/imi-bigpicture/metadata-schema/compare/v1.0.0..v2.0.0
 [1.0.0]: https://github.com/imi-bigpicture/metadata-schema/compare/v0.10.0..v1.0.0
 [0.10.0]: https://github.com/imi-bigpicture/metadata-schema/compare/v0.9.0..v0.10.0

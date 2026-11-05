@@ -30,7 +30,7 @@
 
   <xs:complexType name="StainingType">
     <xs:annotation>
-      <xs:documentation>Describes stains used for a slide. Can be referencesd. Stains are either
+      <xs:documentation>Describes stains used for a slide. Can be referenced. Stains are either
         defined by procedure information or a list of stains.</xs:documentation>
     </xs:annotation>
     <xs:complexContent>

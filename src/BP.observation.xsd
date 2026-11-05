@@ -16,7 +16,7 @@
 
     <xs:complexType name="StatementType">
         <xs:annotation>
-            <xs:documentation>A statement object describes the statements for an observeration.</xs:documentation>
+            <xs:documentation>A statement object describes the statements for an observation.</xs:documentation>
         </xs:annotation>
         <xs:sequence>
             <xs:element minOccurs="1" maxOccurs="1" name="STATEMENT_TYPE">
@@ -80,7 +80,7 @@
                         classification, nomenclature or ontology. They comprise the same
                         functionality as all `CodedAttributeTypes` in the BP XSD Schema. As the
                         complexity of a pathological statement can be in many instances not be coded
-                        using only one Ontology/Classifiation/Nomenclature (I.e. ICDO + TNM or
+                        using only one Ontology/Classification/Nomenclature (I.e. ICDO + TNM or
                         multiple SEND/CDISC Variables) it was decided that one can add multiple
                         coded Attributes to a given statement.</xs:documentation>
                 </xs:annotation>

@@ -243,7 +243,7 @@
 
     <xs:complexType name="ObjectType" abstract="true">
         <xs:annotation>
-            <xs:documentation>An object that can be referencend by other objects and that has a list
+            <xs:documentation>An object that can be referenced by other objects and that has a list
                 of attributes.</xs:documentation>
         </xs:annotation>
         <xs:attribute name="alias" type="xs:string" use="required">

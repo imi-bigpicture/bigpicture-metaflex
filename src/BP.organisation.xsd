@@ -30,7 +30,7 @@
 
     <xs:complexType name="OrganisationType">
         <xs:annotation>
-            <xs:documentation>A organisation object contains information about the submitter of a
+            <xs:documentation>An organisation object contains information about the submitter of a
                 dataset.</xs:documentation>
         </xs:annotation>
         <xs:complexContent>

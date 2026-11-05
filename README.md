@@ -37,10 +37,10 @@ Implements several types that are used in other types:
 Implements the following types:
 
 - BiologicalBeingType: A human being or animal.
-- CaseType: Implements the CaseType that represents a pathological case that references one biological being and one or more specimens. The `BIOLOGICAL_BEING` element references  the biological being the case belongs to and the `RELATED_SPECIMEN` elements references to specimens belonging to the case.
-- SpecimenType: A removed part of a human/animal being. The `EXTRACTED_FROM` element references the biological being the specimen was extracted from.
-- BlockType: A part or a collection of parts of one or many Specimens that has/have been sampled and processed for further investigation. This can for example be a block. The `SAMPLED_FROM` element references the specimen(s) the block was sampled from.
-- SlideType: A physical slide that has been created out of one or more Blocks. The `CREATED_FROM` element references the block the slide was created from.
+- CaseType: A pathological case that references one biological being. The `BIOLOGICAL_BEING_REF` element references the biological being the case belongs to.
+- SpecimenType: A removed part of a human/animal being. The `EXTRACTED_FROM_REF` element references the biological being the specimen was extracted from, and the optional `PART_OF_CASE_REF` element references the case the specimen belongs to.
+- BlockType: A part or a collection of parts of one or many Specimens that has/have been sampled and processed for further investigation. This can for example be a block. The `SAMPLED_FROM_REF` elements reference the specimen(s) the block was sampled from.
+- SlideType: A physical slide created from a Block. The `CREATED_FROM_REF` element references the block the slide was created from, and the `STAINING_INFORMATION_REF` element references the staining of the slide.
 
 All types extends `ObjectType`, and different types of attributes can thus be assigned to the `ATTRIBUTES` element.
 
@@ -55,7 +55,7 @@ Implements the ImageType that captures image objects. The ImageType extends `Obj
 
 Implements the AnnotationType that captures annotation objects. The AnnotationType extends `ObjectType` and has the following elements:
 
-- `IMAGE_REF`: One or more images associated with the annotation.
+- `IMAGE_REF`: The image associated with the annotation.
 - `FILES`: Data files (GeoJSON) associated with the annotation.
 - `ANNOTATOR_REF`: One or more annotators that created the annotation.
 - `ONTOLOGY_REF`: The ontology describing the concepts used in the annotation.
@@ -93,17 +93,17 @@ The `BIGPICTURE_NODE` element gives the node the dataset is assigned to for repo
 
 Implements the ObservationType that captures observation objects. The ObservationType extends `ObjectType` and has the following elements:
 
-- `OBSERVER`: Identifies the observer (optional).
+- `OBSERVER_REF`: Identifies the observers (zero or more).
 - `STATEMENT`: The statement for the observation.
 
 The object that the observation references is defined by using one (and only one) of the following elements:
 
-- `CASE`: Identifies the referenced case.
-- `BIOLOGICALBEING`: Identifies the referenced biological being.
-- `SPECIMEN`: Identifies the referenced specimen.
-- `BLOCK`: Identifies the referenced block.
-- `SLIDE`: Identifies the referenced slide.
-- `IMAGE`: Identifies the referenced image.
+- `CASE_REF`: Identifies the referenced case.
+- `BIOLOGICAL_BEING_REF`: Identifies the referenced biological being.
+- `SPECIMEN_REF`: Identifies the referenced specimen.
+- `BLOCK_REF`: Identifies the referenced block.
+- `SLIDE_REF`: Identifies the referenced slide.
+- `IMAGE_REF`: Identifies the referenced image.
 
 The `STATEMENT` is of StatementType, which has the following elements:
 
