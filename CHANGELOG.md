@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [3.0.0] - 2026-11-05
+
 ### Added
 
 - Support for version 3.0.0 of the CMMS and MSMdad.
@@ -181,7 +183,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Implementation of MSMdad 0.1.0.
 
-[Unreleased]: https://github.com/imi-bigpicture/metadata-schema/compare/v2.0.0..HEAD
+[Unreleased]: https://github.com/imi-bigpicture/metadata-schema/compare/v3.0.0..HEAD
+[3.0.0]: https://github.com/imi-bigpicture/metadata-schema/compare/v2.0.0..v3.0.0
 [2.0.0]: https://github.com/imi-bigpicture/metadata-schema/compare/v1.0.0..v2.0.0
 [1.0.0]: https://github.com/imi-bigpicture/metadata-schema/compare/v0.10.0..v1.0.0
 [0.10.0]: https://github.com/imi-bigpicture/metadata-schema/compare/v0.9.0..v0.10.0
